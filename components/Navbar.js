@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react'; 
+import { UserCircleIcon, SearchIcon, HeartIcon, ShoppingBagIcon } from '@heroicons/react/outline'
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);  
@@ -8,10 +9,10 @@ export default function Navbar() {
         <div className="flex max-w-6xl pt-4 pb-2 px-4 mx-auto lg:max-w-screen-xl">
             <div className="header-col justify-start hidden md:flex flex-auto">
                 <div className="header-search pr-4">
-                    Search
+                    <SearchIcon className="h-6 w-6"/>
                 </div>
                 <div className="header-account">
-                    Account
+                    <UserCircleIcon className="h-6 w-6"/>
                 </div>
                 <div className="header-nav-wrapper flex-auto text-right">
                     <ul className="inline-flex">
@@ -39,10 +40,10 @@ export default function Navbar() {
                         </ul>
                 </div>
                 <div className="header-wishlist pr-4">
-                    wishlist
+                    <HeartIcon className="h-6 w-6"/>
                 </div>
                 <div className="header-cart">
-                    Cart
+                    <ShoppingBagIcon className="h-6 w-6"/>    
                 </div>
             </div>
             
