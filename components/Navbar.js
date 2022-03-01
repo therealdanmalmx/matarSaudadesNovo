@@ -7,7 +7,7 @@ export default function Navbar() {
             <Link href="/" passHref>
                 <a>
                     <span className="text-lg pt-1 font-bold">
-                        Shopify + Next.js and then
+                        Shopify + Next.js
                     </span> 
                 </a>
             </Link>

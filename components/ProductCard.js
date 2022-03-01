@@ -9,23 +9,23 @@ const ProductCard = ({ product }) => {
   return (
 
     <Link href={`/produtos/${handle}`} passHref>
-    <a className="group">
-        <div className="w-full bg-gray-500 rounded-3xl overflow-hidden">
-            <div className="relative group-hover:opacity-75 h-80">
-                <Image 
-                    src={originalSrc} 
-                    alt={altText} 
-                    layout='fill'
-                    objectFit='cover'
-                    priority
-                />
+        <a className="group">
+            <div className="w-full bg-gray-500 rounded-3xl overflow-hidden">
+                <div className="relative group-hover:opacity-75 h-80">
+                    <Image 
+                        src={originalSrc} 
+                        alt={altText} 
+                        layout='fill'
+                        objectFit='cover'
+                        priority
+                    />
+                </div>
             </div>
-        </div>
-        <div className="flex justify-around items-center">
-            <p className="mr-2 text-lg font-medium text-gray-900">{title}</p>
-            <p className="text-base tex-gray-700">{formatter.format(price)}</p>
-        </div>
-    </a>
+            <div className="flex justify-around items-center">
+                <p className="mr-2 text-lg font-medium text-gray-900">{title}</p>
+                <p className="text-base tex-gray-700">{formatter.format(price)}</p>
+            </div>
+        </a>
     </Link>
   );
 };
