@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react'; 
+import { UserCircleIcon, SearchIcon, HeartIcon, ShoppingBagIcon } from '@heroicons/react/outline'
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);  
@@ -8,10 +9,10 @@ export default function Navbar() {
         <div className="flex max-w-6xl pt-4 pb-2 px-4 mx-auto lg:max-w-screen-xl">
             <div className="header-col justify-start hidden md:flex flex-auto">
                 <div className="header-search pr-4">
-                    Search
+                    <SearchIcon className="h-6 w-6"/>
                 </div>
                 <div className="header-account">
-                    Account
+                    <UserCircleIcon className="h-6 w-6"/>
                 </div>
                 <div className="header-nav-wrapper flex-auto text-right">
                     <ul className="inline-flex">
@@ -39,22 +40,22 @@ export default function Navbar() {
                         </ul>
                 </div>
                 <div className="header-wishlist pr-4">
-                    wishlist
+                    <HeartIcon className="h-6 w-6"/>
                 </div>
                 <div className="header-cart">
-                    Cart
+                    <ShoppingBagIcon className="h-6 w-6"/>    
                 </div>
             </div>
             
             <div className="md:hidden flex items-center">
                 <button onClick={() => setIsOpen(!isOpen)} className="mobile-menu-button">
                     {!isOpen ? (
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8h16M4 16h16" />
                         </svg>
                     ) :(
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     )}
                 </button>

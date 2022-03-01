@@ -1,5 +1,5 @@
 import ProductPageContent from '../../components/ProductPageContent'
-import { getAllProducts, getProduct } from  '../../lib/Shopify'
+import { getCollections, getProduct } from  '../../lib/Shopify'
 
 
 export default function ProductPage({ product }) {
@@ -11,13 +11,13 @@ export default function ProductPage({ product }) {
 }
 
 export async function getStaticPaths() {
-    const products = await getAllProducts();
+    const collection = await getCollections();
 
-    const paths = products.map(item => {
+    const paths = collection.map(item => {
         const product = String(item.node.handle)
 
         return {
-            params: { product }
+            params: { collection }
         }
     })
 
