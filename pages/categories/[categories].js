@@ -1,4 +1,5 @@
 import { getCollections, getCollection } from  '../../lib/Shopify'
+import ProductPageContent from '../../components/ProductPageContent';
 
 
 export default function ProductPage({ product }) {
