@@ -12,8 +12,11 @@ function Categories({ collections }) {
         <div className="container max-w-7xl mx-auto flex justify-between cursor-pointer">
           {collections.map((collection) => (
             // <CategoryCard key={collection.node.id} product={collection}/>
-            <Link href={`/categorias/${collection.node.handle}`}>
-              <ul key={collection.node.id}>
+            <Link 
+              href={`/categorias/${collection.node.handle}`}
+              key={collection.node.id} 
+            >
+              <ul >
                   <Image 
                     src={collection.node.image.originalSrc} 
                     alt={collection.node.title} 
