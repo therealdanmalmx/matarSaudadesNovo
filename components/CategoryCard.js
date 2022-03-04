@@ -12,8 +12,12 @@ const CategoryCard = ({ category }) => {
         <div className="container max-w-7xl mx-auto flex justify-between cursor-pointer">
             {collections.map((collection) => (
                 // <CategoryCard key={category.node.id} product={category}/>
-                <Link href={`/categories/${handle}`}>
-                <ul key={collection.node.id}>
+                <Link 
+                    href={`/categories/${handle}`}
+                    key={collection.node.id}
+                    passHref
+                >
+                <ul>
                     <Image 
                         src={originalSrc} 
                         alt={title} 
