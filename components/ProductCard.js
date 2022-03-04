@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
     <Link href={`/produtos/${handle}`} passHref>
         <a className="group">
             <div className="w-11/12">
-                <div className="relative group-hover:opacity-70 h-72">
+                <div className="relative group-hover:opacity-75 h-72">
                     <Image 
                         src={originalSrc} 
                         alt={altText} 

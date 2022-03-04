@@ -19,7 +19,7 @@ function Home() {
         >Produtos
         </button>
       </Link >
-      <Link href='/categories' passHref>
+      <Link href='/categorias' passHref>
         <button className='
           rounded-full w-1/4 
           mt-6 

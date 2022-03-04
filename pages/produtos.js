@@ -3,7 +3,7 @@ import ProductCard from '../components/ProductCard';
 
 function Produtos ({ products }){
   return <div className="bg-white">
-      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-2 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-2 sm:px-6 lg:max-w-7xl lg:px-8 lg:py-8">
           <h2 className="text-2xl text-center font-extrabold text-gray-900 mb-6">
               Produtos
           </h2>
