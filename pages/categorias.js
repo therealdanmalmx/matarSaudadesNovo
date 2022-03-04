@@ -14,8 +14,8 @@ function Categories({ collections }) {
             // <CategoryCard key={collection.node.id} product={collection}/>
             <Link 
               href={`/categorias/${collection.node.handle}`}
-              key={collection.node.id} 
               passHref
+              key={collection.node.id} 
             >
               <ul >
                   <Image 
