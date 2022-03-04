@@ -15,6 +15,7 @@ function Categories({ collections }) {
             <Link 
               href={`/categorias/${collection.node.handle}`}
               key={collection.node.id} 
+              passHref
             >
               <ul >
                   <Image 
