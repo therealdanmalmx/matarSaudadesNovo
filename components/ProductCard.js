@@ -1,16 +1,21 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import {formatter} from '../utils/helpers'
+import { formatter } from '../utils/helpers'
 
-const ProductCard = ({ product }) => {
-    console.log('productProp', product);
+const ProductCard = ({ product, category }) => {
     const { title, handle } = product;
     const {altText, originalSrc} = product.images.edges[0].node;
     const price = product.priceRange.minVariantPrice.amount;
+    
+    console.log('productProp', product);
+    console.log('category', category)
 
     return (
 
-    <Link href={`/categorias/${handle}`} passHref>
+    <Link 
+        href={`/categorias/${category}/${handle}`} 
+        passHref
+    >
         <a className="group">
             <div className="w-11/12">
                 <div className="relative group-hover:opacity-75 h-72">
