@@ -1,8 +1,5 @@
 import { getProductsInCollections, getCollections} from '../../lib/Shopify';
-import Link from 'next/link';
-import Image from 'next/image';
 import ProductCard from '../../components/ProductCard';
-
 
 export const getStaticPaths = async () => {
     const categorias = await getCollections();
@@ -46,16 +43,14 @@ const Categoria = ({ categoria }) => {
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-2 sm:px-6 lg:max-w-7xl lg:px-8 lg:py-8">
             <div className="text-2xl text-center font-extrabold text-gray-900 mb-12">{categoria.title}</div>
             {products.map((product) => {
-                const prod = product.node
-                const { altText, originalSrc } = prod.images.edges[0].node;
+                const { altText, originalSrc } = product.node.images.edges[0].node;
                 
-                console.log('prod', prod)
                 console.log('originalSrc', originalSrc);
                 console.log('altText', altText);
                 
                 return (
-                    <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 xl:gap-x-8">
-                        <ProductCard key={prod.id} product={product.node}/> 
+                    <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 xl:gap-x-8" key={product.node.id}>
+                        <ProductCard product={product.node}/> 
                     </div>
                 )
             })}
