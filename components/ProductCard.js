@@ -4,13 +4,13 @@ import {formatter} from '../utils/helpers'
 
 const ProductCard = ({ product }) => {
     console.log('productProp', product);
-    const { title } = product;
+    const { title, handle } = product;
     const {altText, originalSrc} = product.node.images.edges[0].node;
     const price = product.node.priceRange.minVariantPrice.amount;
 
     return (
 
-    <Link href={`/produtos/${handle}`} passHref>
+    <Link href={`/categorias/${handle}`} passHref>
         <a className="group">
             <div className="w-11/12">
                 <div className="relative group-hover:opacity-75 h-72">

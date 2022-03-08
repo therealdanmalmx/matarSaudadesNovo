@@ -35,7 +35,6 @@ export const getStaticProps = async ({ params }) => {
 }
 
 const Categoria = ({ categoria }) => {
-    const { title } = categoria.title;
 
     console.log('categoria', categoria);
     console.log('products', categoria.products.edges);
@@ -46,17 +45,17 @@ const Categoria = ({ categoria }) => {
         <div className="bg-white">
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-2 sm:px-6 lg:max-w-7xl lg:px-8 lg:py-8">
             <div className="text-2xl text-center font-extrabold text-gray-900 mb-12">{categoria.title}</div>
-            {products.map((product ) => {
+            {products.map((product) => {
                 const prod = product.node
                 const { altText, originalSrc } = prod.images.edges[0].node;
+                
                 console.log('prod', prod)
                 console.log('originalSrc', originalSrc);
                 console.log('altText', altText);
-                // console.log('product.images', product.node.images.edges[0].node);
                 
                 <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 xl:gap-x-8">
                     <Link 
-                        href={`/categorias/${categoria.handle}`} 
+                        href={`/categorias/${prod.handle}`} 
                         passHref
                         key={prod.id}
                     >
