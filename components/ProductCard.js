@@ -3,7 +3,8 @@ import Image from 'next/image';
 import {formatter} from '../utils/helpers'
 
 const ProductCard = ({ product }) => {
-    const {handle, title} = product.node;
+    console.log('productProp', product);
+    const { title } = product;
     const {altText, originalSrc} = product.node.images.edges[0].node;
     const price = product.node.priceRange.minVariantPrice.amount;
 
@@ -27,7 +28,7 @@ const ProductCard = ({ product }) => {
                 <p className="text-base tex-gray-700">{formatter.format(price)}</p>
             </div>
         </a>
-    </Link>
+    // </Link>
   );
 };
 

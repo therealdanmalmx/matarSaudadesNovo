@@ -10,8 +10,12 @@ function Categories({ collections }) {
 			<h2 className="text-2xl text-center font-extrabold text-gray-900 mb-12">Categorias</h2>
         <div className="container max-w-7xl mx-auto flex justify-between cursor-pointer">
           {collections.map((collection) => (
-            <Link href={`/categorias/${collection.node.handle}`} passHref key={collection.node.id}>
-              <ul >
+            <Link 
+              href={`/categorias/${collection.node.handle}`} 
+              passHref 
+              key={collection.node.id}
+            >
+              <ul>
                   <Image 
                     src={collection.node.image.originalSrc} 
                     alt={collection.node.title} 
