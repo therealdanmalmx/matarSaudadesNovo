@@ -1,4 +1,4 @@
-import { getProductsInCollections, getCollections} from '../lib/Shopify';
+// import { getProductsInCollections, getCollections} from '../lib/Shopify';
 import ProductCard from '../components/ProductCard';
 
 function Produtos ({ products }){
@@ -18,30 +18,30 @@ return <div className="bg-white">
   </div>;
 };
 
-export const getStaticProps = async ({ params }) => {
-    const products = await getProductsInCollections(params.categoria)
-    return {
-      props: { products }, // will be passed to the page component as props
-    }
-  }
+// export const getStaticProps = async ({ params }) => {
+//     const products = await getProductsInCollections(params.categoria)
+//     return {
+//       props: { products }, // will be passed to the page component as props
+//     }
+//   }
   
-  export const getStaticPaths = async () => {
-    const categorias = await getCollections();
+//   export const getStaticPaths = async () => {
+//     const categorias = await getCollections();
 
-    const paths = categorias.map(categoria => {
+//     const paths = categorias.map(categoria => {
 
-        return {
-            params: { 
-                categoria: categoria.node.handle
-            }
-        }
-    })
+//         return {
+//             params: { 
+//                 categoria: categoria.node.handle
+//             }
+//         }
+//     })
 
-    return {
-        paths,
-        fallback: false,
-    }
-}
+//     return {
+//         paths,
+//         fallback: false,
+//     }
+// }
 
 
 export default Produtos;
