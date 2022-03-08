@@ -4,7 +4,7 @@ function Home() {
   return (
     <div className="flex flex-col items-center">
       <h1 className='text-3xl font-bold mt-4'>O novo <span className='italic'>look</span> da Matar Saudades</h1>
-      <Link href='/produtos' passHref>
+      {/* <Link href='/produtos' passHref>
         <button className='
           rounded-full w-1/4 
           mt-6 
@@ -18,7 +18,7 @@ function Home() {
           '
         >Produtos
         </button>
-      </Link >
+      </Link > */}
       <Link href='/categorias' passHref>
         <button className='
           rounded-full w-1/4 
