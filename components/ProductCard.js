@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
                 <p className="text-base tex-gray-700">{formatter.format(price)}</p>
             </div>
         </a>
-    // </Link>
+    </Link>
   );
 };
 
