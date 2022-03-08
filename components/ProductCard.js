@@ -5,8 +5,8 @@ import {formatter} from '../utils/helpers'
 const ProductCard = ({ product }) => {
     console.log('productProp', product);
     const { title, handle } = product;
-    const {altText, originalSrc} = product.node.images.edges[0].node;
-    const price = product.node.priceRange.minVariantPrice.amount;
+    const {altText, originalSrc} = product.images.edges[0].node;
+    const price = product.priceRange.minVariantPrice.amount;
 
     return (
 
