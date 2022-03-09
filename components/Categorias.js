@@ -1,11 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getCollections } from '../lib/Shopify';
 
 function Categories({ collections }) {
-
-  console.log('collections', collections);
-
+  
+  console.log('collections', collections);;
   return (
 
     <div>
@@ -35,13 +33,5 @@ function Categories({ collections }) {
     </div>
   )
 }
-
-export const getStaticProps = async () => {
-    const collections = await getCollections()
-    return {
-      props: { collections }, // will be passed to the page component as props
-    }
-  }
-  
 
 export default Categories
