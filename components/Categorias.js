@@ -11,7 +11,7 @@ function Categories({ collections }) {
       <h2 className="mb-12 text-center text-2xl font-extrabold text-gray-900">
         {t("categories.category")}
       </h2>
-      <div className="mx-2.5 flex max-w-full cursor-pointer justify-between space-x-2 overflow-x-scroll lg:mx-auto lg:max-w-7xl">
+      <div className="remove-scrollbar mx-2.5 flex max-w-full cursor-pointer justify-between space-x-2 overflow-x-scroll lg:mx-auto lg:max-w-7xl">
         {collections.map((collection) => (
           <Link
             href={`/categorias/${t(collection.node.handle)}`}
