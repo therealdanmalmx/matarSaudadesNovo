@@ -1,0 +1,21 @@
+{
+    "categories": "Categories",
+    "drinks": "Drinks", 
+    "dairy": "Dairy",
+    "grocery": "Grocery",
+    "wine": "Wine",
+    "sweets": "Sweet",
+    "sausages": "Sausage / Cod",
+    "kiosk": "Kiosk",
+
+    "categories2": {
+        "category": "Categories",
+        "drinks": "Drinks", 
+        "dairy": "Dairy",
+        "grocery": "Grocery",
+        "wine": "Wine",
+        "sweets": "Sweet",
+        "sausages": "Sausage / Cod",
+        "kiosk": "Kiosk"
+    }
+}
