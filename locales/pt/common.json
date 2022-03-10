@@ -1,10 +1,12 @@
 {
-    "categories": "Categorias",
-    "drinks": "Bebidas", 
+  "categories": {
+    "category": "Categorias",
+    "drinks": "Bebidas",
     "dairy": "Lacticinios",
     "grocery": "Mercearia",
     "wine": "Adega",
     "sweets": "Guloseimas",
     "sausages": "Engidos / Bacalhau",
     "kiosk": "Quiosque"
+  }
 }

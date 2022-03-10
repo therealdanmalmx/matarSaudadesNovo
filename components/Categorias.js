@@ -9,9 +9,9 @@ function Categories({ collections }) {
   return (
     <div>
       <h2 className="mb-12 text-center text-2xl font-extrabold text-gray-900">
-        {t("categories")}
+        {t("categories.category")}
       </h2>
-      <div className="mx-auto flex w-11/12 cursor-pointer justify-between overflow-x-scroll">
+      <div className="mx-auto flex max-w-5xl cursor-pointer justify-between overflow-x-scroll lg:max-w-7xl">
         {collections.map((collection) => (
           <Link
             href={`/categorias/${t(collection.node.handle)}`}
@@ -23,9 +23,10 @@ function Categories({ collections }) {
                 src={collection.node.image.originalSrc}
                 alt={collection.node.title}
                 objectFit="cover"
+                layout="fixed"
                 priority
-                height="100%"
-                width="100%"
+                height="150px"
+                width="150px"
                 className="ml-2 rounded-full border-2 border-solid border-slate-600"
               />
               <li className="text-center text-lg font-bold text-gray-900">

@@ -1,10 +1,12 @@
 {
-    "categories": "Catégories",
-    "drinks": "Boissons", 
+  "categories": {
+    "category": "Catégories",
+    "drinks": "Boissons",
     "dairy": "Laitier",
     "grocery": "Épicerie",
     "wine": "Vin",
     "sweets": "Bonbons",
     "sausages": "Saucisson / La morue",
     "kiosk": "Kiosque"
+  }
 }
