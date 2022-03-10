@@ -7,18 +7,18 @@ function Categories({ collections }) {
   let { t } = useTranslation("common");
 
   return (
-    <div>
-      <h2 className="mb-12 text-center text-2xl font-extrabold text-gray-900">
+    <div className="py-40">
+      <h2 className="mb-12 text-center text-5xl font-bold text-red-600">
         {t("categories.category")}
       </h2>
-      <div className="remove-scrollbar mx-2.5 flex max-w-full cursor-pointer justify-between space-x-2 overflow-x-scroll lg:mx-auto lg:max-w-7xl">
+      <div className="remove-scrollbar mx-2.5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 max-w-full cursor-pointer justify-between space-x-2 overflow-x-scroll lg:mx-auto lg:max-w-7xl">
         {collections.map((collection) => (
           <Link
             href={`/categorias/${t(collection.node.handle)}`}
             passHref
             key={collection.node.id}
           >
-            <ul>
+            <ul className="mb-5">
               <Image
                 src={collection.node.image.originalSrc}
                 alt={collection.node.title}

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Categorias from '../components/Categorias'
+import Banners from '../components/Banners'
 import { getCollections } from './../lib/Shopify';
 import useTranslation from 'next-translate/useTranslation'
 
@@ -11,6 +12,7 @@ function Home({ collections }) {
   return (
     <div className="text-center justify-start items-start">
       <Categorias collections={collections}/>
+      <Banners />
     </div>
   )
 }
