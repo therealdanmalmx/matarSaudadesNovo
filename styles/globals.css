@@ -18,3 +18,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.remove-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.remove-scrollbar::-webkit-scrollbar {
+  display: none;
+}
