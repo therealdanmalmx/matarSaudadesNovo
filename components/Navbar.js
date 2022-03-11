@@ -124,29 +124,29 @@ export default function Navbar() {
       <div className={`mobile-menu ${isOpen ? "block" : "hidden"}`}>
         <ul className="block">
           <li>
-            <a className="px-4" href="/">
-              {t("menu.home")}
-            </a>
+            <Link href="/" passHref>
+              <a className="px-4">{t("menu.home")}</a>
+            </Link>
           </li>
           <li>
-            <a className="px-4" href="">
-              {t("menu.about")}
-            </a>
+            <Link href="/about" passHref>
+              <a className="px-4">{t("menu.about")}</a>
+            </Link>
           </li>
           <li>
-            <a className="px-4" href="">
-              {t("menu.product")}
-            </a>
+            <Link href="/products" passHref>
+              <a className="px-4">{t("menu.product")}</a>
+            </Link>
           </li>
           <li>
-            <a className="px-4" href="">
-              {t("menu.news")}
-            </a>
+            <Link href="/news" passHref>
+              <a className="px-4">{t("menu.news")}</a>
+            </Link>
           </li>
           <li>
-            <a className="px-4" href="">
-              {t("menu.contacts")}
-            </a>
+            <Link href="/products" passHref>
+              <a className="px-4">{t("menu.contacts")}</a>
+            </Link>
           </li>
         </ul>
       </div>
