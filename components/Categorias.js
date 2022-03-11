@@ -7,7 +7,7 @@ function Categories({ collections }) {
   let { t } = useTranslation("common");
 
   return (
-    <div className="py-40">
+    <section className="categories bg-gray-50 pt-10 lg:py-40">
       <h2 className="mb-12 text-center text-5xl font-bold text-red-600">
         {t("categories.category")}
       </h2>
@@ -36,7 +36,7 @@ function Categories({ collections }) {
           </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
