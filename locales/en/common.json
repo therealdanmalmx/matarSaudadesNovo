@@ -8,5 +8,12 @@
     "sweets": "Sweet",
     "sausages": "Sausage / Cod",
     "kiosk": "Kiosk"
+  },
+  "menu": {
+    "home": "Home",
+    "about": "About Us",
+    "product": "Products",
+    "news": "News",
+    "contacts": "Contacts"
   }
 }

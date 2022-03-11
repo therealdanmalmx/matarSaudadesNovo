@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/*-----------------------------------------------------------------------------------*/
+/*  General Settings
+/*-----------------------------------------------------------------------------------*/
+
 html,
 body {
   padding: 0;
@@ -19,7 +23,30 @@ a {
   box-sizing: border-box;
 }
 
-/* Remove scrollbar */
+.btn {
+  @apply rounded py-3 px-6 font-bold;
+}
+.btn-red {
+  @apply bg-red-600 text-white;
+}
+.btn-red:hover {
+  @apply bg-red-600;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*  Layout
+/*-----------------------------------------------------------------------------------*/
+
+/* header */
+
+/* navbar */
+
+.menu a.active {
+  color: red;
+  border-bottom: 1px red solid;
+}
+
+/* Home */
 
 .remove-scrollbar {
   -ms-overflow-style: none;
@@ -27,4 +54,16 @@ a {
 }
 .remove-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.first-banner-img {
+  background-image: url("../assets/img/banner-01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.second-banner-img {
+  background-image: url("../assets/img/banner-02.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

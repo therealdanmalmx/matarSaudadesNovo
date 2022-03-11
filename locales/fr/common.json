@@ -8,5 +8,12 @@
     "sweets": "Bonbons",
     "sausages": "Saucisson / La morue",
     "kiosk": "Kiosque"
+  },
+  "menu": {
+    "home": "Domicile",
+    "about": "À propos de nous",
+    "product": "Des produits",
+    "news": "Nouvelles",
+    "contacts": "Contacts"
   }
 }
