@@ -8,5 +8,12 @@
     "sweets": "Guloseimas",
     "sausages": "Engidos / Bacalhau",
     "kiosk": "Quiosque"
+  },
+  "menu": {
+    "home": "Início",
+    "about": "Sobre nós",
+    "product": "Produtos",
+    "news": "Comunicação",
+    "contacts": "Contactos"
   }
 }
