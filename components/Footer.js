@@ -1,6 +1,9 @@
+import Image from 'next/Image'
+import Logo from '../assets/img/logo.jpg'
+
 export default function Footer() {
   return (
-    <footer className="text-left bg-gray-100 text-gray-600 lg:text-left">
+    <footer className="text-left bg-white text-gray-600 lg:text-left">
       <div className="mx-auto my-11 lg:max-w-screen-xl px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="footer-col-contacts">
@@ -12,7 +15,14 @@ export default function Footer() {
           </div>
 
           <div className="footer-col-logo flex items-center justify-center align-middle">
-            <h6 className="uppercase font-bold text-6xl mb-4">LOGO</h6>
+            <h6 className="uppercase font-bold text-6xl mb-4">
+              <Image
+                  src={Logo}
+                  alt="Matar Saudades"
+                  width={187}
+                  height={63}
+              />
+            </h6>
           </div>
 
           <div className="footer-col-newsletter">

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/*-----------------------------------------------------------------------------------*/
+/*  General Settings
+/*-----------------------------------------------------------------------------------*/
+
 html,
 body {
   padding: 0;
@@ -19,10 +23,30 @@ a {
   box-sizing: border-box;
 }
 
+/*-----------------------------------------------------------------------------------*/
+/*  Layout
+/*-----------------------------------------------------------------------------------*/
+
+/* header */
+
+/* Home */
+
 .remove-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 .remove-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.first-banner-img {
+  background-image: url('../assets/img/banner-01.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.second-banner-img {
+  background-image: url('../assets/img/banner-02.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
