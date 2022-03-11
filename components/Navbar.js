@@ -14,6 +14,37 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   let { t } = useTranslation("common");
 
+  //   document.addEventListener("DOMContentLoaded", function () {
+  //     const selector = ".menu";
+  //     const elems = Array.from(document.querySelectorAll(selector));
+  //     const navigation = document.querySelector(".header-nav-wrapper");
+
+  //     function makeActive(e) {
+  //       const target = e.target;
+
+  //       if (!target || !target.matches(selector)) {
+  //         return;
+  //       }
+
+  //       elems.forEach((elem) => elem.classList.remove("active"));
+
+  //       evt.target.classList.add("active");
+  //     }
+  //     navigation.addEventListener("mousedown", makeActive);
+  //   });
+
+  //   const activeLink = () => {
+  //     const activePage = window.location.pathname;
+  //     const navLinks = document.querySelectorAll('nav a').forEach(link => {
+  //         if(link.href.includes(`${activePage}`)) {
+  //             console.log(`first`)
+
+  //         }
+  //         console.log(first)
+  //     })
+  //     console.log("activePage", activePage);
+  //   };
+
   return (
     <header className="sticky top-0 z-20 border-b bg-white">
       <nav className="mx-auto flex max-w-6xl items-center px-4 pt-4 pb-2 lg:max-w-screen-xl">
@@ -27,12 +58,12 @@ export default function Navbar() {
           <div className="header-nav-wrapper flex-auto text-right">
             <ul className="inline-flex">
               <li>
-                <a className="menu px-4" href="/highlight ">
+                <a className="menu px-4" href="/">
                   {t("menu.home")}
                 </a>
               </li>
               <li>
-                <a className="menu px-4" href="">
+                <a className="menu px-4" href="/about">
                   {t("menu.about")}
                 </a>
               </li>
