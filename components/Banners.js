@@ -1,6 +1,6 @@
 export default function Banners() {
   return (
-    <section className="lg:max-w-screen-2xl">
+    <section className="banners mx-auto lg:max-w-screen-xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
             <div className="first-banner-img bg-cover bg-gray-600 bg-no-repeat bg-center pt-16 pb-60 px-10">
                 <p className="text-left text-white uppercase font-normal mb-2 text-xl">Alimentos que você pode gostar</p>
