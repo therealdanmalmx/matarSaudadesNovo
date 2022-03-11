@@ -6,7 +6,6 @@ import useTranslation from 'next-translate/useTranslation'
 
 
 function Home({ collections }) {
-
   let { t } = useTranslation();
 
   return (
@@ -14,15 +13,15 @@ function Home({ collections }) {
       <Categorias collections={collections}/>
       <Banners />
     </div>
-  )
+  );
 }
 
 export const getStaticProps = async () => {
-  const collections = await getCollections()
+  const collections = await getCollections();
 
   return {
     props: { collections }, // will be passed to the page component as props
-  }
-}
+  };
+};
 
-export default Home
+export default Home;
