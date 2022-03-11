@@ -29,6 +29,13 @@ a {
 
 /* header */
 
+/* navbar */
+
+.menu a.active {
+  color: red;
+  border-bottom: 1px red solid;
+}
+
 /* Home */
 
 .remove-scrollbar {
@@ -40,13 +47,13 @@ a {
 }
 
 .first-banner-img {
-  background-image: url('../assets/img/banner-01.jpg');
+  background-image: url("../assets/img/banner-01.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .second-banner-img {
-  background-image: url('../assets/img/banner-02.jpg');
+  background-image: url("../assets/img/banner-02.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
