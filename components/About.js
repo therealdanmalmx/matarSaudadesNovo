@@ -21,9 +21,7 @@ export default function About() {
             faucibus.
           </p>
           <div className="mt-4 text-left">
-            <button class="btn btn-red hover:bg-green-200 focus:bg-yellow-500">
-              Sobre nós
-            </button>
+            <button className="btn btn-red">Sobre nós</button>
           </div>
         </div>
         <div>
