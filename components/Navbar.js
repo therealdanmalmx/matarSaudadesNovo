@@ -27,17 +27,17 @@ export default function Navbar() {
           <div className="header-nav-wrapper flex-auto text-right">
             <ul className="inline-flex">
               <li>
-                <a className="px-4" href="">
+                <a className="menu px-4" href="/highlight ">
                   {t("menu.home")}
                 </a>
               </li>
               <li>
-                <a className="px-4" href="">
+                <a className="menu px-4" href="">
                   {t("menu.about")}
                 </a>
               </li>
               <li>
-                <a className="px-4" href="">
+                <a className="menu px-4" href="">
                   {t("menu.product")}
                 </a>
               </li>
@@ -62,12 +62,12 @@ export default function Navbar() {
           <div className="header-nav-wrapper flex-auto text-left">
             <ul className="inline-flex">
               <li>
-                <a className="px-4" href="">
+                <a className="menu px-4" href="">
                   {t("menu.news")}
                 </a>
               </li>
               <li>
-                <a className="px-4" href="">
+                <a className="menu px-4" href="">
                   {t("menu.contacts")}
                 </a>
               </li>
@@ -124,18 +124,28 @@ export default function Navbar() {
       <div className={`mobile-menu ${isOpen ? "block" : "hidden"}`}>
         <ul className="block">
           <li>
-            <a className="px-4" href="">
-              item first
+            <a className="px-4" href="/">
+              {t("menu.home")}
             </a>
           </li>
           <li>
             <a className="px-4" href="">
-              item first
+              {t("menu.about")}
             </a>
           </li>
           <li>
             <a className="px-4" href="">
-              item first
+              {t("menu.product")}
+            </a>
+          </li>
+          <li>
+            <a className="px-4" href="">
+              {t("menu.news")}
+            </a>
+          </li>
+          <li>
+            <a className="px-4" href="">
+              {t("menu.contacts")}
             </a>
           </li>
         </ul>
