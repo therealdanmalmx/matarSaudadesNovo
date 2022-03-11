@@ -38,7 +38,7 @@ export default function Footer() {
             <form action="#" className="mt-2">
                 <div className="flex items-center">
                     <input type="email" className="w-full px-2 py-3 mr-2  bg-gray-100 shadow-inner border border-gray-400 focus:outline-none" required />
-                    <button class="btn btn-red">
+                    <button className="btn btn-red">
                         Enviar
                     </button>
                 </div>

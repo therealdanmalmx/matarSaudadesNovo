@@ -16,7 +16,7 @@ export default function About() {
                     Cursus lectus ornare at id scelerisque fringilla. 
                     Blandit viverra sit nulla libero accumsan, ultrices urna porttitor faucibus.</p>
                 <div className="text-left mt-4">
-                    <button class="btn btn-red">
+                    <button className="btn btn-red">
                         Sobre nós
                     </button>
                 </div>
