@@ -5,7 +5,7 @@ export default function ProductPage({ product }) {
   return (
     <div>
       <h1>Hello</h1>
-      {/* <ProductPageContent product={product} /> */}
+      <ProductPageContent product={product} />
     </div>
   );
 }
