@@ -7,7 +7,7 @@ function Categories({ collections }) {
   let { t } = useTranslation("common");
 
   return (
-    <section className="categories bg-gray-50 pt-10 lg:py-40">
+    <section className="categories bg-white pt-10 lg:py-10">
       <h2 className="mb-12 text-center text-5xl font-bold text-red-600">
         {t("categories.category")}
       </h2>
