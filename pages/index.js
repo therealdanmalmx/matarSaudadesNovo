@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Hero from '../components/Hero'
 import Categorias from '../components/Categorias'
 import Banners from '../components/Banners'
 import About from '../components/About'
@@ -11,6 +12,7 @@ function Home({ collections }) {
 
   return (
     <div className="text-center justify-start items-start">
+      <Hero />
       <Categorias collections={collections}/>
       <Banners />
       <About />
