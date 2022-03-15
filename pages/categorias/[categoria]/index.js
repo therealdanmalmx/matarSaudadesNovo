@@ -1,5 +1,5 @@
-import { getProductsInCollections, getCollections } from "../../lib/Shopify";
-import ProductCard from "../../components/ProductCard";
+import { getProductsInCollections, getCollections } from "../../../lib/Shopify";
+import ProductCard from "../../../components/ProductCard";
 
 export const getStaticPaths = async () => {
   const categorias = await getCollections();
