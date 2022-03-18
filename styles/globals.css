@@ -14,6 +14,24 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  @apply text-grey-75;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 700;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -27,10 +45,10 @@ a {
   @apply rounded py-3 px-6 font-bold;
 }
 .btn-red {
-  @apply bg-red-600 text-white;
+  @apply bg-red text-white;
 }
 .btn-red:hover {
-  @apply bg-red-600;
+  @apply bg-red;
 }
 
 /*-----------------------------------------------------------------------------------*/
