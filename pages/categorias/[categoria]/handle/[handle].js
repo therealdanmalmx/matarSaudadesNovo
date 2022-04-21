@@ -5,7 +5,6 @@ import {
   getProduct,
 } from "../../../../lib/Shopify";
 import ProductPageContent from "../../../../../components/ProductPageContent";
-// import { getAllProducts, getProduct } from "../../../../../lib/Shopify";
 
 export default function ProductPage({ product }) {
   return (
@@ -16,42 +15,15 @@ export default function ProductPage({ product }) {
   );
 }
 
-// export async function getStaticPaths() {
-//   const products = await getAllProducts();
-
-//   const paths = products.map((item) => {
-//     const product = String(item.node.handle);
-
-//     return {
-//       params: { product },
-//     };
-//   });
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-
-// export async function getStaticProps({ params }) {
-//   const product = await getProduct(params.product);
-
-//   return {
-//     props: {
-//       product,
-//     },
-//   };
-// }
-
 export const getStaticPaths = async () => {
-  const categorias = getCollections();
+  const products = getProductsInCollections();
 
-  const paths = categorias.map((categoria) => {
+  const paths = products.map((product) => {
     return {
       params: [
         {
-          // categoria: categoria.handle,
-          handle: categoria.products.edges.node.handle,
+          // categoria: product.handle,
+          product: product.products.node,
         },
       ],
     };
@@ -64,18 +36,8 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const categoria = params.categoria;
-  const handle = params.handle;
-
-  const res = await fetch(
-    `https://novomatarsaudades.myshopify.com//api/2021-07/graphql.json/categorias/${categoria}/${handle}`
-  );
-  const product = res.json();
-  // const categoria = getProductsInCollections(params.categoria);
-  // const product = getProduct(params.handle);
-  //
-  // console.log("categoria", categoria);
-  console.log("product", product);
+  // const categoria = await getProductsInCollections(params.categoria);
+  const product = await getProduct(params.product.handle);
 
   return {
     props: {
@@ -83,3 +45,23 @@ export const getStaticProps = async ({ params }) => {
     },
   };
 };
+// export const getStaticProps = async ({ params }) => {
+//   const categoria = params.categoria;
+//   const handle = params.product;
+
+//   const res = await fetch(
+//     `https://novomatarsaudades.myshopify.com//api/2021-07/graphql.json/collectionByHandle/${categoria}/${handle}`
+//   );
+//   // const product = res.json();
+//   // const categoria = params.categoria;
+//   // const product = params.product;
+
+//   console.log("categoria", categoria);
+//   console.log("product", product);
+
+//   return {
+//     props: {
+//       product,
+//     },
+//   };
+// };
