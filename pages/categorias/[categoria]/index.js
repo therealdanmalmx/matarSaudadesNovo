@@ -7,7 +7,7 @@ export const getStaticPaths = async () => {
   const paths = categorias.map((categoria) => {
     return {
       params: {
-        categoria: categoria.node.handle,
+        categoria: categoria.edges.node.handle,
       },
     };
   });
@@ -34,7 +34,7 @@ const Categoria = ({ categoria }) => {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-2 sm:px-6 lg:max-w-7xl lg:px-8 lg:py-8">
-        <div className="mb-12 text-center text-2xl font-extrabold text-gray-900">
+        <div className="text-gray-900 mb-12 text-center text-2xl font-extrabold">
           {categoria.title}
         </div>
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 xl:gap-x-8">
