@@ -2,7 +2,6 @@ import { getAllProducts, getProduct } from "../../../lib/Shopify";
 import ProductPageContent from "../../../components/ProductPageContent";
 
 export default function ProductPage({ produto }) {
-  console.log({ produto });
   return (
     <div>
       <ProductPageContent produto={produto} />
@@ -15,16 +14,15 @@ export async function getStaticPaths() {
 
   const paths = products.map((item) => {
     const produto = item.node.handle.toString();
+    const categoria = item.node.collections.edges[0].node.handle.toString();
 
     return {
       params: {
         produto,
-        categoria: "bebidas",
+        categoria,
       },
     };
   });
-
-  console.log(paths);
 
   return {
     paths,
