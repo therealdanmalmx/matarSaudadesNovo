@@ -7,7 +7,7 @@ export const getStaticPaths = async () => {
   const paths = categorias.map((categoria) => {
     return {
       params: {
-        categoria: categoria.edges.node.handle,
+        categoria: categoria.node.handle,
       },
     };
   });
