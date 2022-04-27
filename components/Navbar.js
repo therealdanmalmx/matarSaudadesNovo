@@ -27,17 +27,17 @@ export default function Navbar() {
           <div className="header-nav-wrapper flex-auto text-right">
             <ul className="inline-flex">
               <Link href="/" passHref>
-                <a className="border-b-4 border-transparent px-4 transition duration-300 focus:border-b-4 focus:border-red-600 focus:text-red-600  focus:ease-in-out active:text-red-600">
+                <a className="border-b-4 border-transparent px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.home")}
                 </a>
               </Link>
               <Link href="/about" passHref>
-                <a className="border-b-4 border-transparent px-4 transition duration-300 focus:border-b-4 focus:border-red-600 focus:text-red-600  focus:ease-in-out active:text-red-600">
+                <a className="border-b-4 border-transparent px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.about")}
                 </a>
               </Link>
               <Link href="/product" passHref>
-                <a className="border-b-4 border-transparent px-4 transition duration-300 focus:border-b-4 focus:border-red-600 focus:text-red-600  focus:ease-in-out active:text-red-600">
+                <a className="border-b-4 border-transparent px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.product")}
                 </a>
               </Link>
