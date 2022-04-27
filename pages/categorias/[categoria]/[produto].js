@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
   const paths = products.map((item) => {
     const produto = item.node.handle.toString();
-    // const categoria = item.node.collections.edges[0].node.handle.toString();
+    const category = item.node.collections.edges[0].node.handle.toString();
     // item.node.collections.edges.map((item) => {
     //   item.node.handle.toString();
     // });
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
     return {
       params: {
         produto,
-        categoria: "bebidas",
+        categoria: category.toString(),
       },
     };
   });
