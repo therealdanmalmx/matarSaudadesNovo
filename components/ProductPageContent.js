@@ -2,6 +2,7 @@ import Image from "next/image";
 import ProductForm from "./ProductForm";
 
 export default function ProductPageContent({ produto }) {
+  console.log({ produto });
   const { title, description } = produto;
 
   return (
