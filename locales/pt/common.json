@@ -15,5 +15,8 @@
     "product": "Produtos",
     "news": "Comunicação",
     "contacts": "Contactos"
+  },
+  "product": {
+    "add": "Adicionar"
   }
 }

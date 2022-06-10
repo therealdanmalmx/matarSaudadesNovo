@@ -20,8 +20,9 @@ module.exports = {
       "success-hover": "rgba(64, 142, 43, 1)",
     },
     fontFamily: {
-      sans: ["Roboto Condensed", "sans-serif"],
-      serif: ["Merriweather", "serif"],
+      "noto-sans": ["Noto Sans TC", "sans-serif"],
+      merriweather: ["Merriweather", "sans-serif"],
+      inter: ["Inter", "serif"],
     },
     extend: {},
   },

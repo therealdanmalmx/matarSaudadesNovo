@@ -15,5 +15,8 @@
     "product": "Products",
     "news": "News",
     "contacts": "Contacts"
+  },
+  "product": {
+    "add": "Add to cart"
   }
 }
