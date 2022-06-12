@@ -3,11 +3,17 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function ProductForm({ produto }) {
   console.log({ produto });
+  const variants = produto.variants.edges?.map((variant) => {
+    return {
+      id: variant.node.id,
+      quantity: 1,
+    };
+  });
+
   const { title, description } = produto;
   let { t } = useTranslation("common");
 
   const hanldeAddProduct = () => {};
-
   return (
     <div className="flex h-full flex-col justify-between">
       <p className=" font-merriweather text-2xl font-bold md:text-left md:text-[1.625rem]">

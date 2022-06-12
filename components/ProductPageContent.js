@@ -12,7 +12,7 @@ export default function ProductPageContent({ produto }) {
           src={produto.images.edges[0].node.originalSrc}
           alt={produto.images.edges[0].node.altText}
           layout="fill"
-          objectFit="cover"
+          objectFit="contain"
         />
       </div>
       <div className="w-full md:w-1/3">
