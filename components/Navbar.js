@@ -9,6 +9,7 @@ import {
   ShoppingBagIcon,
 } from "@heroicons/react/outline";
 import useTranslation from "next-translate/useTranslation";
+import MiniCart from "./MiniCart";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,7 +78,11 @@ export default function Navbar() {
             <HeartIcon className="h-6 w-6" />
           </div>
           <div className="header-cart">
-            <ShoppingBagIcon className="h-6 w-6" />
+            <ShoppingBagIcon 
+              className="h-6 w-6"
+              onClick={() => setCartOpen(!cartOpen)} 
+            />
+            <MiniCart cart={cart} />
           </div>
         </div>
 
