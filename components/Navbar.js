@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../assets/img/logo.jpg";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   UserCircleIcon,
   SearchIcon,
@@ -10,8 +10,16 @@ import {
 } from "@heroicons/react/outline";
 import useTranslation from "next-translate/useTranslation";
 import MiniCart from "./MiniCart";
+import { CartContext } from "../context/ShopContext";
 
 export default function Navbar() {
+  const { cart, cartOpen, setCartOpen } = useContext(CartContext);
+
+  let cartQuantity = 0;
+
+  cart.map((item) => {
+    return (cartQuantity += item?.variants);
+  });
   const [isOpen, setIsOpen] = useState(false);
   let { t } = useTranslation("common");
 
@@ -81,8 +89,9 @@ export default function Navbar() {
             <ShoppingBagIcon
               className="h-6 w-6"
               onClick={() => setCartOpen(!cartOpen)}
-            />
-            {/* <MiniCart cart={cart} /> */}
+            />{" "}
+            ({cartQuantity})
+            <MiniCart cart={cart} />
           </div>
         </div>
 

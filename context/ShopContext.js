@@ -1,13 +1,13 @@
 import { crete, useState, useEffect, createContext } from "react";
 import { createCheckout } from "../lib/Shopify";
 
-const cartContext = createContext();
+const CartContext = createContext();
 
-export default function ShopContext({ children }) {
+export const ShopProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [chechoutId, setChechoutId] = useState("");
-  const [chechoutUrl, setChechoutUrl] = useState("");
+  const [checkoutUrl, setChechoutUrl] = useState("");
 
   async function addToCart(newItem) {
     if (cart.length === 0) {
@@ -31,8 +31,29 @@ export default function ShopContext({ children }) {
       });
 
       setCart(newCart);
+      const newCheckout = await updateCheckout(chechoutId, newCart);
+      localstorage.setItem(
+        "checkout_id",
+        JSON.stringify([newCart, newCheckout])
+      );
     }
   }
 
-  return <div></div>;
-}
+  return (
+    <CartContext.Provider
+      value={{
+        cart,
+        cartOpen,
+        setCartOpen,
+        addToCart,
+        checkoutUrl,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+const ShopConsumer = CartContext.Consumer;
+export { ShopConsumer, CartContext };
+export default ShopProvider;

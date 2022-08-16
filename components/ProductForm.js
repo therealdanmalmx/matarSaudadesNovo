@@ -1,8 +1,10 @@
 import { formatter } from "../utils/helpers";
 import useTranslation from "next-translate/useTranslation";
+import { CartContext } from "../context/ShopContext";
+import { useContext } from "react";
 
 export default function ProductForm({ produto }) {
-  console.log({ produto });
+  const { addToCart } = useContext(CartContext);
   const variants = produto.variants.edges?.map((variant) => {
     return {
       id: variant.node.id,
@@ -24,7 +26,9 @@ export default function ProductForm({ produto }) {
       </span>
       <p className="mt-2 font-noto-sans leading-6 md:mt-4">{description}</p>
       <button
-        onClick={hanldeAddProduct}
+        onClick={() => {
+          addToCart(variants);
+        }}
         className="mt-6 bg-red px-2 py-4 font-inter font-bold text-white duration-300 ease-in-out hover:border-2 md:h-12 md:w-28 md:px-3 md:py-2 md:hover:bg-white md:hover:text-red"
       >
         {t("product.add")}
