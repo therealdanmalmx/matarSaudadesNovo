@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
@@ -6,22 +6,22 @@ import { formatter } from "../utils/helpers";
 import { CartContext } from "../context/ShopContext";
 
 export default function MiniCart({ cart }) {
+  const cancelButtonRef = useRef();
   const [cartOpen, setCartOpen, checkoutUrl] = useContext(CartContext);
   const [show, setShow] = useState(false);
 
   let cartTotal = 0;
-
   cart.map((item) => {
-    cartTotal += item?.variantPrice * item?.quantity;
+    cartTotal += item?.variantPrice * item?.variantQuantity;
   });
 
   return (
-    <Transition show={show}>
+    <Transition.Root show={cartOpen} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
         onClose={() => {
-          !show;
+          setCartOpen(!cartOpen);
         }}
       >
         <Transition.Child
@@ -58,6 +58,7 @@ export default function MiniCart({ cart }) {
                         </Dialog.Title>
                         <div className="ml-3 flex h-7 items-center">
                           <button
+                            ref={cancelButtonRef}
                             type="button"
                             className="text-gray-400 hover:text-gray-500 -m-2 p-2"
                             onClick={() => setCartOpen(false)}
@@ -134,7 +135,7 @@ export default function MiniCart({ cart }) {
                         </p>
                         <div className="mt-6">
                           <a
-                            href="#"
+                            href={checkoutUrl}
                             className="border-transparent bg-indigo-600 hover:bg-indigo-700 flex items-center justify-center rounded-md border px-6 py-3 text-base font-medium text-white shadow-sm"
                           >
                             Checkout
@@ -162,6 +163,6 @@ export default function MiniCart({ cart }) {
           </div>
         </div>
       </Dialog>
-    </Transition>
+    </Transition.Root>
   );
 }
