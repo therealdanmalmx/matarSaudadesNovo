@@ -18,7 +18,10 @@ export default function Navbar() {
   let cartQuantity = 0;
 
   cart.map((item) => {
-    return (cartQuantity += item?.variants);
+    item.map((it) => {
+      return (cartQuantity += Number(it?.quantity));
+    });
+    console.log({ item });
   });
   const [isOpen, setIsOpen] = useState(false);
   let { t } = useTranslation("common");
@@ -90,7 +93,7 @@ export default function Navbar() {
               className="h-6 w-6"
               onClick={() => setCartOpen(!cartOpen)}
             />{" "}
-            ({cartQuantity})
+            <span>({cartQuantity})</span>
             <MiniCart cart={cart} />
           </div>
         </div>

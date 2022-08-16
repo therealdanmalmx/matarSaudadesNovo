@@ -1,5 +1,5 @@
 import { crete, useState, useEffect, createContext } from "react";
-import { createCheckout } from "../lib/Shopify";
+import { createCheckout, updateCheckout } from "../lib/Shopify";
 
 const CartContext = createContext();
 
@@ -18,7 +18,7 @@ export const ShopProvider = ({ children }) => {
       setChechoutId(checkout.id);
       setChechoutUrl(checkout.webUrl);
 
-      localstorage.setItem("checkout_id", JSON.stringify([newItem, checkout]));
+      localStorage.setItem("checkout_id", JSON.stringify([newItem, checkout]));
     } else {
       let newCart = [...cart];
       cart.map((item) => {
@@ -32,7 +32,7 @@ export const ShopProvider = ({ children }) => {
 
       setCart(newCart);
       const newCheckout = await updateCheckout(chechoutId, newCart);
-      localstorage.setItem(
+      localStorage.setItem(
         "checkout_id",
         JSON.stringify([newCart, newCheckout])
       );

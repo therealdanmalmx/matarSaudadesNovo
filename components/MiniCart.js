@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
@@ -7,19 +7,21 @@ import { CartContext } from "../context/ShopContext";
 
 export default function MiniCart({ cart }) {
   const [cartOpen, setCartOpen, checkoutUrl] = useContext(CartContext);
+  const [show, setShow] = useState(false);
 
   let cartTotal = 0;
+
   cart.map((item) => {
-    cartTotal += item?.variantPrice * item?.variantQuantity;
+    cartTotal += item?.variantPrice * item?.quantity;
   });
 
   return (
-    <Transition.Root show={cartOpen} as={Fragment}>
+    <Transition show={show}>
       <Dialog
         as="div"
         className="relative z-10"
         onClose={() => {
-          setCartOpen(!cartOpen);
+          !show;
         }}
       >
         <Transition.Child
@@ -160,6 +162,6 @@ export default function MiniCart({ cart }) {
           </div>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition>
   );
 }
