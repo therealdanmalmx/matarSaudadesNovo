@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
@@ -16,12 +16,12 @@ export default function MiniCart({ cart }) {
   });
 
   return (
-    <Transition.Root show={cartOpen} as={Fragment}>
+    <Transition.Root show={show} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
         onClose={() => {
-          setCartOpen(!cartOpen);
+          !show;
         }}
       >
         <Transition.Child
