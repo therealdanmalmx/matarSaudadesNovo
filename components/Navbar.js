@@ -3,11 +3,11 @@ import Image from "next/image";
 import Logo from "../assets/img/logo.jpg";
 import { useState, useContext } from "react";
 import {
-  UserCircleIcon,
   SearchIcon,
   HeartIcon,
   ShoppingBagIcon,
 } from "@heroicons/react/outline";
+import { BiUser } from "react-icons/bi";
 import useTranslation from "next-translate/useTranslation";
 import MiniCart from "./MiniCart";
 import { CartContext } from "../context/ShopContext";
@@ -33,7 +33,7 @@ export default function Navbar() {
             <SearchIcon className="h-6 w-6" />
           </div>
           <div className="header-account">
-            <UserCircleIcon className="h-6 w-6" />
+            <BiUser className="h-6 w-6" />
           </div>
           <div className="header-nav-wrapper flex-auto text-right">
             <ul className="inline-flex">
