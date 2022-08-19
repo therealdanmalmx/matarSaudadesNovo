@@ -1,16 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../assets/img/logo.jpg";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
-  UserCircleIcon,
   SearchIcon,
   HeartIcon,
   ShoppingBagIcon,
 } from "@heroicons/react/outline";
+import { BiUser } from "react-icons/bi";
 import useTranslation from "next-translate/useTranslation";
+import MiniCart from "./MiniCart";
+import { CartContext } from "../context/ShopContext";
 
 export default function Navbar() {
+  const { cart, cartOpen, setCartOpen } = useContext(CartContext);
+
+  let cartQuantity = 0;
+
+  cart.map((item) => {
+    return (cartQuantity += item?.quantity);
+  });
   const [isOpen, setIsOpen] = useState(false);
   let { t } = useTranslation("common");
 
@@ -22,22 +31,22 @@ export default function Navbar() {
             <SearchIcon className="h-6 w-6" />
           </div>
           <div className="header-account">
-            <UserCircleIcon className="h-6 w-6" />
+            <BiUser className="h-6 w-6" />
           </div>
           <div className="header-nav-wrapper flex-auto text-right">
             <ul className="inline-flex">
               <Link href="/" passHref>
-                <a className="border-b-4 border-transparent px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.home")}
                 </a>
               </Link>
               <Link href="/about" passHref>
-                <a className="border-b-4 border-transparent px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.about")}
                 </a>
               </Link>
               <Link href="/product" passHref>
-                <a className="border-b-4 border-transparent px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.product")}
                 </a>
               </Link>
@@ -58,16 +67,16 @@ export default function Navbar() {
             </a>
           </Link>
         </div>
-        <div className="header-col hidden flex-auto justify-end md:flex">
+        <div className="header-col hidden flex-auto items-center justify-end md:flex">
           <div className="header-nav-wrapper flex-auto text-left">
             <ul className="inline-flex">
               <Link href="/news" passHref>
-                <a className="border-b-4 border-transparent px-4 transition duration-300 focus:border-b-4 focus:border-red-600 focus:text-red-600  focus:ease-in-out active:text-red-600">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.news")}
                 </a>
               </Link>
               <Link href="/contacts" passHref>
-                <a className="border-b-4 border-transparent px-4 transition duration-300 focus:border-b-4 focus:border-red-600 focus:text-red-600  focus:ease-in-out active:text-red-600">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.contacts")}
                 </a>
               </Link>
@@ -77,7 +86,12 @@ export default function Navbar() {
             <HeartIcon className="h-6 w-6" />
           </div>
           <div className="header-cart">
-            <ShoppingBagIcon className="h-6 w-6" />
+            <ShoppingBagIcon
+              className="h-6 w-6 cursor-pointer"
+              onClick={() => setCartOpen(!cartOpen)}
+            />
+            ({cartQuantity})
+            <MiniCart cart={cart} />
           </div>
         </div>
 
