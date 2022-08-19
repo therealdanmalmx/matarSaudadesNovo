@@ -18,9 +18,7 @@ export default function Navbar() {
   let cartQuantity = 0;
 
   cart.map((item) => {
-    return (cartQuantity += item[0]?.quantity);
-    console.log({ item });
-    item.map((it) => {});
+    return (cartQuantity += item?.quantity);
   });
   const [isOpen, setIsOpen] = useState(false);
   let { t } = useTranslation("common");
@@ -38,17 +36,17 @@ export default function Navbar() {
           <div className="header-nav-wrapper flex-auto text-right">
             <ul className="inline-flex">
               <Link href="/" passHref>
-                <a className="border-transparent border-b-4 px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.home")}
                 </a>
               </Link>
               <Link href="/about" passHref>
-                <a className="border-transparent border-b-4 px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.about")}
                 </a>
               </Link>
               <Link href="/product" passHref>
-                <a className="border-transparent border-b-4 px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.product")}
                 </a>
               </Link>
@@ -69,16 +67,16 @@ export default function Navbar() {
             </a>
           </Link>
         </div>
-        <div className="header-col hidden flex-auto justify-end md:flex">
+        <div className="header-col hidden flex-auto items-center justify-end md:flex">
           <div className="header-nav-wrapper flex-auto text-left">
             <ul className="inline-flex">
               <Link href="/news" passHref>
-                <a className="border-transparent focus:border-red-600 focus:text-red-600 active:text-red-600 border-b-4 px-4 transition duration-300  focus:border-b-4 focus:ease-in-out">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.news")}
                 </a>
               </Link>
               <Link href="/contacts" passHref>
-                <a className="border-transparent focus:border-red-600 focus:text-red-600 active:text-red-600 border-b-4 px-4 transition duration-300  focus:border-b-4 focus:ease-in-out">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.contacts")}
                 </a>
               </Link>
@@ -89,10 +87,10 @@ export default function Navbar() {
           </div>
           <div className="header-cart">
             <ShoppingBagIcon
-              className="h-6 w-6"
+              className="h-6 w-6 cursor-pointer"
               onClick={() => setCartOpen(!cartOpen)}
-            />{" "}
-            <span>({cartQuantity})</span>
+            />
+            ({cartQuantity})
             <MiniCart cart={cart} />
           </div>
         </div>

@@ -10,7 +10,6 @@ export default function ProductForm({ produto }) {
     return {
       id: variant.node.id,
       quantity: 1,
-      // price: variant.node.priceV2.amount,
     };
   });
 
