@@ -5,9 +5,8 @@ import { useContext } from "react";
 
 export default function ProductForm({ produto }) {
   const { addToCart } = useContext(CartContext);
+
   const variants = produto.variants.edges?.map((variant) => {
-    console.log({ variant });
-    console.log("node", variant.node);
     return {
       id: variant.node.id,
       quantity: 1,
@@ -18,7 +17,6 @@ export default function ProductForm({ produto }) {
   const { title, description } = produto;
   let { t } = useTranslation("common");
 
-  const hanldeAddProduct = () => {};
   return (
     <div className="flex h-full flex-col justify-between">
       <p className=" font-merriweather text-2xl font-bold md:text-left md:text-[1.625rem]">

@@ -1,4 +1,4 @@
-import { crete, useState, useEffect, createContext } from "react";
+import { create, useState, useEffect, createContext } from "react";
 import { createCheckout, updateCheckout } from "../lib/Shopify";
 
 const CartContext = createContext();
@@ -31,6 +31,7 @@ export const ShopProvider = ({ children }) => {
       });
 
       setCart(newCart);
+
       const newCheckout = await updateCheckout(chechoutId, newCart);
       localStorage.setItem(
         "checkout_id",

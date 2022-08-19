@@ -18,10 +18,9 @@ export default function Navbar() {
   let cartQuantity = 0;
 
   cart.map((item) => {
-    item.map((it) => {
-      return (cartQuantity += Number(it?.quantity));
-    });
+    return (cartQuantity += item[0]?.quantity);
     console.log({ item });
+    item.map((it) => {});
   });
   const [isOpen, setIsOpen] = useState(false);
   let { t } = useTranslation("common");
