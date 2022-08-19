@@ -30,6 +30,7 @@ export const ShopProvider = ({ children }) => {
       localStorage.setItem("checkout_id", JSON.stringify([newItem, checkout]));
     } else {
       let newCart = [...cart];
+
       cart.map((item) => {
         if (item.id === newItem.id) {
           item.quantity++;
