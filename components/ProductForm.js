@@ -4,6 +4,7 @@ import { CartContext } from "../context/ShopContext";
 import { useContext } from "react";
 
 export default function ProductForm({ produto }) {
+  console.log({ produto });
   const { addToCart } = useContext(CartContext);
 
   const variants = produto.variants.edges?.map((variant) => {
