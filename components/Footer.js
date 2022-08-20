@@ -2,10 +2,19 @@ import Image from "next/image";
 import Logo from "../assets/img/logo.jpg";
 import { MailIcon, PhoneIcon } from "@heroicons/react/outline";
 import Modal from "../components/Modal"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export default function Footer() {
   const [openModal, setOpenModal] = useState(false);
+
+  useEffect(() => {
+    const clearModal = setTimeout(() => {
+      setOpenModal(true);
+    }, 3000);
+
+    return () => clearTimeout(clearModal);
+  }, []);
+
   return (
     <footer className="bg-white text-left text-gray-600 lg:text-left">
       <div className="mx-auto my-11 px-10 lg:max-w-screen-xl lg:px-0">
@@ -48,13 +57,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <button onClick={() => setOpenModal(true)}>Click Here</button>
-      {openModal && 
-      <Modal 
-        title="Headline"
-        description="Lorem ipsum dolor sit amet, eu nec dissentias reformidans interpretaris.."
-        onClose={()=>setOpenModal(false)} 
-      />}
+      {openModal ?
+        <Modal
+          description="Campanha em vigor com 20% de desconto em todos os produtos na sua Loja Online"
+          onClose={()=>setOpenModal(false)} 
+        /> : null }
     </footer>
   );
 }
