@@ -76,7 +76,10 @@ export default function MiniCart({ cart }) {
                             className="divide-gray-200 -my-6 divide-y"
                           >
                             {cart.map((product) => (
-                              <li key={product.id} className="flex py-6">
+                              <li
+                                key={product.id + Math.random()}
+                                className="flex py-6"
+                              >
                                 <div className="border-gray-200 relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border">
                                   <Image
                                     src={product.image}
