@@ -1,4 +1,4 @@
-import { create, useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import { createCheckout, updateCheckout } from "../lib/Shopify";
 
 const CartContext = createContext();
@@ -12,14 +12,11 @@ export const ShopProvider = ({ children }) => {
   useEffect(() => {
     if (localStorage.checkout_id) {
       const cartObject = JSON.parse(localStorage.checkout_id);
-
-      console.log({ cartObject });
-      console.log(cartObject[0].id);
     }
   }, []);
 
   async function addToCart(newItem) {
-    if (cart.length === 0) {
+    if (!cart.length) {
       setCart(newItem);
 
       const checkout = await createCheckout(newItem.id, newItem.quantity);
@@ -29,16 +26,21 @@ export const ShopProvider = ({ children }) => {
 
       localStorage.setItem("checkout_id", JSON.stringify([newItem, checkout]));
     } else {
-      let newCart = [...cart];
+      let newCart = [];
+      let added = false;
 
       cart.map((item) => {
         if (item.id === newItem.id) {
           item.quantity++;
           newCart = [...cart];
-        } else {
-          newCart = [...cart, newItem];
+
+          added = true;
         }
       });
+
+      if (!added) {
+        newCart = [...cart, newItem];
+      }
 
       setCart(newCart);
 

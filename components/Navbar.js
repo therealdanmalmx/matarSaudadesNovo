@@ -90,8 +90,7 @@ export default function Navbar() {
               className="h-6 w-6 cursor-pointer"
               onClick={() => setCartOpen(!cartOpen)}
             />
-            ({cartQuantity})
-            <MiniCart cart={cart} />
+            ({cartQuantity}){/* <MiniCart cart={cart} /> */}
           </div>
         </div>
 
