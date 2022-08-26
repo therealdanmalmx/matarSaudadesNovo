@@ -6,8 +6,8 @@ const CartContext = createContext();
 export const ShopProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
-  const [checkoutId, setChechoutId] = useState("");
-  const [checkoutUrl, setChechoutUrl] = useState("");
+  const [checkoutId, setCheckoutId] = useState("");
+  const [checkoutUrl, setCheckoutUrl] = useState("");
 
   useEffect(() => {
     if (localStorage.checkout_id) {
@@ -17,12 +17,12 @@ export const ShopProvider = ({ children }) => {
 
   async function addToCart(newItem) {
     if (!cart.length) {
-      setCart(newItem);
+      setCart([newItem]);
 
       const checkout = await createCheckout(newItem.id, newItem.quantity);
 
-      setChechoutId(checkout.id);
-      setChechoutUrl(checkout.webUrl);
+      setCheckoutId(checkout.id);
+      setCheckoutUrl(checkout.webUrl);
 
       localStorage.setItem("checkout_id", JSON.stringify([newItem, checkout]));
     } else {
