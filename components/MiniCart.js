@@ -10,11 +10,8 @@ export default function MiniCart({ cart }) {
   const cancelButtonRef = useRef();
   const { cartOpen, setCartOpen, checkoutUrl } = useContext(CartContext);
 
-  console.log({ cart });
-
   let cartTotal = 0;
   cart.map((item) => {
-    console.log({ item });
     cartTotal += item?.price * item?.quantity;
   });
 
@@ -78,67 +75,58 @@ export default function MiniCart({ cart }) {
                             role="list"
                             className="divide-gray-200 -my-6 divide-y"
                           >
-                            {cart.map(
-                              (product) => (
-                                console.log({ product }),
-                                (
-                                  <li
-                                    key={product.id + Math.random()}
-                                    className="flex py-6"
-                                  >
-                                    <div className="border-gray-200 relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border">
-                                      <Image
-                                        src={product.image}
-                                        alt={product.title}
-                                        layout="fill"
-                                        objectFit="cover"
-                                      />
-                                    </div>
+                            {cart.map((product) => (
+                              <li
+                                key={product.id + Math.random()}
+                                className="flex py-6"
+                              >
+                                <div className="border-gray-200 relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border">
+                                  <Image
+                                    src={product.image}
+                                    alt={product.title}
+                                    layout="fill"
+                                    objectFit="cover"
+                                  />
+                                </div>
 
-                                    <div className="ml-4 flex flex-1 flex-col">
-                                      <div>
-                                        <div className="text-gray-900 flex justify-between text-base font-medium">
-                                          <h3>
-                                            <Link
-                                              href={`/products/${product.handle}`}
-                                              passHref
-                                            >
-                                              <a
-                                                onClick={() =>
-                                                  setCartOpen(false)
-                                                }
-                                              >
-                                                {product.title}
-                                              </a>
-                                            </Link>
-                                          </h3>
-                                          <p className="ml-4">
-                                            {formatter.format(product.price)}
-                                          </p>
-                                        </div>
-                                      </div>
-                                      <div className="flex flex-1 items-end justify-between text-sm">
-                                        <p className="text-gray-500">
-                                          Qty {product.quantity}
-                                        </p>
-
-                                        <div className="flex">
-                                          <button
-                                            onClick={() =>
-                                              removeCartItem(product.id)
-                                            }
-                                            type="button"
-                                            className="text-gray-500 hover:text-gray-800 font-medium"
-                                          >
-                                            Remove
-                                          </button>
-                                        </div>
-                                      </div>
+                                <div className="ml-4 flex flex-1 flex-col">
+                                  <div>
+                                    <div className="text-gray-900 flex justify-between text-base font-medium">
+                                      <h3>
+                                        <Link
+                                          href={`/products/${product.handle}`}
+                                          passHref
+                                        >
+                                          <a onClick={() => setCartOpen(false)}>
+                                            {product.title}
+                                          </a>
+                                        </Link>
+                                      </h3>
+                                      <p className="ml-4">
+                                        {formatter.format(product.price)}
+                                      </p>
                                     </div>
-                                  </li>
-                                )
-                              )
-                            )}
+                                  </div>
+                                  <div className="flex flex-1 items-end justify-between text-sm">
+                                    <p className="text-gray-500">
+                                      Qty {product.quantity}
+                                    </p>
+
+                                    <div className="flex">
+                                      <button
+                                        onClick={() =>
+                                          removeCartItem(product.id)
+                                        }
+                                        type="button"
+                                        className="text-gray-500 hover:text-gray-800 font-medium"
+                                      >
+                                        Remove
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                            ))}
                           </ul>
                         ) : (
                           <div>
