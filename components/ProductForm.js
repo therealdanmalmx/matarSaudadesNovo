@@ -5,12 +5,17 @@ import { useContext } from "react";
 
 export default function ProductForm({ produto }) {
   console.log({ produto });
+  console.log("price: ", produto.priceRange.minVariantPrice.amount);
   const { addToCart } = useContext(CartContext);
 
   const variants = produto.variants.edges?.map((variant) => {
     return {
+      title: produto.title,
+      handle: produto.handle,
+      image: produto.images.edges[0].node.originalSrc,
       id: variant.node.id,
       quantity: 1,
+      price: produto.priceRange.minVariantPrice.amount,
     };
   });
 
