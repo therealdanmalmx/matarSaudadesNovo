@@ -25,7 +25,6 @@ export default function ShopProvider({ children }) {
   }, []);
 
   async function addToCart(newItem) {
-    console.log({ newItem });
     // setCartOpen(true);
 
     if (!cart.length) {
