@@ -41,7 +41,6 @@ export default function ShopProvider({ children }) {
       let added = false;
 
       cart.map((item) => {
-        console.log("item2", item);
         if (item.id === newItem[0].id) {
           item.quantity++;
           newCart = [...cart];
