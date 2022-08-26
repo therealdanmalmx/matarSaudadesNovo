@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { createCheckout, updateCheckout } from "../lib/shopify";
+import { createCheckout, updateCheckout } from "../lib/Shopify.js";
 
 const CartContext = createContext();
 
@@ -25,15 +25,12 @@ export default function ShopProvider({ children }) {
   }, []);
 
   async function addToCart(newItem) {
-    setCartOpen(true);
+    // setCartOpen(true);
 
-    if (cart.length === 0) {
-      setCart([newItem]);
+    if (!cart.length) {
+      setCart(newItem);
 
-      const checkout = await createCheckout(
-        newItem.id,
-        newItem.variantQuantity
-      );
+      const checkout = await createCheckout(newItem.id, newItem.quantity);
 
       setCheckoutId(checkout.id);
       setCheckoutUrl(checkout.webUrl);
@@ -44,15 +41,16 @@ export default function ShopProvider({ children }) {
       let added = false;
 
       cart.map((item) => {
-        if (item.id === newItem.id) {
-          item.variantQuantity++;
+        console.log("item2", item);
+        if (item.id === newItem[0].id) {
+          item.quantity++;
           newCart = [...cart];
           added = true;
         }
       });
 
       if (!added) {
-        newCart = [...cart, newItem];
+        newCart = [...cart, newItem[0]];
       }
 
       setCart(newCart);
