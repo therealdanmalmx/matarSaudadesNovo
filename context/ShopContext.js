@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { createCheckout, updateCheckout } from "../lib/shopify";
+import { createCheckout, updateCheckout } from "../lib/Shopify.js";
 
 const CartContext = createContext();
 
