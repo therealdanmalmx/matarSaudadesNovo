@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import Categorias from '../components/Categorias'
 import Banners from '../components/Banners'
 import About from '../components/About'
+import Newsletter from '../components/Newsletter'
 import { getCollections } from './../lib/Shopify';
 import useTranslation from 'next-translate/useTranslation'
 
@@ -16,6 +17,7 @@ function Home({ collections }) {
       <Categorias collections={collections}/>
       <Banners />
       <About />
+      <Newsletter />
     </div>
   );
 }

@@ -36,17 +36,17 @@ export default function Navbar() {
           <div className="header-nav-wrapper flex-auto text-right">
             <ul className="inline-flex">
               <Link href="/" passHref>
-                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.home")}
                 </a>
               </Link>
               <Link href="/about" passHref>
-                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.about")}
                 </a>
               </Link>
               <Link href="/product" passHref>
-                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.product")}
                 </a>
               </Link>
@@ -71,12 +71,12 @@ export default function Navbar() {
           <div className="header-nav-wrapper flex-auto text-left">
             <ul className="inline-flex">
               <Link href="/news" passHref>
-                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.news")}
                 </a>
               </Link>
               <Link href="/contacts" passHref>
-                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-4 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
+                <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.contacts")}
                 </a>
               </Link>

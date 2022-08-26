@@ -12,7 +12,7 @@ export default function About() {
           <h1 className="mb-2 text-left text-5xl font-bold text-red">
             A nossa origem <br />e os nossos costumes
           </h1>
-          <p className="mb-2 max-w-lg text-left text-xl font-normal leading-9 text-gray-400">
+          <p className="mb-2 max-w-lg text-left font-normal leading-8 text-gray-400">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
             Ultrices montes, pharetra aliquet arcu consectetur nulla non vitae
             at. Velit sed vulputate in venenatis neque sed. Eget tempus at

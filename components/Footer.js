@@ -118,7 +118,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="text-center border-t-[1px] solid border-grey-10 py-5">
-        <p className="text-base">©2022 All rights reserved. Matar Saudades Made by Mise en Digital </p>
+        <p className="text-base px-10">©2022 All rights reserved. Matar Saudades Made by Mise en Digital </p>
       </div>
       {openModal ?
         <Modal
