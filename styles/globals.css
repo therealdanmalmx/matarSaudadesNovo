@@ -6,48 +6,50 @@
 /*  General Settings
 /*-----------------------------------------------------------------------------------*/
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Noto Sans', sans-serif;
-  @apply text-grey-75;
-}
+@layer base {
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: "Noto Sans", sans-serif;
+    @apply text-grey-75;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Merriweather Sans', sans-serif;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Merriweather Sans", sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  font-family: 'Noto Sans', sans-serif;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-family: "Noto Sans", sans-serif;
+  }
 
-p {
-  @apply text-lg;
-  font-family: 'Noto Sans', sans-serif;
-}
+  p {
+    @apply text-lg;
+    font-family: "Noto Sans", sans-serif;
+  }
 
-* {
-  box-sizing: border-box;
-}
+  * {
+    box-sizing: border-box;
+  }
 
-.btn {
-  @apply rounded py-3 px-6 font-bold;
-}
-.btn-red {
-  @apply bg-red text-white;
-}
-.btn-red:hover {
-  @apply bg-red;
+  .btn {
+    @apply rounded py-3 px-6 font-bold;
+  }
+  .btn-red {
+    @apply bg-red text-white;
+  }
+  .btn-red:hover {
+    @apply bg-red;
+  }
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -74,19 +76,19 @@ p {
 }
 
 .first-banner-img {
-  background-image: url('../assets/img/banner-01.jpg');
+  background-image: url("../assets/img/banner-01.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .second-banner-img {
-  background-image: url('../assets/img/banner-02.jpg');
+  background-image: url("../assets/img/banner-02.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .hero-bg {
-  background-image: url('../assets/img/hero-bg.jpg');
+  background-image: url("../assets/img/hero-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
