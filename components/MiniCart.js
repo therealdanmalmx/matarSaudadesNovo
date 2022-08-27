@@ -36,7 +36,7 @@ export default function MiniCart({ cart }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="bg-gray-500 absolute inset-0 bg-opacity-75 transition-opacity" />
+            <Dialog.Overlay className="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </Transition.Child>
 
           <div className="fixed inset-y-0 right-0 flex max-w-full pl-10">
@@ -53,14 +53,14 @@ export default function MiniCart({ cart }) {
                 <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                   <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                     <div className="flex items-start justify-between">
-                      <Dialog.Title className="text-gray-900 text-lg font-medium">
+                      <Dialog.Title className="text-lg font-medium text-gray-900">
                         Shopping cart
                       </Dialog.Title>
                       <div className="ml-3 flex h-7 items-center">
                         <button
                           ref={cancelButtonRef}
                           type="button"
-                          className="text-gray-400 hover:text-gray-500 -m-2 p-2"
+                          className="-m-2 p-2 text-gray-400 hover:text-gray-500"
                           onClick={() => setCartOpen(false)}
                         >
                           <span className="sr-only">Close panel</span>
@@ -74,14 +74,14 @@ export default function MiniCart({ cart }) {
                         {cart.length ? (
                           <ul
                             role="list"
-                            className="divide-gray-200 -my-6 divide-y"
+                            className="-my-6 divide-y divide-gray-200"
                           >
                             {cart.map((product) => (
                               <li
                                 key={product.id + Math.random()}
                                 className="flex py-6"
                               >
-                                <div className="border-gray-200 relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border">
+                                <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <Link
                                     href={`/categorias/bebidas/${product.handle}`}
                                   >
@@ -99,7 +99,7 @@ export default function MiniCart({ cart }) {
 
                                 <div className="ml-4 flex flex-1 flex-col">
                                   <div>
-                                    <div className="text-gray-900 flex justify-between text-base font-medium">
+                                    <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
                                         <Link
                                           href={`/categorias/bebidas/${product.handle}`}
@@ -127,7 +127,7 @@ export default function MiniCart({ cart }) {
                                           removeCartItem(product.id)
                                         }
                                         type="button"
-                                        className="text-gray-500 hover:text-gray-800 font-medium"
+                                        className="font-medium text-gray-500 hover:text-gray-800"
                                       >
                                         Remove
                                       </button>
@@ -146,12 +146,12 @@ export default function MiniCart({ cart }) {
                     </div>
                   </div>
                   {cart.length > 0 ? (
-                    <div className="border-gray-200 border-t py-6 px-4 sm:px-6">
-                      <div className="text-gray-900 flex justify-between text-base font-medium">
+                    <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
+                      <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
                         <p>{formatter.format(cartTotal)}</p>
                       </div>
-                      <p className="text-gray-500 mt-0.5 text-xs">
+                      <p className="mt-0.5 text-xs text-gray-500">
                         Shipping calculated at checkout.
                       </p>
                       <div className="mt-6">
@@ -159,12 +159,12 @@ export default function MiniCart({ cart }) {
                           href="https://novomatarsaudades.myshopify.com/62406656248/checkouts/3069e57df4cd25f437cd8f0e062cd66f?key=d75995953d16653e360876e1d09fcf4c"
                           passHref
                         >
-                          <button className="hover:bg-gray-800 w-full rounded-md border bg-success px-6 py-3 text-base font-medium text-white shadow-sm">
+                          <button className="w-full rounded-md border bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-800">
                             Checkout
                           </button>
                         </Link>
                       </div>
-                      <div className="text-gray-500 mt-6 flex justify-center text-center text-xs">
+                      <div className="mt-6 flex justify-center text-center text-xs text-gray-500">
                         <button
                           className="hover:text-gray-800"
                           onClick={() => setCartOpen(false)}
