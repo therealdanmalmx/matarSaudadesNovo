@@ -71,7 +71,7 @@ export default function MiniCart({ cart }) {
 
                     <div className="mt-8">
                       <div className="flow-root">
-                        {cart.length > 0 ? (
+                        {cart.length ? (
                           <ul
                             role="list"
                             className="divide-gray-200 -my-6 divide-y"
@@ -82,12 +82,19 @@ export default function MiniCart({ cart }) {
                                 className="flex py-6"
                               >
                                 <div className="border-gray-200 relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border">
-                                  <Image
-                                    src={product.image}
-                                    alt={product.title}
-                                    layout="fill"
-                                    objectFit="cover"
-                                  />
+                                  <Link
+                                    href={`/categorias/bebidas/${product.handle}`}
+                                  >
+                                    <Image
+                                      src={product.image}
+                                      alt={product.title}
+                                      layout="fill"
+                                      objectFit="cover"
+                                      href={`/categorias/bebidas/${product.handle}`}
+                                      className="hover:cursor-pointer"
+                                      onClick={() => setCartOpen(false)}
+                                    />
+                                  </Link>
                                 </div>
 
                                 <div className="ml-4 flex flex-1 flex-col">
@@ -95,8 +102,9 @@ export default function MiniCart({ cart }) {
                                     <div className="text-gray-900 flex justify-between text-base font-medium">
                                       <h3>
                                         <Link
-                                          href={`/products/${product.handle}`}
+                                          href={`/categorias/bebidas/${product.handle}`}
                                           passHref
+                                          className="cursor-pointer"
                                         >
                                           <a onClick={() => setCartOpen(false)}>
                                             {product.title}
@@ -143,29 +151,27 @@ export default function MiniCart({ cart }) {
                         <p>Subtotal</p>
                         <p>{formatter.format(cartTotal)}</p>
                       </div>
-                      <p className="text-gray-500 mt-0.5 text-sm">
-                        Shipping and taxes calculated at checkout.
+                      <p className="text-gray-500 mt-0.5 text-xs">
+                        Shipping calculated at checkout.
                       </p>
                       <div className="mt-6">
-                        <a
-                          href={checkoutUrl}
-                          className="border-transparent bg-black hover:bg-gray-800 flex items-center justify-center rounded-md border px-6 py-3 text-base font-medium text-white shadow-sm"
+                        <Link
+                          href="https://novomatarsaudades.myshopify.com/62406656248/checkouts/3069e57df4cd25f437cd8f0e062cd66f?key=d75995953d16653e360876e1d09fcf4c"
+                          passHref
                         >
-                          Checkout
-                        </a>
-                      </div>
-                      <div className="text-gray-500 mt-6 flex justify-center text-center text-sm">
-                        <p>
-                          or{" "}
-                          <button
-                            type="button"
-                            className="hover:text-gray-800 font-medium"
-                            onClick={() => setCartOpen(false)}
-                          >
-                            Continue Shopping
-                            <span aria-hidden="true"> &rarr;</span>
+                          <button className="hover:bg-gray-800 w-full rounded-md border bg-success px-6 py-3 text-base font-medium text-white shadow-sm">
+                            Checkout
                           </button>
-                        </p>
+                        </Link>
+                      </div>
+                      <div className="text-gray-500 mt-6 flex justify-center text-center text-xs">
+                        <button
+                          className="hover:text-gray-800"
+                          onClick={() => setCartOpen(false)}
+                        >
+                          Continue Shopping
+                          <span aria-hidden="true"> &rarr;</span>
+                        </button>
                       </div>
                     </div>
                   ) : null}
