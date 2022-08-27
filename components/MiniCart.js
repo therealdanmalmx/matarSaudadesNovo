@@ -8,7 +8,8 @@ import { CartContext } from "../context/ShopContext";
 
 export default function MiniCart({ cart }) {
   const cancelButtonRef = useRef();
-  const { cartOpen, setCartOpen, checkoutUrl } = useContext(CartContext);
+  const { cartOpen, setCartOpen, checkoutUrl, removeCartItem } =
+    useContext(CartContext);
 
   let cartTotal = 0;
   cart.map((item) => {
