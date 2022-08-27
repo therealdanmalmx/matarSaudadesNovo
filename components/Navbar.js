@@ -82,7 +82,8 @@ export default function Navbar() {
               </Link>
             </ul>
           </div>
-          <div className="header-wishlist pr-4">
+        </div>
+        <div className="header-wishlist pr-4">
             <HeartIcon className="h-6 w-6" />
           </div>
           <div className="header-cart">
@@ -93,7 +94,6 @@ export default function Navbar() {
             ({cartQuantity})
             <MiniCart cart={cart} />
           </div>
-        </div>
 
         <div className="flex items-center md:hidden">
           <button
