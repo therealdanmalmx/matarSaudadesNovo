@@ -27,13 +27,23 @@ export default function ShopProvider({ children }) {
   async function addToCart(newItem) {
     // setCartOpen(true);
 
-    if (!cart.length) {
+    if (cart.length === 0) {
       setCart(newItem);
 
-      const checkout = await createCheckout(newItem.id, newItem.quantity);
+      const id = newItem[0].id;
+      const quantity = newItem[0].quantity;
+
+      console.log(typeof newItem);
+
+      console.log({ id });
+      console.log({ quantity });
+
+      const checkout = await createCheckout(id, quantity);
 
       setCheckoutId(checkout.id);
       setCheckoutUrl(checkout.webUrl);
+
+      console.log({ checkout });
 
       localStorage.setItem("checkout_id", JSON.stringify([newItem, checkout]));
     } else {
