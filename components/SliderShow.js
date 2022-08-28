@@ -66,11 +66,8 @@ const SliderShow = ({ slides }) => {
       <Slider {...settings}>
         {slides.map((slide, indexSlide) => {
           return (
-            <div>
-              <div
-                key={indexSlide}
-                className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-4xl text-white lg:text-8xl"
-              >
+            <div key={indexSlide}>
+              <div className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-4xl text-white lg:text-8xl">
                 {slide.title}
               </div>
               <img src={slide.url} alt={slide.title} />
