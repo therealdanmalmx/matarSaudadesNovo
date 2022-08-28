@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const SliderShow = ({ slides }) => {
- /*  const [currentIndex, setCurrentIndex] = useState(0);
+  /*  const [currentIndex, setCurrentIndex] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
 
   const goToPrevious = () => {
@@ -34,29 +34,28 @@ const SliderShow = ({ slides }) => {
     slidesToScroll: 1,
     lazyLoad: true,
     autoplay: true,
-    autoplaySpeed: 6000,  
+    autoplaySpeed: 6000,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
   };
-
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", right:"20px" }}
+        style={{ ...style, display: "block", right: "20px" }}
         onClick={onClick}
       />
     );
   }
-  
+
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", left:"20px", zIndex: "1000" }}
+        style={{ ...style, display: "block", left: "20px", zIndex: "1000" }}
         onClick={onClick}
       />
     );
@@ -64,20 +63,22 @@ const SliderShow = ({ slides }) => {
 
   return (
     <div className="app_slideshow">
-            <Slider {...settings}>
-                {slides.map((slide, indexSlide) => {
-                    return (
-                        <div>
-                            <div className="text-white text-4xl lg:text-8xl absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">{slide.title}</div>
-                            <img
-                                src={slide.url}
-                                alt={slide.title}
-                            />
-                        </div>
-                    )
-                })}
-            </Slider>
-        </div>
+      <Slider {...settings}>
+        {slides.map((slide, indexSlide) => {
+          return (
+            <div>
+              <div
+                key={indexSlide}
+                className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-4xl text-white lg:text-8xl"
+              >
+                {slide.title}
+              </div>
+              <img src={slide.url} alt={slide.title} />
+            </div>
+          );
+        })}
+      </Slider>
+    </div>
   );
 };
 
