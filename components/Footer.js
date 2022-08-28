@@ -31,7 +31,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="text-gray-600 solid border-t-[1px] border-grey-10 bg-white text-left lg:text-left">
+    <footer className="solid border-t-[1px] border-grey-10 bg-white text-left text-gray-600 lg:text-left">
       <div className="mx-auto my-11 px-10 lg:max-w-screen-xl lg:px-0">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="footer-col-company">
@@ -123,10 +123,10 @@ export default function Footer() {
           Saudades made by{" "}
           <Link href="http://www.miseendigital.com" noopen blank passHref>
             <a
-              className="text-slate-400 blank cursor-pointer"
+              className="blank cursor-pointer text-slate-400"
               target="_blank"
-              noreferrer
-              noopener
+              noreferrer="true"
+              noopener="true"
             >
               mise en digital
             </a>
