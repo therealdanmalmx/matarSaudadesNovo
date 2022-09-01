@@ -10,6 +10,7 @@ export default function ProductPageContent({ produto }) {
           alt={produto.images.edges[0].node.altText}
           layout="fill"
           objectFit="contain"
+          priority
         />
       </div>
       <div className="w-full md:w-1/3">
