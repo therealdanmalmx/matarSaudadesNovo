@@ -26,7 +26,7 @@ const SliderShow = ({ slides }) => {
     setCurrentIndex(slideIndex);
   } */
 
-  const settings = {
+const settings = {
     infinite: true,
     fade: true,
     dots: true,
@@ -38,6 +38,7 @@ const SliderShow = ({ slides }) => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
