@@ -90,3 +90,27 @@ p {
   background-size: cover;
   background-position: center center;
 }
+
+ul.slick-dots {
+  position:absolute;
+  bottom:20px;
+}
+
+ul.slick-dots li button:before {
+  font-size: 8px;
+}
+
+ul.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: red;
+}
+
+ul.slick-dots li:hover button:before {
+  opacity: 1;
+  color: red;
+}
+
+ul.slick-dots li button:before {
+  color: #fff;
+  opacity: 1;
+}

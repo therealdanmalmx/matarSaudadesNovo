@@ -22,7 +22,7 @@ const ProductCard = ({ product, category }) => {
           </div>
         </div>
         <div className="flex w-11/12 items-center justify-around">
-          <p className="text-gray-900 mr-2 text-lg font-medium">{title}</p>
+          <p className="mr-2 text-lg font-medium text-gray-900">{title}</p>
           <p className="tex-gray-700 text-base">{formatter.format(price)}</p>
         </div>
       </a>
