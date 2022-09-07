@@ -30,10 +30,10 @@ export default function ShopProvider({ children }) {
     if (cart.length === 0) {
       setCart(newItem);
 
-      const id = newItem[0].id;
+      const variantId = newItem[0].id;
       const quantity = newItem[0].quantity;
 
-      const checkout = await createCheckout(id, quantity);
+      const checkout = await createCheckout([{ variantId, quantity }]);
 
       console.log({ checkout });
       setCheckoutId(checkout.id);
@@ -58,6 +58,7 @@ export default function ShopProvider({ children }) {
 
       setCart(newCart);
       const newCheckout = await updateCheckout(checkoutId, newCart);
+      console.log({ newCheckout });
       localStorage.setItem(
         "checkout_id",
         JSON.stringify([newCart, newCheckout])
