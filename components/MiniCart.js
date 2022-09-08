@@ -155,10 +155,7 @@ export default function MiniCart({ cart }) {
                         Shipping calculated at checkout.
                       </p>
                       <div className="mt-6">
-                        <Link
-                          href="https://novomatarsaudades.myshopify.com/62406656248/checkouts/3069e57df4cd25f437cd8f0e062cd66f?key=d75995953d16653e360876e1d09fcf4c"
-                          passHref
-                        >
+                        <Link href={checkoutUrl} passHref>
                           <button className="w-full rounded-md border bg-success px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-success-hover active:bg-success">
                             Checkout
                           </button>
