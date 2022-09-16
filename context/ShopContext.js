@@ -30,12 +30,11 @@ export default function ShopProvider({ children }) {
     if (cart.length === 0) {
       setCart(newItem);
 
-      const id = newItem[0].id;
+      const variantId = newItem[0].id;
       const quantity = newItem[0].quantity;
 
-      const checkout = await createCheckout(id, quantity);
+      const checkout = await createCheckout(variantId, quantity);
 
-      console.log({ checkout });
       setCheckoutId(checkout.id);
       setCheckoutUrl(checkout.webUrl);
 
