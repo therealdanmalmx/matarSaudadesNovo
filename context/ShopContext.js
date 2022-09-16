@@ -35,7 +35,6 @@ export default function ShopProvider({ children }) {
 
       const checkout = await createCheckout(variantId, quantity);
 
-      console.log({ checkout });
       setCheckoutId(checkout.id);
       setCheckoutUrl(checkout.webUrl);
 
@@ -45,7 +44,6 @@ export default function ShopProvider({ children }) {
       let added = false;
 
       cart.map((item) => {
-        console.log({ newItem });
         if (item.id === newItem[0].id) {
           item.quantity++;
           newCart = [...cart];
@@ -57,19 +55,14 @@ export default function ShopProvider({ children }) {
         newCart = [...cart, newItem[0]];
       }
 
-      console.log({ checkoutId });
-
       setCart(newCart);
-      console.log({ newCart });
       const newCheckout = await updateCheckout(checkoutId, newCart);
       localStorage.setItem(
         "checkout_id",
         JSON.stringify([newCart, newCheckout])
       );
-      console.log({ newCheckout });
     }
   };
-  console.log({ checkoutUrl });
 
   async function removeCartItem(itemToRemove) {
     const updatedCart = cart.filter((item) => item.id !== itemToRemove);
