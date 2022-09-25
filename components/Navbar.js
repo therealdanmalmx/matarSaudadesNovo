@@ -11,24 +11,37 @@ import { BiUser } from "react-icons/bi";
 import useTranslation from "next-translate/useTranslation";
 import MiniCart from "./MiniCart";
 import { CartContext } from "../context/ShopContext";
+import Search from "../components/Search";
 
 export default function Navbar() {
   const { cart, cartOpen, setCartOpen } = useContext(CartContext);
+  const [showSearch, setShowSearch] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   let cartQuantity = 0;
 
   cart.map((item) => {
     return (cartQuantity += item?.quantity);
   });
-  const [isOpen, setIsOpen] = useState(false);
   let { t } = useTranslation("common");
 
   return (
     <header className="sticky top-0 z-20 border-b bg-white">
-      <nav className="mx-auto flex max-w-6xl items-center px-4 pt-4 pb-2 lg:max-w-screen-xl">
+      <nav className="mx-auto flex max-w-6xl items-center px-4 pt-4 pb-2 transition-opacity duration-1000 ease-in-out lg:max-w-screen-xl">
+        {showSearch ? (
+          <Search
+            className="transition-opacity delay-75 duration-1000 ease-in-out"
+            showSearch={() => setShowSearch(!showSearch)}
+          />
+        ) : (
+          false
+        )}
         <div className="header-col hidden flex-auto justify-start md:flex">
           <div className="header-search pr-4">
-            <SearchIcon className="h-6 w-6" />
+            <SearchIcon
+              className="h-6 w-6 cursor-pointer"
+              onClick={() => setShowSearch(!showSearch)}
+            />
           </div>
           <div className="header-account">
             <BiUser className="h-6 w-6" />
@@ -84,16 +97,16 @@ export default function Navbar() {
           </div>
         </div>
         <div className="header-wishlist pr-4">
-            <HeartIcon className="h-6 w-6" />
-          </div>
-          <div className="header-cart">
-            <ShoppingBagIcon
-              className="h-6 w-6 cursor-pointer"
-              onClick={() => setCartOpen(!cartOpen)}
-            />
-            ({cartQuantity})
-            <MiniCart cart={cart} />
-          </div>
+          <HeartIcon className="h-6 w-6" />
+        </div>
+        <div className="header-cart">
+          <ShoppingBagIcon
+            className="h-6 w-6 cursor-pointer"
+            onClick={() => setCartOpen(!cartOpen)}
+          />
+          ({cartQuantity})
+          <MiniCart cart={cart} />
+        </div>
 
         <div className="flex items-center md:hidden">
           <button
