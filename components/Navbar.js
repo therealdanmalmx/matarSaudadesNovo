@@ -11,6 +11,7 @@ import { BiUser } from "react-icons/bi";
 import useTranslation from "next-translate/useTranslation";
 import MiniCart from "./MiniCart";
 import { CartContext } from "../context/ShopContext";
+import wishlist from "../pages/wishlist";
 
 export default function Navbar() {
   const { cart, cartOpen, setCartOpen } = useContext(CartContext);
@@ -28,7 +29,9 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center px-4 pt-4 pb-2 lg:max-w-screen-xl">
         <div className="header-col hidden flex-auto justify-start md:flex">
           <div className="header-search pr-4">
+          <Link href="" passHref>
             <SearchIcon className="h-6 w-6" />
+          </Link>
           </div>
           <div className="header-account">
             <BiUser className="h-6 w-6" />
@@ -84,7 +87,9 @@ export default function Navbar() {
           </div>
         </div>
         <div className="header-wishlist pr-4">
+          <Link href="/wishlist" passHref>
             <HeartIcon className="h-6 w-6" />
+          </Link>
           </div>
           <div className="header-cart">
             <ShoppingBagIcon
