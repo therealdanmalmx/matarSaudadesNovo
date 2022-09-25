@@ -84,6 +84,7 @@ export default function MiniCart({ cart }) {
                                 <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <Link
                                     href={`/categorias/bebidas/${product.handle}`}
+                                    passHref
                                   >
                                     <Image
                                       src={product.image}
