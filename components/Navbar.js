@@ -12,6 +12,7 @@ import useTranslation from "next-translate/useTranslation";
 import MiniCart from "./MiniCart";
 import { CartContext } from "../context/ShopContext";
 import Search from "../components/Search";
+import wishlist from "../pages/wishlist";
 
 export default function Navbar() {
   const { cart, cartOpen, setCartOpen } = useContext(CartContext);
@@ -97,7 +98,9 @@ export default function Navbar() {
           </div>
         </div>
         <div className="header-wishlist pr-4">
-          <HeartIcon className="h-6 w-6" />
+          <Link href="/wishlist" passHref>
+            <HeartIcon className="h-6 w-6" />
+          </Link>
         </div>
         <div className="header-cart">
           <ShoppingBagIcon
