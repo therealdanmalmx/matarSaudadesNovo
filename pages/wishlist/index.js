@@ -34,8 +34,8 @@ const wishlist = () => {
           </h1>
 
           <p className="text-base">
-            You don't have any products in the wishlist yet. You will find a lot
-            of interesting products on our "Shop" page.
+            You don&apos;t have any products in the wishlist yet. You will find
+            a lot of interesting products on our &ldquo;Shop&ldquo; page.
           </p>
 
           <div className="mt-4 text-left">
