@@ -1,9 +1,11 @@
 const nextTranslate = require("next-translate");
 
 /** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+};
 
 module.exports = {
-  reactStrictMode: true,
   nextConfig,
   env: {
     SHOPIFY_STORE_DOMAIN: process.env.SHOPIFY_STORE_DOMAIN,
