@@ -99,7 +99,7 @@ export default function Navbar() {
         </div>
         <div className="header-wishlist pr-4">
           <Link href="/wishlist" passHref>
-            <HeartIcon className="h-6 w-6" />
+            <HeartIcon className="h-6 w-6 cursor-pointer" />
           </Link>
         </div>
         <div className="header-cart">
@@ -107,8 +107,8 @@ export default function Navbar() {
             className="h-6 w-6 cursor-pointer"
             onClick={() => setCartOpen(!cartOpen)}
           />
-          ({cartQuantity})
           <MiniCart cart={cart} />
+          ({cartQuantity})
         </div>
 
         <div className="flex items-center md:hidden">
