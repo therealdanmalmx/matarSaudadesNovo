@@ -18,5 +18,10 @@
   },
   "product": {
     "add": "Add to cart"
+  },
+  "search": {
+    "search": "Search",
+    "placeholder": "enter your search term"
+
   }
 }

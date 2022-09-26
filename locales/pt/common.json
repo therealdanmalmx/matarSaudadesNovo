@@ -18,5 +18,9 @@
   },
   "product": {
     "add": "Adicionar"
+  },
+  "search": {
+    "search": "Pesquiçar",
+    "placeholder": "faça a sua pesquiça"
   }
 }
