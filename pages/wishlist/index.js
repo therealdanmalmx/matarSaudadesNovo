@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { HiOutlineHeart } from "react-icons/hi";
 import { images } from "../../utils";
 
@@ -39,7 +40,12 @@ const wishlist = () => {
           </p>
 
           <div className="mt-4 text-left">
-            <button className="btn btn-red">Return to shop</button>
+            <Link
+              href="/"
+              passHref
+              >
+              <button className="btn btn-red">Return to shop</button>
+            </Link>
           </div>
         </div>
       </div>
