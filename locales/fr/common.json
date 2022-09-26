@@ -15,5 +15,11 @@
     "product": "Des produits",
     "news": "Nouvelles",
     "contacts": "Contacts"
+  },
+  "product": {
+    "add": "Add to cart"
+  },
+  "search": {
+    "search": "Search"
   }
 }
