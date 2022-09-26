@@ -20,6 +20,7 @@
     "add": "Add to cart"
   },
   "search": {
-    "search": "Search"
+    "search": "Chercher",
+    "placeholder": "entrez votre terme de recherche"
   }
 }
