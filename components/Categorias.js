@@ -8,7 +8,7 @@ function Categories({ collections }) {
 
   return (
     <section className="categories bg-grey-light pt-10  lg:py-36">
-      <p className="mb-2 text-center text-xl font-normal text-grey-50 font-sans">
+      <p className="font-sans mb-2 text-center text-xl font-normal text-grey-50">
         Descubra as últimas novidades
       </p>
       <h2 className="mb-12 text-center text-5xl font-bold text-red">
@@ -23,7 +23,7 @@ function Categories({ collections }) {
           >
             <ul className="mb-5">
               <Image
-                src={collection.node.image.originalSrc}
+                src={collection.node.image.url}
                 alt={collection.node.title}
                 objectFit="cover"
                 layout="fixed"
@@ -32,7 +32,7 @@ function Categories({ collections }) {
                 width="150px"
                 className="rounded-full border-2 border-solid border-slate-600"
               />
-              <li className="text-center text-xl mt-3 font-normal text-grey-75">
+              <li className="mt-3 text-center text-xl font-normal text-grey-75">
                 {t(collection.node.title)}
               </li>
             </ul>

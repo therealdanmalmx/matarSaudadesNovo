@@ -12,7 +12,7 @@ export default function ProductPageContent({ produto }) {
     images.push(
       <SwiperSlide key={`slide-${i}`}>
         <Image
-          src={image.node.originalSrc}
+          src={image.node.url}
           alt={image.node.altText}
           layout="fill"
           objectFit="cover"

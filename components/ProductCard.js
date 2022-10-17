@@ -4,7 +4,7 @@ import { formatter } from "../utils/helpers";
 
 const ProductCard = ({ product, category }) => {
   const { title, handle } = product;
-  const { altText, originalSrc } = product.images.edges[0].node;
+  const { altText, url } = product.images.edges[0].node;
   const price = product.priceRange.minVariantPrice.amount;
 
   return (
@@ -13,7 +13,7 @@ const ProductCard = ({ product, category }) => {
         <div className="w-11/12">
           <div className="relative h-72 group-hover:opacity-75">
             <Image
-              src={originalSrc}
+              src={url}
               alt={altText}
               layout="fill"
               objectFit="cover"
