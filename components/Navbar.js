@@ -45,7 +45,9 @@ export default function Navbar() {
             />
           </div>
           <div className="header-account">
-            <BiUser className="h-6 w-6" />
+            <Link href="/my-account" passHref>
+              <BiUser className="h-6 w-6" />
+            </Link>
           </div>
           <div className="header-nav-wrapper flex-auto text-right">
             <ul className="inline-flex">
