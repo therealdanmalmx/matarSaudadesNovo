@@ -3,9 +3,9 @@ import Image from "next/image";
 import { formatter } from "../utils/helpers";
 
 const ProductCard = ({ product, category }) => {
-  const { title, handle } = product;
-  const { altText, url } = product.images.edges[0].node;
-  const price = product.priceRange.minVariantPrice.amount;
+  const { title, handle } = product.node;
+  const { altText, url } = product.node.images.edges[0].node;
+  const price = product.node.priceRange.minVariantPrice.amount;
 
   return (
     <Link href={`/categorias/${category}/${handle}`} passHref>

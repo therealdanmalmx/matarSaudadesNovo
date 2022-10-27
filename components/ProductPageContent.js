@@ -1,11 +1,13 @@
 import Image from "next/image";
 import ProductForm from "./ProductForm";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, navigation, Pagination } from "swiper";
+import SwiperCore, { Navigation, Pagination } from "swiper";
 
 import RecommendedList from "./RecommendedList";
 
 export default function ProductPageContent({ produto }) {
+  console.log({ produto });
+
   const images = [];
 
   produto.images.edges.map((image, i) => {
@@ -49,7 +51,10 @@ export default function ProductPageContent({ produto }) {
           <ProductForm produto={produto} />
         </div>
       </div>
-      {/* <RecommendedList current={produto.id} /> */}
+      <RecommendedList
+        current={produto.id}
+        products={produto.collections.edges[0].node.products.edges}
+      />
     </div>
   );
 }
