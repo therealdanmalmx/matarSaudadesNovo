@@ -8,6 +8,9 @@ const myAccount = () => {
       <div className="app__account mx-auto justify-items-start py-14 px-8 lg:max-w-screen-xl">
         <div className="flex flex-col lg:flex-row ">
           <div className="mb-10 flex flex-col lg:w-2/4 lg:p-10">
+            <h1 className="mb-5 text-center font-merriweather text-2xl text-black">
+              FAZER LOGIN
+            </h1>
             <form
               action="#"
               className="app__contact-form flex w-full flex-col items-start justify-center"
