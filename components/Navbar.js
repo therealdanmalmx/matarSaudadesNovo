@@ -109,7 +109,12 @@ export default function Navbar() {
             className="h-6 w-6 cursor-pointer"
             onClick={() => setCartOpen(!cartOpen)}
           />
-          <MiniCart cart={cart} />({cartQuantity})
+          <div>
+            <MiniCart cart={cart} />
+            <p className="relative -top-6 left-4 flex h-4 w-4 items-center justify-center rounded-full bg-red text-center text-xs font-bold text-white ">
+              {cartQuantity}
+            </p>
+          </div>
         </div>
 
         <div className="flex items-center md:hidden">

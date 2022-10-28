@@ -1,9 +1,10 @@
 import { getProductsInCollections } from "../lib/Shopify";
 import ProductCard from "../components/ProductCard";
 
-function RecommendedList({ products, collection, current }) {
+function RecommendedList({ products, current }) {
   console.log({ products });
-  console.log({ collection });
+  console.log(products.collection);
+  const productsList = products.collections.edges[0].node.products.edges;
   return (
     <div className="bg-white md:mt-40">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-2 sm:px-6 lg:max-w-7xl lg:px-8 lg:py-8">
@@ -11,12 +12,12 @@ function RecommendedList({ products, collection, current }) {
           Produtos Recomendados
         </h2>
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 xl:gap-x-8">
-          {products.map((product) =>
+          {productsList.map((product) =>
             product.node.id === current ? null : (
               <ProductCard
                 key={product.node.id}
                 product={product}
-                collection={collection}
+                category={product.node}
               />
             )
           )}
