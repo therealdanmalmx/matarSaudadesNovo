@@ -104,11 +104,11 @@ export default function Navbar() {
             <HeartIcon className="h-6 w-6 cursor-pointer" />
           </Link>
         </div>
-        <div className="header-cart flex w-10 flex-row">
-          <ShoppingBagIcon
-            className="h-6 w-6 cursor-pointer"
-            onClick={() => setCartOpen(!cartOpen)}
-          />
+        <div
+          className="header-cart flex w-10 cursor-pointer"
+          onClick={() => setCartOpen(!cartOpen)}
+        >
+          <ShoppingBagIcon className="h-6 w-6" />
           {!cartQuantity ? null : (
             <p className="relative -left-2 flex h-4 w-4 items-center justify-center rounded-full bg-red text-center text-xs font-bold text-white">
               {!cartQuantity ? null : cartQuantity}
