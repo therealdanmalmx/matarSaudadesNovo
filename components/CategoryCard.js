@@ -3,10 +3,10 @@ import Image from "next/image";
 
 const CategoryCard = ({ category }) => {
   const { handle, title } = category;
-  const { originalSrc } = category.node.images.edges[0].node;
+  const { url } = category.node.images.edges[0].node;
   return (
     <div>
-      <h2 className="text-gray-900 mb-12 text-center text-2xl font-extrabold">
+      <h2 className="mb-12 text-center text-2xl font-extrabold text-gray-900">
         Categorias
       </h2>
       <div className="container mx-auto flex max-w-7xl cursor-pointer justify-between">
@@ -19,7 +19,7 @@ const CategoryCard = ({ category }) => {
           >
             <ul>
               <Image
-                src={originalSrc}
+                src={url}
                 alt={title}
                 objectFit="cover"
                 priority
@@ -27,7 +27,7 @@ const CategoryCard = ({ category }) => {
                 width="150px"
                 className="ml-2 rounded-full"
               />
-              <li className="text-gray-900 text-center text-lg font-bold">
+              <li className="text-center text-lg font-bold text-gray-900">
                 {title}
               </li>
             </ul>

@@ -45,7 +45,9 @@ export default function Navbar() {
             />
           </div>
           <div className="header-account">
-            <BiUser className="h-6 w-6" />
+            <Link href="/my-account" passHref>
+              <BiUser className="h-6 w-6 cursor-pointer" />
+            </Link>
           </div>
           <div className="header-nav-wrapper flex-auto text-right">
             <ul className="inline-flex">
@@ -107,8 +109,7 @@ export default function Navbar() {
             className="h-6 w-6 cursor-pointer"
             onClick={() => setCartOpen(!cartOpen)}
           />
-          <MiniCart cart={cart} />
-          ({cartQuantity})
+          <MiniCart cart={cart} />({cartQuantity})
         </div>
 
         <div className="flex items-center md:hidden">

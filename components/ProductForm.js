@@ -8,7 +8,7 @@ export default function ProductForm({ produto }) {
 
   const variants = produto.variants.edges?.map((variant) => {
     return {
-      image: produto.images.edges[0].node.originalSrc,
+      image: produto.images.edges[0].node.url,
       id: variant.node.id,
       quantity: 1,
       price: produto.priceRange.minVariantPrice.amount,
