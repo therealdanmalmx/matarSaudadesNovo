@@ -5,7 +5,7 @@ function RecommendedList({ products, collection, current }) {
   console.log({ products });
   console.log({ collection });
   return (
-    <div className="bg-white">
+    <div className="bg-white md:mt-40">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-2 sm:px-6 lg:max-w-7xl lg:px-8 lg:py-8">
         <h2 className="mb-6 text-center text-2xl font-extrabold text-gray-900">
           Produtos Recomendados
