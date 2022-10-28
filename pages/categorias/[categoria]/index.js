@@ -30,6 +30,7 @@ export const getStaticProps = async ({ params }) => {
 
 const Categoria = ({ categoria }) => {
   const products = categoria.products.edges;
+  console.log({ categoria });
 
   return (
     <div className="bg-white">
