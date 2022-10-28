@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-20 border-b bg-white">
-      <nav className="mx-auto flex max-w-6xl items-center px-4 pt-4 pb-2 transition-opacity duration-1000 ease-in-out lg:max-w-screen-xl">
+      <nav className="lg:max-w-screen-1.5xl mx-auto flex max-w-6xl items-center justify-between px-4 pt-4 pb-2 transition-opacity duration-1000 ease-in-out">
         {showSearch ? (
           <Search
             className="transition-opacity delay-75 duration-1000 ease-in-out"
@@ -104,18 +104,16 @@ export default function Navbar() {
             <HeartIcon className="h-6 w-6 cursor-pointer" />
           </Link>
         </div>
-        <div className="header-cart flex">
+        <div className="header-cart flex w-10 flex-row">
           <ShoppingBagIcon
             className="h-6 w-6 cursor-pointer"
             onClick={() => setCartOpen(!cartOpen)}
           />
-          <div>
-            {!cartQuantity ? null : (
-              <p className="relative -left-2 flex h-4 w-4 items-center justify-center rounded-full bg-red text-center text-xs font-bold text-white ">
-                {!cartQuantity ? null : cartQuantity}
-              </p>
-            )}
-          </div>
+          {!cartQuantity ? null : (
+            <p className="relative -left-2 flex h-4 w-4 items-center justify-center rounded-full bg-red text-center text-xs font-bold text-white">
+              {!cartQuantity ? null : cartQuantity}
+            </p>
+          )}
           <MiniCart cart={cart} />
         </div>
 
