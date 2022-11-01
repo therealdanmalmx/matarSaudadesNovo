@@ -1,10 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "Yup";
+import * as Yup from "yup";
 import YupPassword from "yup-password";
 YupPassword(Yup);
 
 const initialValues = {
-  name: "",
   email: "",
   password: "",
 };
@@ -14,7 +13,6 @@ const onSubmit = (values) => {
 };
 
 const validationSchema = Yup.object({
-  name: Yup.string().required("Obrigatório"),
   email: Yup.string()
     .email("A formação do email está errado (e.g: pedro.lavrados@gmail.com")
     .required("Obrigatório"),
@@ -38,28 +36,26 @@ function Login() {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form
-          action="#"
-          className="app__contact-form flex w-full flex-col items-start justify-center"
-        >
+        <Form className="app__contact-form flex w-full flex-col items-start justify-center">
           <label className="mb-3">Nome de utilizador ou email *</label>
           <Field
-            type="text"
-            name="name"
-            placeholder="Nome"
             className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 shadow-inner focus:outline-none"
+            type="email"
+            name="email"
+            placeholder="Email"
           />
           <ErrorMessage name="name" />
           <label className="mb-3">Palavra passed *</label>
           <Field
+            className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 shadow-inner focus:outline-none"
             type="password"
             name="password"
             placeholder="Palavra passe"
-            className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 shadow-inner focus:outline-none"
           />
           <ErrorMessage name="password" />
-
-          <button className="btn btn-red w-full">Enviar</button>
+          <button type="submit" className="btn btn-red mt-4 w-full">
+            Enviar
+          </button>
         </Form>
       </Formik>
     </div>
