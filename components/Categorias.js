@@ -22,16 +22,13 @@ function Categories({ collections }) {
             passHref
             key={collection.node.id}
           >
-            <ul className="mb-5">
+            <ul>
               <Image
                 src={collection.node.image.url}
                 alt={collection.node.title}
-                objectFit="cover"
-                layout="fixed"
-                priority
-                height="150px"
-                width="150px"
-                className="rounded-full border-2 border-solid border-slate-600"
+                height={150}
+                width={150}
+                className="h-36 w-36 rounded-full"
               />
               <li className="mt-3 text-center text-xl font-normal text-grey-75">
                 {t(collection.node.title)}
