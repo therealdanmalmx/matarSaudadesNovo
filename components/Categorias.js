@@ -28,7 +28,7 @@ function Categories({ collections }) {
                 alt={collection.node.title}
                 height={150}
                 width={150}
-                className="h-36 w-36 rounded-full"
+                className="inline h-36 w-36 rounded-full"
               />
               <li className="mt-3 text-center text-xl font-normal text-grey-75">
                 {t(collection.node.title)}
