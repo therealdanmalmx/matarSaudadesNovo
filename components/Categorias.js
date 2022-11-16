@@ -17,6 +17,7 @@ function Categories({ collections }) {
       <div className="remove-scrollbar container mx-2.5 flex max-w-3xl cursor-pointer justify-between space-x-2.5 overflow-x-scroll md:mx-2.5 lg:mx-auto lg:max-w-7xl lg:space-x-5 xl:mx-auto 2xl:mx-auto">
         {collections.map((collection) => (
           <Link
+            legacyBehavior
             href={`/categorias/${t(collection.node.handle)}`}
             passHref
             key={collection.node.id}

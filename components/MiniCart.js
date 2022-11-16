@@ -83,6 +83,7 @@ export default function MiniCart({ cart }) {
                               >
                                 <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <Link
+                                    legacyBehavior
                                     href={`/categorias/bebidas/${product.handle}`}
                                     passHref
                                   >
@@ -103,6 +104,7 @@ export default function MiniCart({ cart }) {
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
                                         <Link
+                                          legacyBehavior
                                           href={`/categorias/bebidas/${product.handle}`}
                                           passHref
                                           className="cursor-pointer"
@@ -156,7 +158,7 @@ export default function MiniCart({ cart }) {
                         Shipping calculated at checkout.
                       </p>
                       <div className="mt-6">
-                        <Link href={checkoutUrl} passHref>
+                        <Link legacyBehavior href={checkoutUrl} passHref>
                           <button className="w-full rounded-md border bg-success px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-success-hover active:bg-success">
                             Checkout
                           </button>
