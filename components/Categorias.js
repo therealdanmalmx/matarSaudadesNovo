@@ -1,10 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import useTranslation from "next-translate/useTranslation";
 
-function Categories({ collections }) {
+import { useQuery } from "urql";
+import { GET_CATEGORIES } from "../lib/query";
+
+const Categories = () => {
+  const URL = process.env.BASE_URL;
+
+  const [results] = useQuery({ query: GET_CATEGORIES });
+  const { data, fetching, error } = results;
   let { t } = useTranslation("common");
+
+  console.log({ results });
+
+  if (fetching) {
+    return <p>Loading...</p>;
+  }
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+  const categorias = data.categorias.data;
 
   return (
     <section className="categories bg-grey-light pt-10  lg:py-36">
@@ -15,30 +31,33 @@ function Categories({ collections }) {
         {t("categories.category")}
       </h2>
       <div className="remove-scrollbar container mx-2.5 flex max-w-3xl cursor-pointer justify-between space-x-2.5 overflow-x-scroll md:mx-2.5 lg:mx-auto lg:max-w-7xl lg:space-x-5 xl:mx-auto 2xl:mx-auto">
-        {collections.map((collection) => (
-          <Link
-            legacyBehavior
-            href={`/categorias/${t(collection.node.handle)}`}
-            passHref
-            key={collection.node.id}
-          >
-            <ul>
-              <Image
-                src={collection.node.image.url}
-                alt={collection.node.title}
-                height={150}
-                width={150}
-                className="inline h-36 w-36 rounded-full"
-              />
-              <li className="mt-3 text-center text-xl font-normal text-grey-75">
-                {t(collection.node.title)}
-              </li>
-            </ul>
-          </Link>
-        ))}
+        {categorias.map((category, index) => {
+          const image = category.attributes.image.data.attributes.url;
+          const { id } = category;
+          return (
+            <Link
+              href={`/categorias/${t(category.attributes.title.toLowerCase())}`}
+              passHref
+              key={id}
+            >
+              <ul>
+                <Image
+                  src={`http://localhost:1337${image}`}
+                  alt={`Imagem de ${category.attributes.title}`}
+                  height={100}
+                  width={100}
+                  className="inline h-36 w-36 rounded-full"
+                />
+                <li className="mt-3 text-center text-xl font-normal text-grey-75">
+                  {t(category.attributes.title)}
+                </li>
+              </ul>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );
-}
+};
 
 export default Categories;
