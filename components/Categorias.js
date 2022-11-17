@@ -30,7 +30,7 @@ const Categories = () => {
       <h2 className="mb-12 text-center text-5xl font-bold text-red">
         {t("categories.category")}
       </h2>
-      <div className="remove-scrollbar container mx-2.5 flex max-w-full cursor-pointer justify-between space-x-2.5 overflow-x-scroll md:mx-auto md:max-w-7xl md:space-x-5">
+      <div className="remove-scrollbar container mx-auto flex w-11/12 max-w-3xl cursor-pointer justify-between space-x-2.5 overflow-x-scroll md:mx-auto md:max-w-7xl md:space-x-5">
         {categorias.map((category) => {
           const image = category.attributes.image.data.attributes;
           const { id } = category;
@@ -40,7 +40,7 @@ const Categories = () => {
               passHref
               key={id}
             >
-              <ul className="h-full w-36">
+              <ul className="h-full w-36 md:w-full">
                 <Image
                   src={`http://localhost:1337${image.url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
@@ -49,7 +49,7 @@ const Categories = () => {
                   className="h-36 w-36 rounded-full"
                 />
                 {t(category.attributes.title)}
-                <li className="mt-3 text-center text-base font-normal text-grey-75 md:text-xl"></li>
+                <li className="mt-3 w-full text-center text-base font-normal text-grey-75 md:text-xl"></li>
               </ul>
             </Link>
           );
