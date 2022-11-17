@@ -92,8 +92,8 @@ p {
 }
 
 ul.slick-dots {
-  position:absolute;
-  bottom:20px;
+  position: absolute;
+  bottom: 20px;
 }
 
 ul.slick-dots li button:before {

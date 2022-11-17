@@ -45,23 +45,23 @@ export default function Navbar() {
             />
           </div>
           <div className="header-account">
-            <Link href="/my-account" passHref>
+            <Link legacyBehavior href="/my-account" passHref>
               <BiUser className="h-6 w-6 cursor-pointer" />
             </Link>
           </div>
           <div className="header-nav-wrapper flex-auto text-right">
             <ul className="inline-flex">
-              <Link href="/" passHref>
+              <Link legacyBehavior href="/" passHref>
                 <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.home")}
                 </a>
               </Link>
-              <Link href="/about" passHref>
+              <Link legacyBehavior href="/about" passHref>
                 <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.about")}
                 </a>
               </Link>
-              <Link href="/product" passHref>
+              <Link legacyBehavior href="/product" passHref>
                 <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.product")}
                 </a>
@@ -70,7 +70,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className="header-col flex-auto sm:text-left md:text-center">
-          <Link href="/" passHref>
+          <Link legacyBehavior href="/" passHref>
             <a>
               <span className="pt-1 text-lg font-bold">
                 <Image
@@ -86,12 +86,12 @@ export default function Navbar() {
         <div className="header-col hidden flex-auto items-center justify-end md:flex">
           <div className="header-nav-wrapper flex-auto text-left">
             <ul className="inline-flex">
-              <Link href="/news" passHref>
+              <Link legacyBehavior href="/news" passHref>
                 <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.news")}
                 </a>
               </Link>
-              <Link href="/contacts" passHref>
+              <Link legacyBehavior href="/contacts" passHref>
                 <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
                   {t("menu.contacts")}
                 </a>
@@ -100,7 +100,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className="header-wishlist pr-4">
-          <Link href="/wishlist" passHref>
+          <Link legacyBehavior href="/wishlist" passHref>
             <HeartIcon className="h-6 w-6 cursor-pointer" />
           </Link>
         </div>
@@ -160,27 +160,27 @@ export default function Navbar() {
       <div className={`mobile-menu ${isOpen ? "block" : "hidden"}`}>
         <ul className="block">
           <li>
-            <Link href="/" passHref>
+            <Link legacyBehavior href="/" passHref>
               <a className="px-4">{t("menu.home")}</a>
             </Link>
           </li>
           <li>
-            <Link href="/about" passHref>
+            <Link legacyBehavior href="/about" passHref>
               <a className="px-4">{t("menu.about")}</a>
             </Link>
           </li>
           <li>
-            <Link href="/products" passHref>
+            <Link legacyBehavior href="/products" passHref>
               <a className="px-4">{t("menu.product")}</a>
             </Link>
           </li>
           <li>
-            <Link href="/news" passHref>
+            <Link legacyBehavior href="/news" passHref>
               <a className="px-4">{t("menu.news")}</a>
             </Link>
           </li>
           <li>
-            <Link href="/products" passHref>
+            <Link legacyBehavior href="/products" passHref>
               <a className="px-4">{t("menu.contacts")}</a>
             </Link>
           </li>

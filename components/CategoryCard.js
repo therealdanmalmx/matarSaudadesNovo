@@ -13,6 +13,7 @@ const CategoryCard = ({ category }) => {
         {collections.map((collection) => (
           // <CategoryCard key={category.node.id} product={category}/>
           <Link
+            legacyBehavior
             href={`/categories/${handle}`}
             key={collection.node.id}
             passHref
