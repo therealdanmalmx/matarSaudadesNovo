@@ -41,7 +41,7 @@ const Categories = () => {
                 <Image
                   src={`http://localhost:1337${image}`}
                   alt={`Imagem de ${category.attributes.title}`}
-                  height={150}
+                  height={100}
                   width={100}
                   className="inline h-36 w-36 rounded-full"
                 />
