@@ -30,9 +30,9 @@ const Categories = () => {
       <h2 className="mb-12 text-center text-5xl font-bold text-red">
         {t("categories.category")}
       </h2>
-      <div className="remove-scrollbar container mx-2.5 flex max-w-3xl cursor-pointer justify-between space-x-2.5 overflow-x-scroll md:mx-2.5 lg:mx-auto lg:max-w-7xl lg:space-x-5 xl:mx-auto 2xl:mx-auto">
-        {categorias.map((category, index) => {
-          const image = category.attributes.image.data.attributes.url;
+      <div className="remove-scrollbar container mx-2.5 flex max-w-full cursor-pointer justify-between space-x-2.5 overflow-x-scroll md:mx-auto md:max-w-7xl md:space-x-5">
+        {categorias.map((category) => {
+          const image = category.attributes.image.data.attributes;
           const { id } = category;
           return (
             <Link
@@ -42,13 +42,13 @@ const Categories = () => {
             >
               <ul>
                 <Image
-                  src={`http://localhost:1337${image}`}
+                  src={`http://localhost:1337${image.url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
-                  height={100}
-                  width={100}
-                  className="inline h-36 w-36 rounded-full"
+                  height={300}
+                  width={200}
+                  className="relative inline h-36 w-36 rounded-full"
                 />
-                <li className="mt-3 text-center text-xl font-normal text-grey-75">
+                <li className="mt-3 text-center text-base font-normal text-grey-75 md:text-xl">
                   {t(category.attributes.title)}
                 </li>
               </ul>
