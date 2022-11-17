@@ -36,14 +36,14 @@ const Categories = () => {
           const { id } = category;
           return (
             <Link
-              href={`/categorias/${t(category.attributes.title.toLowerCase())}`}
+              href={`/categorias/${t(category.attributes.slug)}`}
               passHref
               key={id}
             >
               <ul>
                 <Image
                   src={`http://localhost:1337${image}`}
-                  alt={`Imagem de ${category.attributes.title}`}
+                  alt={`Imagem de ${category.attributes.slug}`}
                   height={100}
                   width={100}
                   className="inline h-36 w-36 rounded-full"
