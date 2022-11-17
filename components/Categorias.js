@@ -40,17 +40,16 @@ const Categories = () => {
               passHref
               key={id}
             >
-              <ul>
+              <ul className="h-full w-36">
                 <Image
                   src={`http://localhost:1337${image.url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
                   height={300}
                   width={200}
-                  className="relative inline h-36 w-36 rounded-full"
+                  className="h-36 w-36 rounded-full"
                 />
-                <li className="mt-3 text-center text-base font-normal text-grey-75 md:text-xl">
-                  {t(category.attributes.title)}
-                </li>
+                {t(category.attributes.title)}
+                <li className="mt-3 text-center text-base font-normal text-grey-75 md:text-xl"></li>
               </ul>
             </Link>
           );
