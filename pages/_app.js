@@ -9,7 +9,9 @@ import { Provider, createClient } from "urql";
 import getConfig from "next/config";
 
 const { publicRuntimeConfig } = getConfig();
-const client = createClient({ url: "http://localhost:1337/graphql" });
+
+console.log({ publicRuntimeConfig });
+const client = createClient({ url: process.env.NEXT_PUBLIC_STRAPI_GRAPHQL });
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   return (

@@ -3,12 +3,12 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 
 import { useQuery } from "urql";
-import { GET_CATEGORIES } from "../lib/query";
+import { getCategories } from "../lib/query";
 
 const Categories = () => {
-  const URL = process.env.BASE_URL;
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-  const [results] = useQuery({ query: GET_CATEGORIES });
+  const [results] = useQuery({ query: getCategories });
   const { data, fetching, error } = results;
   let { t } = useTranslation("common");
 
@@ -42,14 +42,15 @@ const Categories = () => {
             >
               <ul className="h-full w-36 md:w-full">
                 <Image
-                  src={`http://localhost:1337${image.url}`}
+                  src={`${BASE_URL}${image.url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
                   height={300}
                   width={200}
                   className="h-36 w-36 rounded-full"
                 />
-                {t(category.attributes.title)}
-                <li className="mt-3 w-full text-center text-base font-normal text-grey-75 md:text-xl"></li>
+                <li className="mt-3 w-full text-center text-base text-grey-75 md:text-lg">
+                  {t(category.attributes.title)}
+                </li>
               </ul>
             </Link>
           );
