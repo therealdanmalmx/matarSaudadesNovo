@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 export default function MiniCart({ cart }) {
   const cancelButtonRef = useRef();
   const { cartOpen, setCartOpen, checkoutUrl, removeCartItem } = useContext(CartContext);
+  console.log(cartOpen);
 
   let cartTotal = 0;
   cart.map((item) => {
@@ -20,12 +21,12 @@ export default function MiniCart({ cart }) {
     <div
         initialFocus={cancelButtonRef}
         as="div"
-        className="fixed right-0 top-0 h-full w-full z-50 bg-black/[0.7] flex justify-end"
+        className={`fixed right-0 top-0 h-full w-full z-50 flex bg-black/[0.7] justify-end`}
         onClose={() => {
-          setCartOpen(!cartOpen);
+          setCartOpen(false);
         }}
       >
-      <div className="w-1/4 bg-white p-8 overflow-scroll relative">
+      <div className='w-1/4 bg-white p-8 overflow-scroll relative'>
             <div className="ml-3 flex h-7 items-center absolute right-5 top-5">
               <button
                 ref={cancelButtonRef}

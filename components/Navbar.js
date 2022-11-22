@@ -114,7 +114,7 @@ export default function Navbar() {
               {!cartQuantity ? null : cartQuantity}
             </p>
           )}
-          <MiniCart cart={cart} />
+          { cartOpen && <MiniCart cart={cart} /> }
         </div>
 
         <div className="flex items-center md:hidden">
