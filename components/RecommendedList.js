@@ -2,7 +2,6 @@ import { getProductsInCollections } from "../lib/Shopify";
 import ProductCard from "../components/ProductCard";
 
 function RecommendedList({ products, current }) {
-  console.log({ products });
   console.log(products.collection);
   const productsList = products.collections.edges[0].node.products.edges;
   return (

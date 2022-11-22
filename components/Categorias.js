@@ -12,8 +12,6 @@ const Categories = () => {
   const { data, fetching, error } = results;
   let { t } = useTranslation("common");
 
-  console.log({ results });
-
   if (fetching) {
     return <p>Loading...</p>;
   }

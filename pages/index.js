@@ -1,20 +1,27 @@
-import Link from 'next/link'
-import SlideShow from '../components/SliderShow'
-import Categorias from '../components/Categorias'
-import Banners from '../components/Banners'
-import About from '../components/About'
-import Newsletter from '../components/Newsletter'
-import { getCollections } from './../lib/Shopify';
-import useTranslation from 'next-translate/useTranslation';
-import slides from "../utils/slides"
+import Link from "next/link";
+import SlideShow from "../components/SliderShow";
+import Categorias from "../components/Categorias";
+import Banners from "../components/Banners";
+import About from "../components/About";
+import Newsletter from "../components/Newsletter";
+import { getCollections } from "./../lib/Shopify";
+import useTranslation from "next-translate/useTranslation";
+import slides from "../utils/slides";
+import { useQuery } from "urql";
+import { getAllProducts } from "../lib/query";
 
 function Home({ collections }) {
   let { t } = useTranslation();
+  const [results] = useQuery({ query: getAllProducts });
+
+  const { data, fetching, error } = results;
+
+  console.log({ data });
 
   return (
-    <div className="text-center justify-start items-start">
+    <div className="items-start justify-start text-center">
       <SlideShow slides={slides} />
-      <Categorias collections={collections}/>
+      <Categorias collections={collections} />
       <Banners />
       <About />
       <Newsletter />
