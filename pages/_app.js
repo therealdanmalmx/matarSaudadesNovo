@@ -6,20 +6,18 @@ import Layout from "../components/Layout";
 import ShopProvider from "../context/ShopContext";
 import { useRouter } from "next/router";
 import { Provider, createClient } from "urql";
-import getConfig from "next/config";
 
-const { publicRuntimeConfig } = getConfig();
-const client = createClient({ url: "http://localhost:1337/graphql" });
+const client = createClient({ url: process.env.NEXT_PUBLIC_STRAPI_GRAPHQL });
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   return (
-    <Provider value={client}>
-      <ShopProvider>
+    <ShopProvider>
+      <Provider value={client}>
         <Layout>
           <Component {...pageProps} key={router.asPath} />
         </Layout>
-      </ShopProvider>
-    </Provider>
+      </Provider>
+    </ShopProvider>
   );
 }
 

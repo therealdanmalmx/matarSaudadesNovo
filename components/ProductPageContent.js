@@ -2,18 +2,22 @@ import Image from "next/image";
 import ProductForm from "./ProductForm";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 import RecommendedList from "./RecommendedList";
 
-export default function ProductPageContent({ produto }) {
+export default function ProductPageContent({ product }) {
   const images = [];
 
-  produto.images.edges.map((image, i) => {
+  product.map((product, i) => {
+    console.log("ppcontent", product);
+    const { url } = product.attributes.image.data.attributes;
+    const { slug } = product.attributes.slug;
     images.push(
       <SwiperSlide key={`slide-${i}`}>
         <Image
-          src={image.node.url}
-          alt={image.node.altText}
+          src={`${BASE_URL}${url}`}
+          alt={`${slug} logo`}
           layout="fill"
           objectFit="cover"
           priority
@@ -46,10 +50,10 @@ export default function ProductPageContent({ produto }) {
           )}
         </div>
         <div className="w-full md:w-1/3">
-          <ProductForm produto={produto} />
+          <ProductForm produto={product} />
         </div>
       </div>
-      <RecommendedList current={produto.id} products={produto} />
+      {/* <RecommendedList current={product.id} products={product} /> */}
     </div>
   );
 }

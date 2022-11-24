@@ -44,22 +44,22 @@ const ProductCard = ({ product, category }) => {
         <div className="flex w-20 justify-between">
           <button
             className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
-            onClick={() => setCount(++count)}
+            onClick={() => setCount(--count)}
           >
-            +
+            -
           </button>
           <input
             maxLength="2"
             className="h-6 w-6 rounded-full border text-center"
-            type="text"
+            type="output"
             id="quantity"
             value={count < 1 ? setCount(1) : count > 99 ? setCount(1) : count}
           />
           <button
             className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
-            onClick={() => setCount(--count)}
+            onClick={() => setCount(++count)}
           >
-            -
+            +
           </button>
         </div>
       </div>
