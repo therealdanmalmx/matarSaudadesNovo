@@ -56,7 +56,7 @@ function ProductDetails() {
   const { data, fetching, error } = results;
 
   if (fetching) {
-    return <p>Loading...</p>;
+    return <p className="text-center">Loading...</p>;
   }
   if (error) {
     return <p>Error: {error.message}</p>;
