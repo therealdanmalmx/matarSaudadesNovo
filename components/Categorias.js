@@ -18,6 +18,8 @@ const Categories = () => {
   if (error) {
     return <p>Error: {error.message}</p>;
   }
+
+  console.log({ data });
   const categorias = data.categorias.data;
 
   return (
@@ -28,7 +30,7 @@ const Categories = () => {
       <h2 className="mb-12 text-center text-5xl font-bold text-red">
         {t("categories.category")}
       </h2>
-      <div className="remove-scrollbar container mx-auto flex w-11/12 max-w-3xl cursor-pointer justify-between space-x-2.5 overflow-x-scroll md:mx-auto md:max-w-7xl md:space-x-5">
+      <div className="remove-scrollbar cursoproductr-pointer container mx-auto flex w-11/12 max-w-3xl justify-between space-x-2.5 overflow-x-scroll md:mx-auto md:max-w-7xl md:space-x-5">
         {categorias.map((category) => {
           const image = category.attributes.image.data.attributes;
           const { id } = category;

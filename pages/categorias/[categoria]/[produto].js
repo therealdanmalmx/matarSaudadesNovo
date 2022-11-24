@@ -66,7 +66,7 @@ function ProductDetails() {
 
   return (
     <div className="min-h-screen py-12 sm:pt-20">
-      <ProductPageContent produto={data.produtos.data[0].attributes} />
+      <ProductPageContent product={data.produtos.data} />
     </div>
   );
 }

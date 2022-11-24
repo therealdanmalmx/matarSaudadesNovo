@@ -6,16 +6,17 @@ import { useContext } from "react";
 export default function ProductForm({ produto }) {
   const { addToCart } = useContext(CartContext);
 
-  const variants = produto.variants.edges?.map((variant) => {
+  const products = produto.map((product) => {
+    console.log({ product });
     return {
-      image: produto.images.edges[0].node.url,
-      id: variant.node.id,
+      image: product.attributes.image.data.url,
+      id: product.id,
       quantity: 1,
-      price: produto.priceRange.minVariantPrice.amount,
+      price: product.attributes.price,
     };
   });
 
-  const { title, description } = produto;
+  const { title, description, price } = produto[0].attributes;
   let { t } = useTranslation("common");
 
   return (
@@ -24,12 +25,12 @@ export default function ProductForm({ produto }) {
         {title}
       </p>
       <span className="font-merriweather text-xl leading-10">
-        {formatter.format(produto.priceRange.minVariantPrice.amount)}
+        {formatter.format(price)}
       </span>
       <p className="font-noto-sans mt-2 leading-6 md:mt-4">{description}</p>
       <button
         onClick={() => {
-          addToCart(variants);
+          addToCart(products);
         }}
         className="font-inter mt-6 bg-red px-2 py-4 font-bold text-white duration-300 ease-in-out hover:border-2 md:h-12 md:w-28 md:px-3 md:py-2 md:hover:bg-white md:hover:text-red"
       >
