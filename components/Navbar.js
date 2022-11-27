@@ -106,7 +106,7 @@ export default function Navbar() {
         </div>
         <div
           className="header-cart flex w-10 cursor-pointer"
-          onClick={() => setCartOpen(!cartOpen)}
+          onClick={() => setCartOpen(true)}
         >
           <ShoppingBagIcon className="h-6 w-6" />
           {!cartQuantity ? null : (
