@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/outline";
 import { BiUser } from "react-icons/bi";
 import useTranslation from "next-translate/useTranslation";
-import MiniCart from "./MiniCart";
+import Cart from "./Cart";
 import { CartContext } from "../context/ShopContext";
 import Search from "../components/Search";
 import wishlist from "../pages/wishlist";
@@ -114,7 +114,7 @@ export default function Navbar() {
               {!cartQuantity ? null : cartQuantity}
             </p>
           )}
-          { cartOpen && <MiniCart cart={cart} /> }
+          { cartOpen && <Cart /> }
         </div>
 
         <div className="flex items-center md:hidden">
