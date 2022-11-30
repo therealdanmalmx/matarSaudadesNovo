@@ -2,22 +2,25 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { formatter } from "../utils/helpers";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-const ProductCard = ({ product, category }) => {
+const ProductCard = ({ product }) => {
+  console.log({ product });
+
   let [count, setCount] = useState(1);
-  const { title, handle } = product.node;
-  const { altText, url } = product.node.images.edges[0].node;
-  const price = product.node.priceRange.minVariantPrice.amount;
+  const { title, slug, price } = product;
+  const { url } = product.image.data.attributes;
+  const categoria = product.categoria.data.attributes.slug;
 
   return (
     <div>
-      <Link legacyBehavior href={`/categorias/${category}/${handle}`} passHref>
+      <Link legacyBehavior href={`/${categoria}/${slug}`} passHref>
         <a>
           <div className="mx-auto w-full">
             <div className="relative h-72 group-hover:opacity-75">
               <Image
-                src={url}
-                alt={altText}
+                src={`${BASE_URL}${url}`}
+                alt={`${slug} logo`}
                 layout="fill"
                 objectFit="cover"
                 priority

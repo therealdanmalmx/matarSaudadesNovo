@@ -54,9 +54,9 @@
 // export default Categoria;
 
 import { useQuery } from "urql";
-import { getAllProducts } from "../../../lib/query";
+import { getAllProducts } from "../../lib/query";
 import { useRouter } from "next/router";
-import ProductCard from "../../../components/ProductCard";
+import ProductCard from "../../components/ProductCard";
 
 function ProductDetails() {
   const { query } = useRouter();
