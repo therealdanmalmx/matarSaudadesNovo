@@ -44,13 +44,13 @@ import ProductPageContent from "../../../components/ProductPageContent";
 // }
 
 import { useQuery } from "urql";
-import { getProductOne } from "../../../lib/query";
+import { getOneProduct } from "../../../lib/query";
 import { useRouter } from "next/router";
 
 function ProductDetails() {
   const { query } = useRouter();
   const [results] = useQuery({
-    query: getProductOne,
+    query: getOneProduct,
     variables: { slug: query.produto },
   });
   const { data, fetching, error } = results;
