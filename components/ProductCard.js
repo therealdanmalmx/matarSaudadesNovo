@@ -56,7 +56,9 @@ const ProductCard = ({ product }) => {
             className="h-6 w-6 rounded-full border text-center"
             type="output"
             id="quantity"
-            value={count < 1 ? setCount(1) : count > 99 ? setCount(1) : count}
+            defaultValue={
+              count < 1 ? setCount(1) : count > 99 ? setCount(1) : count
+            }
           />
           <button
             className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
