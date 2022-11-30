@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
 
   let [count, setCount] = useState(1);
   const { title, slug, price } = product;
-  const { url } = product.image.data.attributes;
+  const { url, alternativeText } = product.image.data.attributes;
   const categoria = product.categoria.data.attributes.slug;
 
   return (
@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
             <div className="relative h-72 group-hover:opacity-75">
               <Image
                 src={`${BASE_URL}${url}`}
-                alt={`${slug} logo`}
+                alt={alternativeText}
                 layout="fill"
                 objectFit="cover"
                 priority
