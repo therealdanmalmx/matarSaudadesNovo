@@ -7,8 +7,8 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const ProductCard = ({ product }) => {
   const { title, slug, price } = product;
-  const { quantity, addQuantity, removeQuantity } = useStoreContext();
   const { url, alternativeText } = product.image.data.attributes;
+  const { quantity, addQuantity, removeQuantity } = useStoreContext();
   const categoria = product.categoria.data.attributes.slug;
 
   return (
@@ -57,8 +57,8 @@ const ProductCard = ({ product }) => {
             value={quantity}
           />
           <button
-            onClick={addQuantity}
             className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
+            onClick={addQuantity}
           >
             +
           </button>
