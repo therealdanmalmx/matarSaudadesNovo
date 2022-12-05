@@ -12,10 +12,9 @@ import useTranslation from "next-translate/useTranslation";
 import MiniCart from "./MiniCart";
 import { CartContext } from "../context/ShopContext";
 import Search from "../components/Search";
-import wishlist from "../pages/wishlist";
 
 export default function Navbar() {
-  const { cart, cartOpen, setCartOpen } = useContext(CartContext);
+  // const { cart, cartOpen, setCartOpen } = useContext(CartContext);
   const [showSearch, setShowSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 

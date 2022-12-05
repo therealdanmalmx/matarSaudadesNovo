@@ -1,18 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { formatter } from "../utils/helpers";
+import { useStoreContext } from "../context/NewContext";
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const ProductCard = ({ product }) => {
   const { title, slug, price } = product;
+  const { quantity, addQuantity, removeQuantity } = useStoreContext();
   const { url, alternativeText } = product.image.data.attributes;
   const categoria = product.categoria.data.attributes.slug;
-  const [count, setCount] = useState(1);
-
-  const countValue = () => {
-    return count < 1 ? setCount(1) : count > 99 ? setCount(1) : count;
-  };
 
   return (
     <div>
@@ -49,7 +46,7 @@ const ProductCard = ({ product }) => {
         <div className="flex w-20 justify-between">
           <button
             className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
-            onClick={() => setCount((prevState) => prevState - 1)}
+            onClick={removeQuantity}
           >
             -
           </button>
@@ -57,10 +54,10 @@ const ProductCard = ({ product }) => {
             className="h-6 w-6 rounded-full border text-center"
             type="text"
             id="quantity"
-            value={countValue()}
+            value={quantity}
           />
           <button
-            onClick={() => setCount((prevState) => prevState + 1)}
+            onClick={addQuantity}
             className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
           >
             +
