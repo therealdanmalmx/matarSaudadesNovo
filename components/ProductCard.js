@@ -8,7 +8,11 @@ const ProductCard = ({ product }) => {
   const { title, slug, price } = product;
   const { url, alternativeText } = product.image.data.attributes;
   const categoria = product.categoria.data.attributes.slug;
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
+
+  const countValue = () => {
+    return count < 1 ? setCount(1) : count > 99 ? setCount(1) : count;
+  };
 
   return (
     <div>
@@ -53,7 +57,7 @@ const ProductCard = ({ product }) => {
             className="h-6 w-6 rounded-full border text-center"
             type="text"
             id="quantity"
-            value={count < 1 ? setCount(1) : count > 99 ? setCount(1) : count}
+            value={countValue()}
           />
           <button
             onClick={() => setCount((prevState) => prevState + 1)}
