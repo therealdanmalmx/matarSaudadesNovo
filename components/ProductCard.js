@@ -5,19 +5,17 @@ import { formatter } from "../utils/helpers";
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const ProductCard = ({ product }) => {
-  console.log({ product });
-
-  let [count, setCount] = useState(1);
   const { title, slug, price } = product;
   const { url, alternativeText } = product.image.data.attributes;
   const categoria = product.categoria.data.attributes.slug;
+  const [count, setCount] = useState(0);
 
   return (
     <div>
       <Link legacyBehavior href={`/${categoria}/${slug}`} passHref>
         <a>
-          <div className="mx-auto w-full">
-            <div className="relative h-72 group-hover:opacity-75">
+          <div className="mx-auto w-60 md:w-full">
+            <div className="relative h-56 group-hover:opacity-75 md:h-72">
               <Image
                 src={`${BASE_URL}${url}`}
                 alt={alternativeText}
@@ -47,22 +45,25 @@ const ProductCard = ({ product }) => {
         <div className="flex w-20 justify-between">
           <button
             className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
-            onClick={() => setCount(--count)}
+            onClick={() => setCount((prevState) => prevState - 1)}
           >
             -
           </button>
           <input
-            maxLength="2"
             className="h-6 w-6 rounded-full border text-center"
-            type="output"
+            type="text"
             id="quantity"
-            defaultValue={
-              count < 1 ? setCount(1) : count > 99 ? setCount(1) : count
+            value={
+              count < 1
+                ? setCount((initial) => initial)
+                : count > 99
+                ? setCount(1)
+                : count
             }
           />
           <button
+            onClick={() => setCount((prevState) => prevState + 1)}
             className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
-            onClick={() => setCount(++count)}
           >
             +
           </button>

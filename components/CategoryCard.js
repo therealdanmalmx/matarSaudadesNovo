@@ -18,20 +18,16 @@ const CategoryCard = ({ category }) => {
             key={collection.node.id}
             passHref
           >
-            <ul>
-              <Image
-                src={url}
-                alt={title}
-                objectFit="cover"
-                priority
-                height="150px"
-                width="150px"
-                className="ml-2 rounded-full"
-              />
-              <li className="text-center text-lg font-bold text-gray-900">
-                {title}
-              </li>
-            </ul>
+            <Image
+              src={url}
+              alt={title}
+              objectFit="cover"
+              priority
+              height="150px"
+              width="150px"
+              className="ml-2 rounded-full"
+            />
+            {title}
           </Link>
         ))}
       </div>
