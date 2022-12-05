@@ -6,14 +6,10 @@ export const StateContext = ({ children }) => {
   const [quantity, setQuantity] = useState(1);
 
   const addQuantity = () => {
-    setQuantity((prevQuantity) => {
-      return prevQuantity + 1 > 99 ? 1 : prevQuantity + 1;
-    });
+    setQuantity(quantity + 1 > 99 ? 1 : quantity + 1);
   };
   const removeQuantity = () => {
-    setQuantity((prevQuantity) => {
-      return prevQuantity - 1 < 1 ? 1 : prevQuantity - 1;
-    });
+    setQuantity(quantity - 1 < 1 ? 1 : quantity - 1);
   };
   return (
     <StoreContext.Provider
