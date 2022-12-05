@@ -53,13 +53,7 @@ const ProductCard = ({ product }) => {
             className="h-6 w-6 rounded-full border text-center"
             type="text"
             id="quantity"
-            value={
-              count < 1
-                ? setCount((initial) => initial)
-                : count > 99
-                ? setCount(1)
-                : count
-            }
+            value={count < 1 ? setCount(1) : count > 99 ? setCount(1) : count}
           />
           <button
             onClick={() => setCount((prevState) => prevState + 1)}
