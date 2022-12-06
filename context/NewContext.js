@@ -7,6 +7,8 @@ export const StateContext = ({ children }) => {
   const [cartItems, setCartitems] = useState([]);
   const [quantity, setQuantity] = useState(1);
 
+  console.log({ cartItems });
+
   const addQuantity = () => {
     setQuantity(quantity + 1 > 99 ? 1 : quantity + 1);
   };

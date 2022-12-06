@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/outline";
 import { BiUser } from "react-icons/bi";
 import useTranslation from "next-translate/useTranslation";
-import MiniCart from "./MiniCart";
+import Cart from "./Cart";
 import Search from "../components/Search";
 
 export default function Navbar() {
@@ -99,7 +99,7 @@ export default function Navbar() {
         </div>
         <div
           className="header-cart flex w-10 cursor-pointer"
-          onClick={() => setCartOpen(!cartOpen)}
+          // onClick={() => setCartOpen(!cartOpen)}
         >
           <ShoppingBagIcon className="h-6 w-6" />
           {/* {!cartQuantity ? null : (
@@ -107,7 +107,7 @@ export default function Navbar() {
               {!cartQuantity ? null : cartQuantity}
             </p>
           )} */}
-          <MiniCart />
+          <Cart />
         </div>
 
         <div className="flex items-center md:hidden">
