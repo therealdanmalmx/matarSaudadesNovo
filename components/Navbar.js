@@ -10,7 +10,6 @@ import {
 import { BiUser } from "react-icons/bi";
 import useTranslation from "next-translate/useTranslation";
 import MiniCart from "./MiniCart";
-import { CartContext } from "../context/ShopContext";
 import Search from "../components/Search";
 
 export default function Navbar() {
@@ -18,11 +17,6 @@ export default function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  let cartQuantity = 0;
-
-  cart.map((item) => {
-    return (cartQuantity += item?.quantity);
-  });
   let { t } = useTranslation("common");
 
   return (
@@ -108,12 +102,12 @@ export default function Navbar() {
           onClick={() => setCartOpen(!cartOpen)}
         >
           <ShoppingBagIcon className="h-6 w-6" />
-          {!cartQuantity ? null : (
+          {/* {!cartQuantity ? null : (
             <p className="relative -left-2 flex h-4 w-4 items-center justify-center rounded-full bg-red text-center text-xs font-bold text-white">
               {!cartQuantity ? null : cartQuantity}
             </p>
-          )}
-          <MiniCart cart={cart} />
+          )} */}
+          <MiniCart />
         </div>
 
         <div className="flex items-center md:hidden">

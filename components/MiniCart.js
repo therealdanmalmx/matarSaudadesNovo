@@ -8,13 +8,8 @@ import { CartContext } from "../context/ShopContext";
 
 export default function MiniCart({ cart }) {
   const cancelButtonRef = useRef();
-  const { cartOpen, setCartOpen, checkoutUrl, removeCartItem } =
-    useContext(CartContext);
-
-  let cartTotal = 0;
-  cart.map((item) => {
-    cartTotal += item?.price * item?.quantity;
-  });
+  // const { cartOpen, setCartOpen, checkoutUrl, removeCartItem } =
+  //   useContext(CartContext);
 
   return (
     <Transition.Root show={cartOpen} as={Fragment}>
