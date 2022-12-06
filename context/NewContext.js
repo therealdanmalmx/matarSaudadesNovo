@@ -39,6 +39,7 @@ export const StateContext = ({ children }) => {
         addQuantity,
         removeQuantity,
         showCart,
+        cartItems,
         setShowCart,
         addToCart,
       }}

@@ -107,8 +107,8 @@ export default function Navbar() {
               {!cartQuantity ? null : cartQuantity}
             </p>
           )} */}
-          <Cart />
         </div>
+        <Cart />
 
         <div className="flex items-center md:hidden">
           <button
