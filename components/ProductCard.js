@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
       <Link legacyBehavior href={`/${categoria}/${slug}`} passHref>
         <a>
           <div className="mx-auto w-60 md:w-full">
-            <div className="relative h-56 group-hover:opacity-75 md:h-72">
+            <div className="relative h-64 group-hover:opacity-75 md:h-72">
               <Image
                 src={`${BASE_URL}${url}`}
                 alt={alternativeText}
@@ -26,44 +26,18 @@ const ProductCard = ({ product }) => {
               />
             </div>
           </div>
-          <p className="mr-2 text-center text-lg font-bold text-gray-900">
-            {title}
-          </p>
-          <p className="text-center text-xl text-gray-900">
-            {formatter.format(price)}
-          </p>
-        </a>
-      </Link>
-      <div className="mx-auto mt-4 flex flex-row items-center justify-around">
-        <div>
+          <div className="mx-auto mt-8 flex flex-row items-center justify-between">
+            <p className="text-lg font-bold text-gray-900">{title}</p>
+            <p className="text-md text-gray-900">{formatter.format(price)}</p>
+          </div>
           <button
-            className="w-fit bg-red py-2 px-6 text-center font-bold text-white"
+            className="mt-4 w-full bg-red py-2 px-6 text-center font-bold text-white"
             type="submit"
           >
             Adicionar
           </button>
-        </div>
-        <div className="flex w-20 justify-between">
-          <button
-            className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
-            onClick={removeQuantity}
-          >
-            -
-          </button>
-          <input
-            className="h-6 w-6 rounded-full border text-center"
-            type="text"
-            id="quantity"
-            value={quantity}
-          />
-          <button
-            className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
-            onClick={addQuantity}
-          >
-            +
-          </button>
-        </div>
-      </div>
+        </a>
+      </Link>
     </div>
   );
 };

@@ -2,9 +2,11 @@ import { formatter } from "../utils/helpers";
 import useTranslation from "next-translate/useTranslation";
 import { CartContext } from "../context/ShopContext";
 import { useContext } from "react";
+import { useStoreContext } from "../context/NewContext";
 
 export default function ProductForm({ produto }) {
-  const { addToCart } = useContext(CartContext);
+  const { quantity, addQuantity, removeQuantity } = useStoreContext();
+  // const { addToCart } = useContext(CartContext);
 
   const products = produto.map((product) => {
     console.log({ product });
@@ -28,14 +30,36 @@ export default function ProductForm({ produto }) {
         {formatter.format(price)}
       </span>
       <p className="font-noto-sans mt-2 leading-6 md:mt-4">{description}</p>
-      <button
-        onClick={() => {
-          addToCart(products);
-        }}
-        className="font-inter mt-6 bg-red px-2 py-4 font-bold text-white duration-300 ease-in-out hover:border-2 md:h-12 md:w-28 md:px-3 md:py-2 md:hover:bg-white md:hover:text-red"
-      >
-        {t("product.add")}
-      </button>
+      <div className="mt-6 flex items-center justify-center">
+        <button
+          // onClick={() => {
+          //   addToCart(products);
+          // }}
+          className="font-inter bg-red px-2 py-4 font-bold text-white duration-300 ease-in-out hover:border-2 md:h-12 md:w-28 md:px-3 md:py-2 md:hover:bg-white md:hover:text-red"
+        >
+          {t("product.add")}
+        </button>
+        <div className="flex-rows ml-8 flex w-20 justify-between">
+          <button
+            className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
+            onClick={removeQuantity}
+          >
+            -
+          </button>
+          <input
+            className="h-6 w-6 rounded-full border text-center"
+            type="text"
+            id="quantity"
+            value={quantity}
+          />
+          <button
+            className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"
+            onClick={addQuantity}
+          >
+            +
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
