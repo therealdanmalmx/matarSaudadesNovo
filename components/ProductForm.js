@@ -1,12 +1,10 @@
 import { formatter } from "../utils/helpers";
 import useTranslation from "next-translate/useTranslation";
-import { CartContext } from "../context/ShopContext";
-import { useContext } from "react";
 import { useStoreContext } from "../context/NewContext";
 
 export default function ProductForm({ produto }) {
-  const { quantity, addQuantity, removeQuantity } = useStoreContext();
-  // const { addToCart } = useContext(CartContext);
+  const { quantity, addQuantity, removeQuantity, addToCart } =
+    useStoreContext();
 
   const products = produto.map((product) => {
     console.log({ product });
@@ -21,6 +19,8 @@ export default function ProductForm({ produto }) {
   const { title, description, price } = produto[0].attributes;
   let { t } = useTranslation("common");
 
+  console.log("produto[0]", produto[0].attributes);
+
   return (
     <div className="flex h-full flex-col justify-between">
       <p className=" font-merriweather text-2xl font-bold md:text-left md:text-[1.625rem]">
@@ -32,9 +32,9 @@ export default function ProductForm({ produto }) {
       <p className="font-noto-sans mt-2 leading-6 md:mt-4">{description}</p>
       <div className="mt-6 flex items-center justify-center">
         <button
-          // onClick={() => {
-          //   addToCart(products);
-          // }}
+          onClick={() => {
+            addToCart(produto[0].attributes, quantity);
+          }}
           className="font-inter bg-red px-2 py-4 font-bold text-white duration-300 ease-in-out hover:border-2 md:h-12 md:w-28 md:px-3 md:py-2 md:hover:bg-white md:hover:text-red"
         >
           {t("product.add")}
