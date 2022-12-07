@@ -51,7 +51,7 @@ function Cart() {
                       value={item.quantity}
                     />
                     <button>
-                      <AiFillPlusCircle />
+                      <AiFillPlusCircle onClick={() => addToCart(item, 1)} />
                     </button>
                   </div>
                 </div>
