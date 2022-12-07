@@ -6,15 +6,21 @@ import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 
 function Cart() {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-  const { cartItems, setShowCart, addToCart } = useStoreContext();
+  const { cartItems, setShowCart, showCart, addToCart } = useStoreContext();
 
   return (
-    <div className="fixed inset-x-0 top-0 flex h-screen w-full justify-end bg-gray-900 bg-opacity-40">
-      <div className="relative w-1/4 bg-slate-100 px-8 py-20">
+    <div
+      className="fixed inset-x-0 top-0 flex h-screen w-full justify-end bg-gray-900 bg-opacity-40"
+      onClick={() => setShowCart(!showCart)}
+    >
+      <div
+        className="relative w-1/4 bg-slate-100 px-8 py-20"
+        onClick={(e) => e.stopPropagation()}
+      >
         {!cartItems.length && (
           <div className="align-center top-0 flex h-full w-full flex-col justify-center text-center">
             <h1>Não existem produtos na cesta</h1>
-            <FaShoppingCart className="mx-auto p-2 text-7xl text-black" />
+            <FaShoppingCart className="mx-auto p-2 text-7xl text-gray-400" />
           </div>
         )}
         {cartItems.length &&
@@ -28,7 +34,6 @@ function Cart() {
                   alt={alternativeText}
                   width={80}
                   height={80}
-                  objectFit="cover"
                   priority
                 />
                 <div className="div:flex div:justify-between w-1/2">

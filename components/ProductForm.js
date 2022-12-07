@@ -23,7 +23,7 @@ export default function ProductForm({ produto }) {
 
   return (
     <div className="flex h-full flex-col justify-between">
-      <p className=" font-merriweather text-2xl font-bold md:text-left md:text-[1.625rem]">
+      <p className="font-merriweather text-2xl font-bold md:text-left md:text-[1.625rem]">
         {title}
       </p>
       <span className="font-merriweather text-xl leading-10">

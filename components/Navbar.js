@@ -9,11 +9,12 @@ import {
 } from "@heroicons/react/outline";
 import { BiUser } from "react-icons/bi";
 import useTranslation from "next-translate/useTranslation";
+import { useStoreContext } from "../context/NewContext";
 import Cart from "./Cart";
 import Search from "../components/Search";
 
 export default function Navbar() {
-  // const { cart, cartOpen, setCartOpen } = useContext(CartContext);
+  const { setShowCart, showCart } = useStoreContext();
   const [showSearch, setShowSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -99,7 +100,7 @@ export default function Navbar() {
         </div>
         <div
           className="header-cart flex w-10 cursor-pointer"
-          // onClick={() => setCartOpen(!cartOpen)}
+          onClick={() => setShowCart(!showCart)}
         >
           <ShoppingBagIcon className="h-6 w-6" />
           {/* {!cartQuantity ? null : (
@@ -107,8 +108,8 @@ export default function Navbar() {
               {!cartQuantity ? null : cartQuantity}
             </p>
           )} */}
+          {showCart && <Cart />}
         </div>
-        <Cart />
 
         <div className="flex items-center md:hidden">
           <button
