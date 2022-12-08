@@ -19,7 +19,6 @@ const Categories = () => {
     return <p>Error: {error.message}</p>;
   }
 
-  console.log({ data });
   const categorias = data.categorias.data;
 
   return (

@@ -16,8 +16,6 @@ function Home({ collections }) {
 
   const { data, fetching, error } = results;
 
-  console.log({ data });
-
   return (
     <div className="items-start justify-start text-center">
       <SlideShow slides={slides} />

@@ -5,7 +5,6 @@ import { getOneProduct } from "../../lib/query";
 
 function ProductDetails() {
   const { query } = useRouter();
-  console.log({ query });
   const [results] = useQuery({
     query: getOneProduct,
     variables: { slug: query.slug },
@@ -18,8 +17,6 @@ function ProductDetails() {
   if (error) {
     return <p>Error: {error.message}</p>;
   }
-
-  console.log({ data });
 
   return (
     <div className="min-h-screen py-12 sm:pt-20">
