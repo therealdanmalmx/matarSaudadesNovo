@@ -61,11 +61,8 @@ import ProductCard from "../../../components/ProductCard";
 function ProductDetails() {
   const { query } = useRouter();
 
-  console.log({ query });
-
   const categoria =
     query.categoria.charAt(0).toUpperCase() + query.categoria.slice(1);
-  console.log({ categoria });
 
   const [results] = useQuery({
     query: getAllProducts,
@@ -79,7 +76,6 @@ function ProductDetails() {
   if (error) {
     return <p>Error: {error.message}</p>;
   }
-  console.log({ data });
 
   const produtos = data.produtos.data;
 

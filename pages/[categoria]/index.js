@@ -25,7 +25,6 @@ function ProductDetails() {
   if (error) {
     return <p>Error: {error.message}</p>;
   }
-  console.log({ data });
 
   const produtos = data.produtos.data;
 

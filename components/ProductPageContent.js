@@ -10,7 +10,6 @@ export default function ProductPageContent({ product }) {
   const images = [];
 
   product.map((product, i) => {
-    console.log("ppcontent", product);
     const { url } = product.attributes.image.data.attributes;
     const { slug } = product.attributes.slug;
     images.push(

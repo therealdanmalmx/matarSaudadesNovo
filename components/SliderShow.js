@@ -5,28 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const SliderShow = ({ slides }) => {
-  /*  const [currentIndex, setCurrentIndex] = useState(0);
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  const goToPrevious = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-    console.log("Previous", newIndex);
-  };
-
-  const goToNext = () => {
-    const isFirstSlide = currentIndex === slides.length - 1;
-    const newIndex = isFirstSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-    console.log("Next", newIndex);
-  };
-
-  const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
-  } */
-
-const settings = {
+  const settings = {
     infinite: true,
     fade: true,
     dots: true,
@@ -38,7 +17,6 @@ const settings = {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
-
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;

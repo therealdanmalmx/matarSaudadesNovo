@@ -4,10 +4,10 @@ const StoreContext = createContext();
 
 export const StateContext = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
-  const [cartItems, setCartitems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [quantity, setQuantity] = useState(1);
-
-  console.log({ cartItems });
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const addQuantity = () => {
     setQuantity(quantity + 1 > 99 ? 1 : quantity + 1);
@@ -17,9 +17,13 @@ export const StateContext = ({ children }) => {
   };
 
   const addToCart = (product, quantity) => {
+    setTotalQuantity((prevTotal) => prevTotal + quantity);
+    setTotalPrice(
+      (prevTotalPrice) => prevTotalPrice + product.price * quantity
+    );
     const productExist = cartItems.find((item) => item.slug === product.slug);
     if (productExist) {
-      setCartitems(
+      setCartItems(
         cartItems.map((item) =>
           item.slug === product.slug
             ? { ...productExist, quantity: productExist.quantity + quantity }
@@ -27,11 +31,26 @@ export const StateContext = ({ children }) => {
         )
       );
     } else {
-      setCartitems([...cartItems, { ...product, quantity: quantity }]);
+      setCartItems([...cartItems, { ...product, quantity: quantity }]);
     }
   };
 
-  const removeFromCart = () => {};
+  const removeFromCart = (product) => {
+    setTotalQuantity((prevTotal) => prevTotal - 1);
+    setTotalPrice((prevTotalPrice) => prevTotalPrice - product.price);
+    const productExist = cartItems.find((item) => item.slug === product.slug);
+    if (productExist.quantity === 1) {
+      setCartItems(cartItems.filter((item) => item.slug !== product.slug));
+    } else {
+      setCartItems(
+        cartItems.map((item) =>
+          item.slug === product.slug
+            ? { ...productExist, quantity: productExist.quantity - 1 }
+            : item
+        )
+      );
+    }
+  };
 
   return (
     <StoreContext.Provider
@@ -44,6 +63,9 @@ export const StateContext = ({ children }) => {
         setShowCart,
         cartItems,
         addToCart,
+        removeFromCart,
+        totalQuantity,
+        totalPrice,
       }}
     >
       {children}

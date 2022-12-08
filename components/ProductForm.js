@@ -7,7 +7,6 @@ export default function ProductForm({ produto }) {
     useStoreContext();
 
   const products = produto.map((product) => {
-    console.log({ product });
     return {
       image: product.attributes.image.data.url,
       id: product.id,
@@ -18,8 +17,6 @@ export default function ProductForm({ produto }) {
 
   const { title, description, price } = produto[0].attributes;
   let { t } = useTranslation("common");
-
-  console.log("produto[0]", produto[0].attributes);
 
   return (
     <div className="flex h-full flex-col justify-between">
@@ -50,7 +47,7 @@ export default function ProductForm({ produto }) {
             className="h-6 w-6 rounded-full border text-center"
             type="text"
             id="quantity"
-            value={quantity}
+            placeholder={quantity}
           />
           <button
             className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 p-2"

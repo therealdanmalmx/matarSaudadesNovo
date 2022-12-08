@@ -14,7 +14,8 @@ import Cart from "./Cart";
 import Search from "../components/Search";
 
 export default function Navbar() {
-  const { setShowCart, showCart, quantity, cartItems } = useStoreContext();
+  const { setShowCart, showCart, quantity, cartItems, totalQuantity } =
+    useStoreContext();
   const [showSearch, setShowSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -103,9 +104,9 @@ export default function Navbar() {
           onClick={() => setShowCart(!showCart)}
         >
           <ShoppingBagIcon className="h-6 w-6" />
-          {!cartItems.length ? null : (
+          {totalQuantity > 0 && (
             <p className="relative -left-2 flex h-4 w-4 items-center justify-center rounded-full bg-red text-center text-xs font-bold text-white">
-              {!quantity ? null : quantity}
+              {totalQuantity}
             </p>
           )}
           {showCart && <Cart />}
