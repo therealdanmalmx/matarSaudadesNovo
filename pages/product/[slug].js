@@ -17,8 +17,6 @@ function ProductDetails() {
     return <p>Error: {error.message}</p>;
   }
 
-  console.log({ data });
-
   return <div>Hello</div>;
 }
 

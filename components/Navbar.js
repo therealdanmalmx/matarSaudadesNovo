@@ -9,21 +9,17 @@ import {
 } from "@heroicons/react/outline";
 import { BiUser } from "react-icons/bi";
 import useTranslation from "next-translate/useTranslation";
-import MiniCart from "./MiniCart";
-import { CartContext } from "../context/ShopContext";
+import { useStoreContext } from "../context/NewContext";
+import Cart from "./Cart";
 import Search from "../components/Search";
-import wishlist from "../pages/wishlist";
+import { AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
-  const { cart, cartOpen, setCartOpen } = useContext(CartContext);
+  const { setShowCart, showCart, quantity, cartItems, totalQuantity } =
+    useStoreContext();
   const [showSearch, setShowSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  let cartQuantity = 0;
-
-  cart.map((item) => {
-    return (cartQuantity += item?.quantity);
-  });
   let { t } = useTranslation("common");
 
   return (
@@ -106,15 +102,15 @@ export default function Navbar() {
         </div>
         <div
           className="header-cart flex w-10 cursor-pointer"
-          onClick={() => setCartOpen(!cartOpen)}
+          onClick={() => setShowCart(!showCart)}
         >
           <ShoppingBagIcon className="h-6 w-6" />
-          {!cartQuantity ? null : (
+          {totalQuantity > 0 && (
             <p className="relative -left-2 flex h-4 w-4 items-center justify-center rounded-full bg-red text-center text-xs font-bold text-white">
-              {!cartQuantity ? null : cartQuantity}
+              {totalQuantity}
             </p>
           )}
-          <MiniCart cart={cart} />
+          <AnimatePresence>{showCart && <Cart />}</AnimatePresence>
         </div>
 
         <div className="flex items-center md:hidden">

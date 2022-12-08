@@ -10,12 +10,13 @@ export default function ProductPageContent({ product }) {
   const images = [];
 
   product.map((product, i) => {
-    const { url, alternativeText } = product.attributes.image.data.attributes;
+    const { url } = product.attributes.image.data.attributes;
+    const { slug } = product.attributes.slug;
     images.push(
       <SwiperSlide key={`slide-${i}`}>
         <Image
           src={`${BASE_URL}${url}`}
-          alt={alternativeText}
+          alt={`${slug} logo`}
           layout="fill"
           objectFit="cover"
           priority

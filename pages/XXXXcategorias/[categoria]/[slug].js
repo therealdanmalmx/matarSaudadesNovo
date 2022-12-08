@@ -62,8 +62,6 @@ function ProductDetails() {
     return <p>Error: {error.message}</p>;
   }
 
-  console.log({ data });
-
   return (
     <div className="min-h-screen py-12 sm:pt-20">
       <ProductPageContent product={data.produtos.data} />
