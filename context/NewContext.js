@@ -31,6 +31,8 @@ export const StateContext = ({ children }) => {
     }
   };
 
+  const removeFromCart = () => {};
+
   return (
     <StoreContext.Provider
       value={{

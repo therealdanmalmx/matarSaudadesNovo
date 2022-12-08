@@ -2,7 +2,11 @@ import Image from "next/image";
 import { useStoreContext } from "../context/NewContext";
 import { formatter } from "../utils/helpers";
 import { FaShoppingCart } from "react-icons/fa";
-import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
+import {
+  AiFillMinusCircle,
+  AiFillPlusCircle,
+  AiOutlineClose,
+} from "react-icons/ai";
 
 function Cart() {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -14,7 +18,14 @@ function Cart() {
       onClick={() => setShowCart(!showCart)}
     >
       <div
-        className="relative w-1/4 bg-slate-100 px-8 py-20"
+        className="absolute top-5 right-5 z-10"
+        onClick={() => setShowCart(!showCart)}
+      >
+        <AiOutlineClose className="h-6 w-6 hover:text-gray-400 md:h-4 md:w-4" />
+      </div>
+
+      <div
+        className="relative w-full bg-slate-100 px-8 py-20 md:w-1/4"
         onClick={(e) => e.stopPropagation()}
       >
         {!cartItems.length && (
