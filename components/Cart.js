@@ -4,6 +4,8 @@ import { formatter } from "../utils/helpers";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { VscChromeClose } from "react-icons/vsc";
+import { motion } from "framer-motion";
+// const { motion } = require("framer-motion");
 
 function Cart() {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -17,7 +19,10 @@ function Cart() {
   } = useStoreContext();
 
   return (
-    <div
+    <motion.div
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
       className="fixed inset-x-0 top-0 flex h-screen w-full justify-end bg-gray-900 bg-opacity-40"
       onClick={() => setShowCart(!showCart)}
     >
@@ -28,22 +33,34 @@ function Cart() {
         <VscChromeClose className="h-6 w-6 hover:text-gray-400 md:h-4 md:w-4" />
       </div>
 
-      <div
+      <motion.div
+        initial={{ x: "50%" }}
+        animate={{ x: "0%" }}
+        transition={{ type: "tween" }}
+        exit={{ x: "50%" }}
         className="relative flex w-full flex-col justify-between bg-slate-100 px-8 py-16 md:w-1/4"
         onClick={(e) => e.stopPropagation()}
       >
         <div>
           {!cartItems.length && (
-            <div className="align-center top-0 flex h-full w-full flex-col justify-center text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1 }}
+              className="absolute mx-auto flex h-full w-full flex-col items-center justify-center p-2 text-center text-gray-400"
+            >
               <h1>Não existem produtos na cesta</h1>
-              <FaShoppingCart className="mx-auto p-2 text-7xl text-gray-400" />
-            </div>
+              <FaShoppingCart className="mt-2 text-7xl" />
+            </motion.div>
           )}
           {!!cartItems.length &&
             cartItems.map((item) => {
               const { url, alternativeText } = item.image.data.attributes;
               return (
-                <div
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
                   key={item.slug}
                   className="z-20 mt-4 flex items-center justify-between overflow-hidden rounded-2xl bg-white p-2 first-of-type:mt-0 "
                 >
@@ -75,7 +92,7 @@ function Cart() {
                       </button>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
         </div>
@@ -91,8 +108,8 @@ function Cart() {
             </div>
           )}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

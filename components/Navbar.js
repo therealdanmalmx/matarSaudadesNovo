@@ -12,6 +12,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useStoreContext } from "../context/NewContext";
 import Cart from "./Cart";
 import Search from "../components/Search";
+import { AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const { setShowCart, showCart, quantity, cartItems, totalQuantity } =
@@ -109,7 +110,7 @@ export default function Navbar() {
               {totalQuantity}
             </p>
           )}
-          {showCart && <Cart />}
+          <AnimatePresence>{showCart && <Cart />}</AnimatePresence>
         </div>
 
         <div className="flex items-center md:hidden">
