@@ -5,10 +5,12 @@ import { FaShoppingCart } from "react-icons/fa";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { VscChromeClose } from "react-icons/vsc";
 import { motion } from "framer-motion";
+import getStripe from "../lib/getStripe";
 // const { motion } = require("framer-motion");
 
 function Cart() {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
   const {
     cartItems,
     setShowCart,
@@ -18,6 +20,20 @@ function Cart() {
     totalPrice,
   } = useStoreContext();
 
+  const handleCheckout = async () => {
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cartItems),
+    });
+    const data = await response.json();
+    console.log("stripe");
+    console.log({ data });
+    const stripe = await getStripe();
+    await stripe.redirectToCheckout({ sessionId: data.id });
+  };
   return (
     <motion.div
       animate={{ opacity: 1 }}
@@ -85,7 +101,7 @@ function Cart() {
                         className="h-6 w-6 text-center text-sm"
                         type="text"
                         id="quantity"
-                        value={item.quantity}
+                        placeholder={item.quantity}
                       />
                       <button>
                         <AiFillPlusCircle onClick={() => addToCart(item, 1)} />
@@ -102,7 +118,10 @@ function Cart() {
               <h3 className="mt-8 text-right text-sm">
                 Subtotal: {formatter.format(totalPrice)}
               </h3>
-              <button className="mt-5 w-full bg-black py-3 px-6 text-center text-sm text-white">
+              <button
+                className="mt-5 w-full bg-black py-3 px-6 text-center text-sm text-white"
+                onClick={handleCheckout}
+              >
                 Comprar
               </button>
             </div>
