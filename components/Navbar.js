@@ -12,6 +12,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useStoreContext } from "../context/NewContext";
 import Cart from "./Cart";
 import Search from "../components/Search";
+// const { AnimatePresence } = require("framer-motion");
 import { AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
