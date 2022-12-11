@@ -23,6 +23,8 @@ export default function Navbar() {
 
   let { t } = useTranslation("common");
 
+  console.log({ cartItems });
+
   return (
     <header className="sticky top-0 z-20 border-b bg-white">
       <nav className="lg:max-w-screen-1.5xl mx-auto flex max-w-6xl items-center justify-between px-4 pt-4 pb-2 transition-opacity duration-1000 ease-in-out">
