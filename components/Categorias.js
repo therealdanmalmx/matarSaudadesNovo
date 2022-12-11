@@ -35,7 +35,7 @@ const Categories = () => {
           const { id } = category;
           return (
             <Link href={`/${category.attributes.slug}`} passHref key={id}>
-              <ul className="h-full w-36 md:w-full">
+              <ul className="h-56 w-36 md:w-full">
                 <Image
                   src={`${BASE_URL}${image.url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
