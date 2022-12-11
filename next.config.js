@@ -4,7 +4,7 @@ const nextTranslate = require("next-translate");
 
 module.exports = {
   images: {
-    domains: ["cdn.shopify.com", "localhost", "matarsaudades.onrender.com"],
+    domains: ["localhost", "matarsaudades.onrender.com"],
   },
   ...nextTranslate(),
 };

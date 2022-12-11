@@ -1,4 +1,3 @@
-import { getProductsInCollections } from "../lib/Shopify";
 import ProductCard from "../components/ProductCard";
 
 function RecommendedList({ products, current }) {
