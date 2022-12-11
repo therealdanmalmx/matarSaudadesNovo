@@ -29,7 +29,6 @@ function Cart() {
       body: JSON.stringify(cartItems),
     });
     const data = await response.json();
-    console.log("stripe");
     console.log({ data });
     const stripe = await getStripe();
     await stripe.redirectToCheckout({ sessionId: data.id });
@@ -119,7 +118,7 @@ function Cart() {
                 Subtotal: {formatter.format(totalPrice)}
               </h3>
               <button
-                className="z-10 mt-5 w-full bg-black py-3 px-6 text-center text-sm text-white"
+                className="z-10 mt-5 w-full bg-black py-3 px-6 text-center text-sm text-white focus:bg-gray-800"
                 onClick={handleCheckout}
               >
                 Comprar
