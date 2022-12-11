@@ -119,7 +119,7 @@ function Cart() {
                 Subtotal: {formatter.format(totalPrice)}
               </h3>
               <button
-                className="mt-5 w-full bg-black py-3 px-6 text-center text-sm text-white"
+                className="z-10 mt-5 w-full bg-black py-3 px-6 text-center text-sm text-white"
                 onClick={handleCheckout}
               >
                 Comprar
