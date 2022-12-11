@@ -2,7 +2,7 @@ import Image from "next/image";
 import ProductForm from "./ProductForm";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:1337";
 
 import RecommendedList from "./RecommendedList";
 
@@ -10,13 +10,13 @@ export default function ProductPageContent({ product }) {
   const images = [];
 
   product.map((product, i) => {
-    const { url } = product.attributes.image.data.attributes;
+    const { url, alternativeText } = product.attributes.image.data.attributes;
     const { slug } = product.attributes.slug;
     images.push(
       <SwiperSlide key={`slide-${i}`}>
         <Image
           src={`${BASE_URL}${url}`}
-          alt={`${slug} logo`}
+          alt={alternativeText}
           layout="fill"
           objectFit="cover"
           priority

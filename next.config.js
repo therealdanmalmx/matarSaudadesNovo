@@ -8,7 +8,7 @@ module.exports = {
     SHOPIFY_STOREFRONT_ACCESSTOKEN: process.env.SHOPIFY_STOREFRONT_ACCESSTOKEN,
   },
   images: {
-    domains: ["cdn.shopify.com", "localhost"],
+    domains: ["cdn.shopify.com", "localhost", "matarsaudades.onrender.com"],
   },
   ...nextTranslate(),
 };
