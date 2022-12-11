@@ -75,11 +75,19 @@ export default function Footer() {
             <div className="flex flex-col">
               <div className="info-mail mb-2 flex">
                 <MailIcon className="mr-2 h-6 w-6" />{" "}
-                <p className="md:text-base">geral@matarsaudades.com</p>
+                <a
+                  className="md:text-base"
+                  href="mailto:geral@matarsaudades.com"
+                >
+                  {" "}
+                  geral@matarsaudades.com
+                </a>
               </div>
               <div className="info-phone flex">
                 <PhoneIcon className="mr-2 h-6 w-6" />{" "}
-                <p className="md:text-base">+351 234 010 204</p>
+                <a className="md:text-base" href="phone:+351 234 010 204">
+                  +351 234 010 204
+                </a>
               </div>
             </div>
           </div>
