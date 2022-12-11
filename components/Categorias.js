@@ -29,13 +29,13 @@ const Categories = () => {
       <h2 className="mb-12 text-center text-5xl font-bold text-red">
         {t("categories.category")}
       </h2>
-      <div className="remove-scrollbar mx-0.5 flex cursor-pointer justify-between space-x-2.5 overflow-x-scroll md:mx-auto md:max-w-7xl md:space-x-5">
+      <div className="remove-scrollbar mx-0.5 flex justify-between space-x-2.5 overflow-x-scroll md:mx-auto md:max-w-7xl md:space-x-5">
         {categorias.map((category) => {
           const image = category.attributes.image.data.attributes;
           const { id } = category;
           return (
             <Link href={`/${category.attributes.slug}`} passHref key={id}>
-              <ul className="h-56 w-36 md:w-full">
+              <ul className="d:h-full h-56 w-36 cursor-pointer md:w-full">
                 <Image
                   src={`${BASE_URL}${image.url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
