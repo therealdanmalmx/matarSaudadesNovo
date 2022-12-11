@@ -4,12 +4,10 @@ import Banners from "../components/Banners";
 import About from "../components/About";
 import Newsletter from "../components/Newsletter";
 import { getCategories } from "../lib/query";
-import useTranslation from "next-translate/useTranslation";
 import slides from "../utils/slides";
 import { useQuery } from "urql";
 
 function Home() {
-  let { t } = useTranslation();
   const [results] = useQuery({ query: getCategories });
 
   const { data, fetching, error } = results;
