@@ -8,15 +8,16 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const ProductCard = ({ product }) => {
   const { title, slug, price } = product;
   const { url, alternativeText } = product.image.data.attributes;
-  const { quantity, addQuantity, removeQuantity } = useStoreContext();
+  const { quantity, addToCart, addQuantity, removeQuantity } =
+    useStoreContext();
   const categoria = product.categoria.data.attributes.slug;
 
   return (
-    <div>
+    <div className="h-[450px]">
       <Link legacyBehavior href={`/${categoria}/${slug}`} passHref>
         <a>
           <div className="mx-auto w-60 md:w-full">
-            <div className="relative h-64 group-hover:opacity-75 md:h-72">
+            <div className="relative h-64 md:h-72">
               <Image
                 src={`${BASE_URL}${url}`}
                 alt={alternativeText}
@@ -26,16 +27,16 @@ const ProductCard = ({ product }) => {
               />
             </div>
           </div>
-          <div className="mx-auto mt-8 flex flex-row items-center justify-between">
+          <div>
             <p className="text-lg font-bold text-gray-900">{title}</p>
             <p className="text-md text-gray-900">{formatter.format(price)}</p>
+            <button
+              className="mt-4 w-2/5 bg-red py-2 text-center font-bold text-white"
+              onClick={() => addQuantity}
+            >
+              Adicionar
+            </button>
           </div>
-          <button
-            className="mt-4 w-full bg-red py-2 px-6 text-center font-bold text-white"
-            type="submit"
-          >
-            Adicionar
-          </button>
         </a>
       </Link>
     </div>

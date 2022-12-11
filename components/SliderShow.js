@@ -3,6 +3,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 const SliderShow = ({ slides }) => {
   const settings = {
@@ -49,7 +50,14 @@ const SliderShow = ({ slides }) => {
               <div className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-4xl text-white lg:text-8xl">
                 {slide.title}
               </div>
-              <img src={slide.url} alt={slide.title} />
+              <Image
+                src={slide.url}
+                alt={slide.title}
+                object-fit="cover"
+                width={1920}
+                height={600}
+                priority
+              />
             </div>
           );
         })}
