@@ -3,7 +3,7 @@ import Stripe from "stripe";
 const stripe = new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`);
 
 export default async function handler(req, res) {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:1337";
 
   if (req.method === "POST") {
     console.log(req.body.url);
@@ -253,6 +253,12 @@ export default async function handler(req, res) {
             "ZZ",
           ],
         },
+        shipping_options: [
+          { shipping_rate: "shr_1MDrP3A1HRq939W9JnAZ1KB9" },
+          { shipping_rate: "shr_1MDrPkA1HRq939W9w9VOpdrc" },
+        ],
+        allow_promotion_codes: true,
+
         line_items: req.body.map((item) => {
           return {
             price_data: {
@@ -262,6 +268,10 @@ export default async function handler(req, res) {
                 name: item.title,
               },
               unit_amount: item.price * 100,
+            },
+            adjustable_quantity: {
+              enabled: true,
+              minimum: 1,
             },
             quantity: item.quantity,
           };

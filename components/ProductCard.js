@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { formatter } from "../utils/helpers";
 import { useStoreContext } from "../context/NewContext";
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:1337";
 
 const ProductCard = ({ product }) => {
   const { title, slug, price } = product;

@@ -8,7 +8,10 @@ import { StateContext } from "../context/NewContext";
 import { useRouter } from "next/router";
 import { Provider, createClient } from "urql";
 
-const client = createClient({ url: process.env.NEXT_PUBLIC_STRAPI_GRAPHQL });
+const client = createClient({
+  url:
+    process.env.NEXT_PUBLIC_STRAPI_GRAPHQL || "http://localhost:1337/graphql",
+});
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   return (

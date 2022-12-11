@@ -9,7 +9,7 @@ import getStripe from "../lib/getStripe";
 // const { motion } = require("framer-motion");
 
 function Cart() {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:1337";
 
   const {
     cartItems,
