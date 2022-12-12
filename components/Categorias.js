@@ -6,7 +6,7 @@ import { useQuery } from "urql";
 import { getCategories } from "../lib/query";
 
 const Categories = () => {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:1337";
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   const [results] = useQuery({ query: getCategories });
   const { data, fetching, error } = results;

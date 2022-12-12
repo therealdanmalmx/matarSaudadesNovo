@@ -9,7 +9,7 @@ import getStripe from "../lib/getStripe";
 // const { motion } = require("framer-motion");
 
 function Cart() {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:1337";
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   const {
     cartItems,
@@ -118,7 +118,7 @@ function Cart() {
               </h3>
               <button
                 className="z-10 mt-5 w-full bg-black py-3 px-6 text-center text-sm text-white focus:bg-gray-800"
-                onClick={() => handleCheckout()}
+                onClick={handleCheckout}
               >
                 Comprar
               </button>

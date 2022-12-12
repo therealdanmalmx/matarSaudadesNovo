@@ -12,7 +12,6 @@ import useTranslation from "next-translate/useTranslation";
 import { useStoreContext } from "../context/NewContext";
 import Cart from "./Cart";
 import Search from "../components/Search";
-// const { AnimatePresence } = require("framer-motion");
 import { AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -22,8 +21,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   let { t } = useTranslation("common");
-
-  console.log({ cartItems });
 
   return (
     <header className="sticky top-0 z-20 border-b bg-white">

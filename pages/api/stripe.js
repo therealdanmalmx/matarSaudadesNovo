@@ -3,7 +3,7 @@ import Stripe from "stripe";
 const stripe = new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`);
 
 export default async function handler(req, res) {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:1337";
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   if (req.method === "POST") {
     console.log(req.body.url);
@@ -276,8 +276,8 @@ export default async function handler(req, res) {
             quantity: item.quantity,
           };
         }),
-        success_url: `${req.headers.origin}/success`,
-        cancel_url: `${req.headers.origin}/canceled`,
+        success_url: `${req.headers.origin}/order/success?&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${req.headers.origin}/order/canceled`,
       });
       res.status(200).json(session);
     } catch (error) {
