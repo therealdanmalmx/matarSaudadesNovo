@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { HiOutlineHeart } from "react-icons/hi";
-import { images } from "../../utils";
 import Login from "../../components/Account/Login";
 import Register from "../../components/Account/Register";
 
