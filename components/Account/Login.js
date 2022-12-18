@@ -19,7 +19,7 @@ const onSubmit = (values) => {
   console.log("Form data", values);
 };
 
-const validationSchema = Yup.object({
+const validationSchema_login = Yup.object({
   email: Yup.string()
     .email("A formação do email está errado (e.g: pedro.lavrados@gmail.com")
     .required("E-mail é obrigatório"),
@@ -30,8 +30,19 @@ const validationSchema = Yup.object({
     .minLowercase(1, "Deve conter pelo menos 1 letra minúscula")
     .minUppercase(1, "Deve conter pelo menos 1 letra maiúscula")
     .minSymbols(1, "Deve conter pelo menos um símbolo (e.g. %, & ou !, etc)"),
-  confirm_password: Yup.string()
-    .label("confirm password")
+});
+const validationSchema_register = Yup.object({
+  email: Yup.string()
+    .email("A formação do email está errado (e.g: pedro.lavrados@gmail.com")
+    .required("E-mail é obrigatório"),
+  password: Yup.string()
+    .password("Palavra passe inválida")
+    .required("Obrigatório")
+    .min(6, "8 dígitos alfanuméricos no mínimo")
+    .minLowercase(1, "Deve conter pelo menos 1 letra minúscula")
+    .minUppercase(1, "Deve conter pelo menos 1 letra maiúscula")
+    .minSymbols(1, "Deve conter pelo menos um símbolo (e.g. %, & ou !, etc)"),
+  passwordConfirm: Yup.string()
     .required()
     .oneOf([Yup.ref("password"), null], "Palavra de passe tem que ser igual"),
 });
@@ -49,7 +60,7 @@ function Login() {
           <Formik
             initialValues={initialValues_login}
             onSubmit={onSubmit}
-            validationSchema={validationSchema}
+            validationSchema={validationSchema_login}
           >
             <Form className="app__contact-form flex w-full flex-col items-start justify-center">
               <label className="mb-3">Nome de utilizador ou email *</label>
@@ -59,7 +70,7 @@ function Login() {
                 name="email"
                 placeholder="Email ou nome do utilizador"
               />
-              <ErrorMessage name="name" />
+              <ErrorMessage name="email" />
               <label className="mb-3">Palavra de passe</label>
               <Field
                 className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 shadow-inner focus:outline-none"
@@ -91,7 +102,7 @@ function Login() {
           <Formik
             initialValues={initialValues_register}
             onSubmit={onSubmit}
-            validationSchema={validationSchema}
+            validationSchema={validationSchema_register}
           >
             <Form className="app__contact-form flex w-full flex-col items-start justify-center">
               <label className="mb-3">Nome de utilizador ou email *</label>
@@ -101,7 +112,7 @@ function Login() {
                 name="email"
                 placeholder="Email"
               />
-              <ErrorMessage name="name" />
+              <ErrorMessage name="email" />
               <label className="mb-3">Palavra de passe</label>
               <Field
                 className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 shadow-inner focus:outline-none"
@@ -110,13 +121,14 @@ function Login() {
                 placeholder="Palavra passe"
               />
               <label className="mb-3">Confirmar a palavra de passe</label>
+              <ErrorMessage name="password" />
               <Field
                 className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 shadow-inner focus:outline-none"
                 type="password"
-                name="passwordConfirmation"
+                name="passwordConfirm"
                 placeholder="Confirmar a palavra passe"
               />
-              <ErrorMessage name="password" />
+              <ErrorMessage name="passwordConfirm" />
               <button type="submit" className="btn btn-red mt-4 w-full">
                 Registrar
               </button>
