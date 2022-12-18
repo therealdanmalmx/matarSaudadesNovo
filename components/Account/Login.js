@@ -44,7 +44,10 @@ const validationSchema_register = Yup.object({
     .minSymbols(1, "Deve conter pelo menos um símbolo (e.g. %, & ou !, etc)"),
   passwordConfirm: Yup.string()
     .required()
-    .oneOf([Yup.ref("password"), null], "Palavra de passe tem que ser igual"),
+    .oneOf(
+      [Yup.ref("password"), null],
+      "Confirmação tem que ser igual à palavra de passe"
+    ),
 });
 
 function Login() {
