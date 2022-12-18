@@ -27,7 +27,7 @@ function Success({ order }) {
   const route = useRouter();
   console.log({ order });
   return (
-    <div className="my-20 mx-auto w-1/2 rounded-3xl shadow-lg shadow-slate-500">
+    <div className="my-20 mx-auto w-11/12 rounded-3xl shadow-lg shadow-slate-500 md:w-1/2">
       <div className="flex flex-col p-12">
         <h1 className="mb-2 text-center text-3xl font-bold">
           Agradeçemos a sua encomenda!
@@ -71,7 +71,7 @@ function Success({ order }) {
               Total: {formatter.format(order.amount_total / 100)}
             </div>
             <button
-              className="mt-8 w-1/2 cursor-pointer bg-gray-700 px-6 py-4 text-white"
+              className="mt-8 w-full cursor-pointer bg-gray-700 px-6 py-4 text-white md:w-1/2"
               onClick={() => route.push("/")}
             >
               Voltar para a loja
