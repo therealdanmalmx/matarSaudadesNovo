@@ -1,5 +1,6 @@
 import { useQuery, gql } from 'urql';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const GET_SINGLE_TYPE = `
   query HomePage {
@@ -40,5 +41,19 @@ export default function Hero() {
   if (fetching) return <p>Loading...</p>;
   if (error) return <p>Oh no... {error.message}</p>;
 
-  return <div></div>;
+  const { homePage } = data;
+
+  const { Slide } = homePage.data.attributes;
+
+  return (
+    <div>
+      {Slide.title}
+      {Slide.image.data.map((slide) => (
+        <Image src={slide.attributes.url} width={1920} height={1080} />
+      ))}
+      {Slide.buttons.map((button) => (
+        <Link href={button.url}>{button.label}</Link>
+      ))}
+    </div>
+  );
 }
