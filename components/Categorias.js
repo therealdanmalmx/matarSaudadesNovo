@@ -1,16 +1,16 @@
-import Image from "next/image";
-import Link from "next/link";
-import useTranslation from "next-translate/useTranslation";
+import Image from 'next/image';
+import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 
-import { useQuery } from "urql";
-import { getCategories } from "../lib/query";
+import { useQuery } from 'urql';
+import { getCategories } from '../lib/query';
 
 const Categories = () => {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   const [results] = useQuery({ query: getCategories });
   const { data, fetching, error } = results;
-  let { t } = useTranslation("common");
+  let { t } = useTranslation('common');
 
   if (fetching) {
     return <p>Loading...</p>;
@@ -27,7 +27,7 @@ const Categories = () => {
         Descubra as últimas novidades
       </p>
       <h2 className="mb-12 text-center text-5xl font-bold text-red">
-        {t("categories.category")}
+        {t('categories.category')}
       </h2>
       <div className="remove-scrollbar mx-0.5 flex justify-between space-x-2.5 overflow-x-scroll md:mx-auto md:max-w-7xl md:space-x-5">
         {categorias.map((category) => {
