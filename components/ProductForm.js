@@ -3,12 +3,13 @@ import useTranslation from "next-translate/useTranslation";
 import { useStoreContext } from "../context/NewContext";
 
 export default function ProductForm({ produto }) {
+  
   const { quantity, addQuantity, removeQuantity, addToCart } =
     useStoreContext();
 
   const products = produto.map((product) => {
     return {
-      image: product.attributes.image.data.url,
+      image: product.attributes.image.data.attributes.url,
       id: product.id,
       quantity: 1,
       price: product.attributes.price,

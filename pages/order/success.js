@@ -25,7 +25,6 @@ export async function getServerSideProps(params) {
 
 function Success({ order }) {
   const route = useRouter();
-  console.log({ order });
   return (
     <div className="my-20 mx-auto w-11/12 rounded-3xl shadow-lg shadow-slate-500 md:w-1/2">
       <div className="flex flex-col p-12">

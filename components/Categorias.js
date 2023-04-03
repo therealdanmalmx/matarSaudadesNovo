@@ -20,6 +20,7 @@ const Categories = () => {
   }
 
   const categorias = data.categorias.data;
+  console.log({categorias})
 
   return (
     <section className="categories bg-grey-light pt-10 lg:py-36">
@@ -31,16 +32,16 @@ const Categories = () => {
       </h2>
       <div className="remove-scrollbar mx-0.5 flex justify-between space-x-2.5 overflow-x-scroll md:mx-auto md:max-w-7xl md:space-x-5">
         {categorias.map((category) => {
-          const image = category.attributes.image.data.attributes;
+          const {url} = category.attributes.image.data.attributes;
           const { id } = category;
           return (
             <Link href={`/${category.attributes.slug}`} passHref key={id}>
               <ul className="d:h-full h-56 w-36 cursor-pointer md:w-full">
                 <Image
-                  src={`${BASE_URL}${image.url}`}
+                  src={BASE_URL+url}
                   alt={`Imagem de ${category.attributes.slug}`}
-                  height={300}
-                  width={200}
+                  height={100}
+                  width={100}
                   className="h-36 w-36 rounded-full"
                 />
                 <li className="mt-3 w-full text-center text-base text-grey-75 md:text-lg">

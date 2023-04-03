@@ -4,21 +4,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+console.log({BASE_URL})
 
 import RecommendedList from "./RecommendedList";
 
 export default function ProductPageContent({ product }) {
   const images = [];
-
+  
   product.map((product, i) => {
+    console.log({product})
+
     const { url, alternativeText } = product.attributes.image.data.attributes;
     images.push(
       <SwiperSlide key={`slide-${i}`}>
         <Image
           src={`${BASE_URL}${url}`}
           alt={alternativeText}
-          layout="fill"
-          objectFit="cover"
+          width={300}
+          height={200}
           priority
         />
       </SwiperSlide>

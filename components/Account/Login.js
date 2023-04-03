@@ -88,9 +88,9 @@ function Login() {
             </Form>
           </Formik>
           <p className="mt-4 text-sm">
-            Ainda não tem uma conta ? Clique{" "}
+            Ainda não tem uma conta? Clique{" "}
             <span
-              className="cursor-pointer font-bold"
+              className="cursor-pointer font-bold underline"
               onClick={() => setIsRegistered(false)}
             >
               aqui.
@@ -108,25 +108,31 @@ function Login() {
             validationSchema={validationSchema_register}
           >
             <Form className="app__contact-form flex w-full flex-col items-start justify-center">
-              <label className="mb-3">Nome de utilizador ou email *</label>
+              <label className="mb-3 text-sm text-gray-400">
+                Nome de utilizador ou email *
+              </label>
               <Field
-                className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 shadow-inner focus:outline-none"
+                className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 text-sm shadow-inner focus:outline-none"
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder="Email ou nome do utilizador"
               />
               <ErrorMessage name="email" />
-              <label className="mb-3">Palavra de passe</label>
+              <label className="mb-3 text-sm text-gray-400">
+                Palavra de passe
+              </label>
               <Field
-                className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 shadow-inner focus:outline-none"
+                className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 text-sm shadow-inner focus:outline-none"
                 type="password"
                 name="password"
                 placeholder="Palavra passe"
               />
-              <label className="mb-3">Confirmar a palavra de passe</label>
+              <label className="mb-3 text-sm text-gray-400">
+                Confirmar a palavra de passe
+              </label>
               <ErrorMessage name="password" />
               <Field
-                className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 shadow-inner focus:outline-none"
+                className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 text-sm shadow-inner focus:outline-none"
                 type="password"
                 name="passwordConfirm"
                 placeholder="Confirmar a palavra passe"
@@ -138,9 +144,9 @@ function Login() {
             </Form>
           </Formik>
           <p className="mt-4 text-sm">
-            Já tens uma conta ? Clique{" "}
+            Já tens uma conta? Clique{" "}
             <span
-              className="cursor-pointer font-bold"
+              className="cursor-pointer font-bold underline"
               onClick={() => setIsRegistered(true)}
             >
               aqui.

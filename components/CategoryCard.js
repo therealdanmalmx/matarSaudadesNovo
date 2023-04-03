@@ -10,7 +10,9 @@ const CategoryCard = ({ category }) => {
         Categorias
       </h2>
       <div className="container mx-auto flex max-w-7xl cursor-pointer justify-between">
-        {collections.map((collection) => (
+        {collections.map((collection) => {
+
+          return (
           // <CategoryCard key={category.node.id} product={category}/>
           <Link
             legacyBehavior
@@ -21,15 +23,15 @@ const CategoryCard = ({ category }) => {
             <Image
               src={url}
               alt={title}
-              objectFit="cover"
               priority
-              height="150px"
-              width="150px"
+              height={150}
+              width={150}
               className="ml-2 rounded-full"
             />
             {title}
           </Link>
-        ))}
+          )
+        })}
       </div>
     </div>
   );

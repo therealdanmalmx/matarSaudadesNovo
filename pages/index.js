@@ -23,8 +23,6 @@ function Home() {
     return <p>Error: {error.message}</p>;
   }
 
-  console.log({ data });
-
   const categories = data.categorias.data;
 
   return (
