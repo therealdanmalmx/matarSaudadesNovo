@@ -6,7 +6,7 @@ import { useQuery } from "urql";
 import { getCategories } from "../lib/query";
 
 const Categories = () => {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:1337";
+  const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
   const [results] = useQuery({ query: getCategories });
   const { data, fetching, error } = results;
@@ -33,11 +33,12 @@ const Categories = () => {
         {categorias.map((category) => {
           const image = category.attributes.image.data.attributes;
           const { id } = category;
+          console.log('localhost', `http://localhost:1337${image.url}`)
           return (
             <Link href={`/${category.attributes.slug}`} passHref key={id}>
               <ul className="d:h-full h-56 w-36 cursor-pointer md:w-full">
                 <Image
-                  src={`${BASE_URL}${image.url}`}
+                  src={`http://localhost:1337${image.url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
                   height={300}
                   width={200}
