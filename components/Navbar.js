@@ -1,18 +1,19 @@
-import Link from "next/link";
-import Image from "next/image";
-import Logo from "../assets/img/logo.jpg";
-import { useState, useContext } from "react";
+import Link from 'next/link';
+import Image from 'next/image';
+import Logo from '../assets/img/logo.jpg';
+import { useState, useContext } from 'react';
 import {
   SearchIcon,
   HeartIcon,
   ShoppingBagIcon,
-} from "@heroicons/react/outline";
-import { BiUser } from "react-icons/bi";
-import useTranslation from "next-translate/useTranslation";
-import { useStoreContext } from "../context/NewContext";
-import Cart from "./Cart";
-import Search from "../components/Search";
-import { AnimatePresence } from "framer-motion";
+} from '@heroicons/react/outline';
+import { BiUser } from 'react-icons/bi';
+import useTranslation from 'next-translate/useTranslation';
+import { useStoreContext } from '../context/NewContext';
+import Cart from './Cart';
+import Search from '../components/Search';
+import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function Navbar() {
   const { setShowCart, showCart, quantity, cartItems, totalQuantity } =
@@ -20,7 +21,7 @@ export default function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  let { t } = useTranslation("common");
+  let { t } = useTranslation('common');
 
   return (
     <header className="sticky top-0 z-20 border-b bg-white">
@@ -49,17 +50,17 @@ export default function Navbar() {
             <ul className="inline-flex">
               <Link legacyBehavior href="/" passHref>
                 <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
-                  {t("menu.home")}
+                  {t('menu.home')}
                 </a>
               </Link>
               <Link legacyBehavior href="/about" passHref>
                 <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
-                  {t("menu.about")}
+                  {t('menu.about')}
                 </a>
               </Link>
               <Link legacyBehavior href="/product" passHref>
                 <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
-                  {t("menu.product")}
+                  {t('menu.product')}
                 </a>
               </Link>
             </ul>
@@ -84,12 +85,12 @@ export default function Navbar() {
             <ul className="inline-flex">
               <Link legacyBehavior href="/news" passHref>
                 <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
-                  {t("menu.news")}
+                  {t('menu.news')}
                 </a>
               </Link>
               <Link legacyBehavior href="/contacts" passHref>
                 <a className="border-b-4 border-white px-4 transition duration-300 focus:border-b-2 focus:border-red focus:text-red  focus:ease-in-out active:text-red">
-                  {t("menu.contacts")}
+                  {t('menu.contacts')}
                 </a>
               </Link>
             </ul>
@@ -153,31 +154,31 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div className={`mobile-menu ${isOpen ? "block" : "hidden"}`}>
+      <div className={`mobile-menu ${isOpen ? 'block' : 'hidden'}`}>
         <ul className="block">
           <li>
             <Link legacyBehavior href="/" passHref>
-              <a className="px-4">{t("menu.home")}</a>
+              <a className="px-4">{t('menu.home')}</a>
             </Link>
           </li>
           <li>
             <Link legacyBehavior href="/about" passHref>
-              <a className="px-4">{t("menu.about")}</a>
+              <a className="px-4">{t('menu.about')}</a>
             </Link>
           </li>
           <li>
             <Link legacyBehavior href="/products" passHref>
-              <a className="px-4">{t("menu.product")}</a>
+              <a className="px-4">{t('menu.product')}</a>
             </Link>
           </li>
           <li>
             <Link legacyBehavior href="/news" passHref>
-              <a className="px-4">{t("menu.news")}</a>
+              <a className="px-4">{t('menu.news')}</a>
             </Link>
           </li>
           <li>
             <Link legacyBehavior href="/products" passHref>
-              <a className="px-4">{t("menu.contacts")}</a>
+              <a className="px-4">{t('menu.contacts')}</a>
             </Link>
           </li>
         </ul>

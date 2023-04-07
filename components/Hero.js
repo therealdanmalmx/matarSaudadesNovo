@@ -1,16 +1,59 @@
+import { useQuery, gql } from 'urql';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const GET_SINGLE_TYPE = `
+  query HomePage {
+    homePage {
+      data {
+        id
+        attributes {
+          title
+          Slide {
+            title
+            image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            buttons {
+              label
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export default function Hero() {
+  const [result, reexecuteQuery] = useQuery({
+    query: GET_SINGLE_TYPE,
+  });
+
+  const { data, fetching, error } = result;
+
+  console.log(data);
+
+  if (fetching) return <p>Loading...</p>;
+  if (error) return <p>Oh no... {error.message}</p>;
+
+  const { homePage } = data;
+
+  const { Slide } = homePage.data.attributes;
+
   return (
-    <div className="hero-bg mx-auto flex flex-col items-center justify-center px-10 py-10 text-center md:py-36 lg:h-screen lg:max-w-full">
-      <h1 className="text mb-6 text-4xl font-extrabold text-white md:text-4xl lg:text-5xl">
-        Lorem ipsum dolor sit amet
-      </h1>
-      <p className="text-base font-normal text-white md:text-3xl lg:text-2xl">
-        Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no
-        suscipit quaerendum.
-      </p>
-      <div className="mt-4 text-center">
-        <button className="btn btn-red">Saber Mais</button>
-      </div>
+    <div>
+      {Slide.title}
+      {Slide.image.data.map((slide) => (
+        <Image src={slide.attributes.url} width={1920} height={1080} />
+      ))}
+      {Slide.buttons.map((button) => (
+        <Link href={button.url}>{button.label}</Link>
+      ))}
     </div>
   );
 }
