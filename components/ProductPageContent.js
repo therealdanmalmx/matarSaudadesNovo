@@ -2,8 +2,7 @@ import Image from "next/image";
 import ProductForm from "./ProductForm";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 import RecommendedList from "./RecommendedList";
 

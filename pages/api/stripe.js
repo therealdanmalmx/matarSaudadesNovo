@@ -3,7 +3,7 @@ import Stripe from "stripe";
 const stripe = new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`);
 
 export default async function handler(req, res) {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+  const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
   if (req.method === "POST") {
     console.log(req.body.url);
