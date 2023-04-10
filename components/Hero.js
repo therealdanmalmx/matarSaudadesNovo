@@ -28,36 +28,42 @@ const GET_SINGLE_TYPE = `
     }
   }`;
 export default function Hero() {
-  const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
+  // const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-  const [result, reexecuteQuery] = useQuery({
-    query: GET_SINGLE_TYPE,
-  });
+  // const [result, reexecuteQuery] = useQuery({
+  //   query: GET_SINGLE_TYPE,
+  // });
 
-  const { data, fetching, error } = result;
+  // const { data, fetching, error } = result;
 
-  console.log(data);
+  // console.log(data);
 
-  if (fetching) return <p>Loading...</p>;
-  if (error) return <p>Oh no... {error.message}</p>;
+  // if (fetching) return <p>Loading...</p>;
+  // if (error) return <p>Oh no... {error.message}</p>;
 
-  const { homePage } = data;
+  // const { homePage } = data;
 
-  const { Slide } = homePage.data.attributes;
+  // const { Slide } = homePage.data.attributes;
+
+  // return (
+  //   <div>
+  //     {Slide.title}
+  //     {Slide.image.data.map((slide) => (
+  //       <Image
+  //         src={`${BASE_URL}${slide.attributes.url}`}
+  //         width={1920}
+  //         height={1080}
+  //       />
+  //     ))}
+  //     {Slide.buttons.map((button) => (
+  //       <Link href={button.url}>{button.label}</Link>
+  //     ))}
+  //   </div>
+  // );
 
   return (
     <div>
-      {Slide.title}
-      {Slide.image.data.map((slide) => (
-        <Image
-          src={`${BASE_URL}${slide.attributes.url}`}
-          width={1920}
-          height={1080}
-        />
-      ))}
-      {Slide.buttons.map((button) => (
-        <Link href={button.url}>{button.label}</Link>
-      ))}
+      Slider
     </div>
-  );
+  )
 }
