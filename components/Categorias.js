@@ -47,7 +47,7 @@ const Categories = () => {
               // onClick={() => findCategories}
             >
               <ul className="md:h-full h-56 w-36 cursor-pointer md:w-full">
-                <img
+                <Image
                   src={`${BASE_URL}${url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
                   height={1000}
