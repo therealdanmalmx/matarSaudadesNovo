@@ -40,7 +40,6 @@ const Categories = () => {
         {categorias.map((category) => {
           const {url, alt} = category.attributes.image.data.attributes;
           const { id } = category;
-          console.log({url, alt})
           return (
             <Link
               href={`/${category.attributes.slug}`}
@@ -48,7 +47,7 @@ const Categories = () => {
               // onClick={() => findCategories}
             >
               <ul className="md:h-full h-56 w-36 cursor-pointer md:w-full">
-                <Image
+                <img
                   src={`${BASE_URL}${url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
                   height={1000}
