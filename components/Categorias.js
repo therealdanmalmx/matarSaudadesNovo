@@ -12,7 +12,7 @@ const findCategories = async () => {
 };
 
 const Categories = () => {
-  const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
+  const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL ||  "http://localhost:1337";
 
   const [results] = useQuery({ query: getCategories });
   const { data, fetching, error } = results;
