@@ -2,7 +2,7 @@ import { useQuery, gql } from 'urql';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const GET_SINGLE_TYPE = `
+const GET_SINGLE_TYPE = gql`
   query HomePage {
     homePage {
       data {
@@ -26,44 +26,39 @@ const GET_SINGLE_TYPE = `
         }
       }
     }
-  }`;
+  }
+`;
 export default function Hero() {
-  // const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
+  const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-  // const [result, reexecuteQuery] = useQuery({
-  //   query: GET_SINGLE_TYPE,
-  // });
+  const [result, reexecuteQuery] = useQuery({
+    query: GET_SINGLE_TYPE,
+  });
 
-  // const { data, fetching, error } = result;
+  const { data, fetching, error } = result;
 
-  // console.log(data);
+  console.log(data);
 
-  // if (fetching) return <p>Loading...</p>;
-  // if (error) return <p>Oh no... {error.message}</p>;
+  if (fetching) return <p>Loading...</p>;
+  if (error) return <p>Oh no... {error.message}</p>;
 
-  // const { homePage } = data;
+  const { homePage } = data;
 
-  // const { Slide } = homePage.data.attributes;
-
-  // return (
-  //   <div>
-  //     {Slide.title}
-  //     {Slide.image.data.map((slide) => (
-  //       <Image
-  //         src={`${BASE_URL}${slide.attributes.url}`}
-  //         width={1920}
-  //         height={1080}
-  //       />
-  //     ))}
-  //     {Slide.buttons.map((button) => (
-  //       <Link href={button.url}>{button.label}</Link>
-  //     ))}
-  //   </div>
-  // );
+  const { Slide } = homePage.data.attributes;
 
   return (
-    <div>
-      Slider
+    <div className="hero-banner">
+      <h1 className="hero-banner__title">{Slide.title}</h1>
+      <Image
+        src={`${process.env.STRAPI_URL || 'http://localhost:1337'}${
+          Slide.image.data[0].attributes.url
+        }`}
+        width={1920}
+        height={1080}
+      />
+      <Link className="hero-banner__url" href={Slide.buttons[0].url}>
+        {Slide.buttons[0].label}
+      </Link>
     </div>
-  )
+  );
 }
