@@ -23,8 +23,8 @@ const CategoryCard = ({ category }) => {
               alt={title}
               objectFit="cover"
               priority
-              height="150px"
-              width="150px"
+              height={1000}
+              width={1000}
               className="ml-2 rounded-full"
             />
             {title}

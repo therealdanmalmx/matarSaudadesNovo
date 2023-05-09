@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import Link from "next/link";
-import Image, { urlBuilder } from "next/image";
+import Image from "next/image";
 import { formatter } from "../utils/helpers";
 import { useStoreContext } from "../context/NewContext";
 const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
@@ -23,6 +23,8 @@ const ProductCard = ({ product }) => {
                 alt={alternativeText}
                 layout="fill"
                 objectFit="cover"
+                height={1000}
+                width={1000}
                 priority
               />
             </div>

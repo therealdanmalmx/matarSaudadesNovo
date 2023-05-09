@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import Logo from "../assets/img/logo.jpg";
 import { MailIcon, PhoneIcon } from "@heroicons/react/outline";
 import Modal from "../components/Modal";
 import { useEffect, useState } from "react";
