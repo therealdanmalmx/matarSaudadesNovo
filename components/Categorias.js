@@ -50,8 +50,8 @@ const Categories = () => {
                 <Image
                   src={`${BASE_URL}${url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
-                  height={1000}
-                  width={1000}
+                  height={144}
+                  width={144}
                   className="h-36 w-36 rounded-full"
                   priority
                 />
