@@ -47,13 +47,13 @@ const Categories = () => {
               // onClick={() => findCategories}
             >
               <ul className="md:h-full h-56 w-36 cursor-pointer md:w-full">
-                <Image
+                <img
                   src={`${BASE_URL}${url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
                   height={144}
                   width={144}
                   className="h-36 w-36 rounded-full"
-                  priority
+                  priority="true"
                 />
                 <li className="mt-3 w-full text-center text-base text-grey-75 md:text-lg">
                   {t(category.attributes.title)}
