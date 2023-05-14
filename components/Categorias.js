@@ -12,7 +12,7 @@ const findCategories = async () => {
 };
 
 const Categories = () => {
-  const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL ||  "http://localhost:1337";
+  const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
   const [results] = useQuery({ query: getCategories });
   const { data, fetching, error } = results;
@@ -44,10 +44,9 @@ const Categories = () => {
             <Link
               href={`/${category.attributes.slug}`}
               passHref key={id}
-              // onClick={() => findCategories}
             >
               <ul className="md:h-full h-56 w-36 cursor-pointer md:w-full">
-                <img
+                <Image
                   src={`${BASE_URL}${url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
                   height={144}
