@@ -21,11 +21,10 @@ const ProductCard = ({ product }) => {
               <Image
                 src={`${BASE_URL}${url}`}
                 alt={alternativeText}
-                layout="fill"
-                objectFit="cover"
                 height={1000}
                 width={1000}
                 priority
+                unoptimized={false}
               />
             </div>
           </div>
