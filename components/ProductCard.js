@@ -1,8 +1,8 @@
-import { useState, useContext } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { formatter } from "../utils/helpers";
-import { useStoreContext } from "../context/NewContext";
+import { useState, useContext } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { formatter } from '../utils/helpers';
+import { useStoreContext } from '../context/NewContext';
 const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 const ProductCard = ({ product }) => {
@@ -16,9 +16,9 @@ const ProductCard = ({ product }) => {
     <div className="h-[450px]">
       <Link legacyBehavior href={`/${categoria}/${slug}`} passHref>
         <a>
-          <div className="mx-auto w-60 md:w-full">
-            <div className="relative h-64 md:h-72">
-              <Image
+          <div className="md:w-full mx-auto">
+            <div className="relative pb-4">
+              <img
                 src={`${BASE_URL}${url}`}
                 alt={alternativeText}
                 height={1000}
@@ -28,11 +28,11 @@ const ProductCard = ({ product }) => {
               />
             </div>
           </div>
-          <div>
+          <div className="text-center">
             <p className="text-lg font-bold text-gray-900">{title}</p>
             <p className="text-md text-gray-900">{formatter.format(price)}</p>
             <button
-              className="mt-4 w-2/5 bg-red py-2 text-center font-bold text-white"
+              className="bg-red w-2/5 py-2 mt-4 font-bold text-center text-white"
               onClick={() => addQuantity}
             >
               Adicionar
