@@ -19,7 +19,7 @@ export default function ProductPageContent({ product }) {
           height={1000}
           width={1000}
           priority
-          unoptimized={false}
+          unoptimized={true}
         />
       </SwiperSlide>
     );

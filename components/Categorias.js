@@ -53,7 +53,7 @@ const Categories = () => {
                   width={144}
                   className="h-36 w-36 rounded-full"
                   priority="true"
-                  unoptimized={false}
+                  unoptimized={true}
                 />
                 <li className="mt-3 w-full text-center text-base text-grey-75 md:text-lg">
                   {t(category.attributes.title)}
