@@ -44,13 +44,13 @@ export default function Hero() {
 
   const { homePage } = data;
 
-  // const { Slide } = homePage.data.attributes;
+  const { Slide } = homePage.data.attributes;
 
   return (
     <div className="hero-banner">
       Banner
-      {/* <h1 className="hero-banner__title">{Slide.title}</h1>
-      <Image
+      <h1 className="hero-banner__title">{Slide.title}</h1>
+      <img
         src={`${process.env.STRAPI_URL || 'http://localhost:1337'}${
           Slide.image.data[0].attributes.url
         }`}
@@ -59,7 +59,7 @@ export default function Hero() {
       />
       <Link className="hero-banner__url" href={Slide.buttons[0].url}>
         {Slide.buttons[0].label}
-      </Link> */}
+      </Link>
     </div>
   );
 }

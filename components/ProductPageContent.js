@@ -1,10 +1,10 @@
-import Image from "next/image";
-import ProductForm from "./ProductForm";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination } from "swiper";
+import Image from 'next/image';
+import ProductForm from './ProductForm';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
 const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-import RecommendedList from "./RecommendedList";
+import RecommendedList from './RecommendedList';
 
 export default function ProductPageContent({ product }) {
   const images = [];
@@ -13,7 +13,7 @@ export default function ProductPageContent({ product }) {
     const { url, alternativeText } = product.attributes.image.data.attributes;
     images.push(
       <SwiperSlide key={`slide-${i}`}>
-        <Image
+        <img
           src={`${BASE_URL}${url}`}
           alt={alternativeText}
           height={1000}
@@ -29,15 +29,15 @@ export default function ProductPageContent({ product }) {
 
   return (
     <div>
-      <div className="lg_space-x-8 mx-auto flex w-11/12 max-w-6xl flex-col items-center justify-center space-y-8 md:flex-row md:items-start md:space-y-0 md:space-x-4 ">
-        <div className="relative h-96 w-full md:w-1/3">
+      <div className="md:flex-row md:items-start md:space-y-0 md:space-x-4 md-p-0 flex flex-col items-center justify-center p-5 mx-auto">
+        <div className="md:w-3/6 relative w-full">
           {images.length < 2 ? (
             images
           ) : (
             <Swiper
               style={{
-                "--swiper-navigation-color": "#ce0d15",
-                "--swiper-pagination-color": "#ce0d15",
+                '--swiper-navigation-color': '#ce0d15',
+                '--swiper-pagination-color': '#ce0d15',
               }}
               navigation
               pagination={{ clickable: true }}
@@ -48,7 +48,7 @@ export default function ProductPageContent({ product }) {
             </Swiper>
           )}
         </div>
-        <div className="w-full md:w-1/3">
+        <div className="md:w-1/3 w-full mt-5">
           <ProductForm produto={product} />
         </div>
       </div>
