@@ -39,7 +39,11 @@ export default function Footer() {
             <ul>
               {company.map((item, index) => (
                 <li className="pb-3" key={item.title + index}>
-                  <Link legacyBehavior href={item.url} passHref>
+                  <Link 
+                    href={item.url} 
+                    legacyBehavior 
+                    passHref
+                  >
                     <a className="cursor-pointer text-base font-normal hover:text-red">
                       {item.title}
                     </a>
@@ -56,7 +60,11 @@ export default function Footer() {
             <ul>
               {help.map((item, index) => (
                 <li className="pb-3" key={item.title + index}>
-                  <Link legacyBehavior href={item.url} passHref>
+                  <Link 
+                    href={item.url} 
+                    legacyBehavior 
+                    passHref
+                  >
                     <a className="cursor-pointer text-base font-normal hover:text-red">
                       {item.title}
                     </a>
@@ -128,8 +136,8 @@ export default function Footer() {
           ©{new Date().getFullYear()} Todos os direitos reservados. Matar
           Saudades made by{" "}
           <Link
-            legacyBehavior
             href="http://www.miseendigital.com"
+            legacyBehavior
             noopen
             blank
             passHref
@@ -142,7 +150,7 @@ export default function Footer() {
             >
               mise en digital
             </a>
-          </Link>{" "}
+          </Link>
         </p>
       </div>
       {openModal ? (

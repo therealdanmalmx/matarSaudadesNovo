@@ -8,6 +8,8 @@ const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 const ProductCard = ({ product }) => {
   const { title, slug, price } = product;
   const { url, alternativeText } = product.image.data.attributes;
+  console.log({url});
+  console.log({alternativeText});
   const { quantity, addToCart, addQuantity, removeQuantity } =
     useStoreContext();
   const categoria = product.categoria.data.attributes.slug;
@@ -20,12 +22,11 @@ const ProductCard = ({ product }) => {
             <div className="relative h-64 md:h-72">
               <Image
                 src={`${BASE_URL}${url}`}
-                alt={alternativeText}
-                layout="fill"
-                objectFit="cover"
+                alt={`Imagem de ${slug}`}
                 height={1000}
                 width={1000}
                 priority
+                unoptimized={true}
               />
             </div>
           </div>

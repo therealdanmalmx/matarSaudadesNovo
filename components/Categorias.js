@@ -49,10 +49,11 @@ const Categories = () => {
                 <Image
                   src={`${BASE_URL}${url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
-                  height={144}
-                  width={144}
+                  height={1000}
+                  width={1000}
                   className="h-36 w-36 rounded-full"
-                  priority="true"
+                  unoptimized={false}
+
                 />
                 <li className="mt-3 w-full text-center text-base text-grey-75 md:text-lg">
                   {t(category.attributes.title)}

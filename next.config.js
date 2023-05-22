@@ -5,6 +5,7 @@ const nextTranslate = require("next-translate");
 module.exports = {
   images: {
     domains: ['localhost', 'localhost:1337'],
+    loader: 'default',
   },
   ...nextTranslate(),
 };

@@ -15,12 +15,11 @@ export default function ProductPageContent({ product }) {
       <SwiperSlide key={`slide-${i}`}>
         <Image
           src={`${BASE_URL}${url}`}
-          alt={alternativeText}
-          layout="fill"
-          objectFit="cover"
+          alt={`Imagem de ${product.attributes.slug}`}
           height={1000}
           width={1000}
           priority
+          unoptimized={true}
         />
       </SwiperSlide>
     );
