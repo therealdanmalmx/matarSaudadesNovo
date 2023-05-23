@@ -6,7 +6,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 const ProductCard = ({ product }) => {
   console.log({product});
-  const { title, slug, price, product_quantity, product_quantity_value } = product;
+  const { title, slug, price, product_quantity, product_quantity_size, product_quantity_measure } = product;
   const { url } = product.image.data.attributes;
   console.log({url});
   const { quantity, addToCart, addQuantity, removeQuantity } =
@@ -33,16 +33,19 @@ const ProductCard = ({ product }) => {
             />
           </div>
         </div>
-        <div className="flex flex-col items-center">
+        <p className="text-xl text-center font-bold text-gray-900">{title}</p>
+        <div className="flex flex-row mx-auto text-center items-center justify-between w-1/2">
           <div>
-            <p className="text-xl text-center font-bold text-gray-900">{title}</p>
-            <p className="text-md text-center text-gray-900">{formatter.format(price)}</p>
-            <p className="text-md text-center text-gray-900">{product_quantity}</p> x
-            <span className="text-md text-center text-gray-900">{product_quantity_value}</span>
+            <span className="text-md text-center text-gray-900">{formatter.format(price)}</span>
           </div>
-          <div>
+          {product_quantity && (
+            <div>
+              <span className="text-md text-center text-gray-900">({product_quantity}</span> x 
+              <span className="text-md text-center text-gray-900"> {product_quantity_size}</span>
+              <span className="text-md text-center text-gray-900"> {product_quantity_measure})</span>
+            </div>
+          )}
 
-          </div>
         </div>
       </Link>
       <button
