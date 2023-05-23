@@ -34,7 +34,7 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
         <p className="text-xl text-center font-bold text-gray-900">{title}</p>
-        <div className="flex flex-row mx-auto text-center items-center justify-between w-1/2">
+        <div className="flex flex-row mx-auto text-center items-center justify-between w-1/2 mt-2">
           <div>
             <span className="text-md text-center text-gray-900">{formatter.format(price)}</span>
           </div>
@@ -49,7 +49,7 @@ const ProductCard = ({ product }) => {
         </div>
       </Link>
       <button
-        className="flex flex-col items-center mt-2 w-3/5 mx-auto bg-red p-2 md:px-2 md:py-1 rounded-full font-bold text-white"
+        className="flex flex-col items-center mt-4 w-3/5 mx-auto bg-red p-2 md:px-2 md:py-1 rounded-full font-bold text-white"
         onClick={() => addQuantity}
       >
         Adicionar
