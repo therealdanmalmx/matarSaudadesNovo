@@ -80,7 +80,7 @@ function Cart() {
                 >
                   <Image
                     src={`${BASE_URL}${url}`}
-                    alt={`Imagem de ${slug}`}
+                    alt={`Imagem de ${item.slug}`}
                     width={80}
                     height={80}
                     priority="true"
