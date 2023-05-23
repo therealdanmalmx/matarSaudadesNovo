@@ -21,8 +21,7 @@ const CategoryCard = ({ category }) => {
             <Image
               src={url}
               alt={title}
-              objectFit="cover"
-              priority
+              priority="true"
               height={1000}
               width={1000}
               className="ml-2 rounded-full"

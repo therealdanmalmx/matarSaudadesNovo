@@ -18,8 +18,8 @@ export default function ProductPageContent({ product }) {
           alt={`Imagem de ${product.attributes.slug}`}
           height={1000}
           width={1000}
-          priority
-          unoptimized={true}
+          priority="true"
+          unoptimized="true"
         />
       </SwiperSlide>
     );
@@ -30,7 +30,7 @@ export default function ProductPageContent({ product }) {
   return (
     <div>
       <div className="md:flex-row md:items-start md:space-y-0 md:space-x-4 md-p-0 flex flex-col items-center justify-center p-5 mx-auto">
-        <div className="md:w-3/6 relative w-full">
+        <div className="md:w-1/4 relative w-full">
           {images.length < 2 ? (
             images
           ) : (

@@ -83,8 +83,8 @@ function Cart() {
                     alt={alternativeText}
                     width={80}
                     height={80}
-                    priority
-                  />
+                    priority="true"
+                    />
                   <div className="div:flex div:justify-between w-1/2">
                     <h3>{item.title}</h3>
                     <h3>{formatter.format(item.price)}</h3>
