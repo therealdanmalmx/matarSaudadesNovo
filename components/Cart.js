@@ -69,7 +69,7 @@ function Cart() {
           )}
           {!!cartItems.length &&
             cartItems.map((item) => {
-              const { url, alternativeText } = item.image.data.attributes;
+              const { url } = item.image.data.attributes;
               return (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -80,10 +80,11 @@ function Cart() {
                 >
                   <Image
                     src={`${BASE_URL}${url}`}
-                    alt={alternativeText}
+                    alt={`Imagem de ${slug}`}
                     width={80}
                     height={80}
                     priority="true"
+                    unoptimized="true"
                     />
                   <div className="div:flex div:justify-between w-1/2">
                     <h3>{item.title}</h3>

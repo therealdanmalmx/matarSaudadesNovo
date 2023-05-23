@@ -10,7 +10,7 @@ export default function ProductPageContent({ product }) {
   const images = [];
 
   product.map((product, i) => {
-    const { url, alternativeText } = product.attributes.image.data.attributes;
+    const { url } = product.attributes.image.data.attributes;
     images.push(
       <SwiperSlide key={`slide-${i}`}>
         <img
