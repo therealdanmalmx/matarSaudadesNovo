@@ -16,12 +16,12 @@ import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
 
 export default function Navbar() {
-  const { setShowCart, showCart, quantity, cartItems, totalQuantity } =
+  const { setShowCart, showCart, quantity, addSingleQuantity, cartItems, totalQuantity } =
     useStoreContext();
   const [showSearch, setShowSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  let { t } = useTranslation('common');
+  let { t } = useTranslation("common");
 
   return (
     <header className="sticky top-0 z-20 border-b bg-white">
@@ -43,7 +43,7 @@ export default function Navbar() {
           </div>
           <div className="header-account">
             <Link legacyBehavior href="/my-account" passHref>
-              <BiUser className="h-6 w-6 cursor-pointer" />
+             <a><BiUser className="h-6 w-6 cursor-pointer" /></a> 
             </Link>
           </div>
           <div className="header-nav-wrapper flex-auto text-right">
@@ -67,9 +67,8 @@ export default function Navbar() {
           </div>
         </div>
         <div className="header-col flex-auto sm:text-left md:text-center">
-          <Link legacyBehavior href="/" passHref>
-            <a>
-              <span className="pt-1 text-lg font-bold">
+          <Link legacyBehavior href="/">
+              <span className="pt-1 text-lg font-bold cursor-pointer">
                 <Image
                   src={Logo}
                   alt="Matar Saudades"
@@ -77,7 +76,6 @@ export default function Navbar() {
                   height={63}
                 />
               </span>
-            </a>
           </Link>
         </div>
         <div className="header-col hidden flex-auto items-center justify-end md:flex">

@@ -30,7 +30,8 @@ export default function About() {
             alt="História, Propósito e visão"
             width={700}
             height={500}
-          />
+            priority="true"
+            />
         </div>
       </div>
     </section>

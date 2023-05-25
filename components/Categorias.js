@@ -22,28 +22,29 @@ const Categories = () => {
   const categorias = data.categorias.data;
 
   return (
-    <section className="categories bg-grey-light pt-10 lg:py-36">
-      <p className="font-sans mb-2 text-center text-xl font-normal text-grey-50">
+    <section className="categories bg-grey-light lg:py-36 pt-10">
+      <p className="text-grey-50 mb-2 font-sans text-xl font-normal text-center">
         Descubra as últimas novidades
       </p>
-      <h2 className="mb-12 text-center text-5xl font-bold text-red">
+      <h2 className="text-red mb-12 text-5xl font-bold text-center">
         {t('categories.category')}
       </h2>
       <div className="remove-scrollbar mx-0.5 flex justify-between space-x-2.5 overflow-x-scroll md:mx-auto md:max-w-7xl md:space-x-5">
         {categorias.map((category) => {
-          const image = category.attributes.image.data.attributes;
+          const { url, alt } = category.attributes.image.data.attributes;
           const { id } = category;
           return (
             <Link href={`/${category.attributes.slug}`} passHref key={id}>
-              <ul className="d:h-full h-56 w-36 cursor-pointer md:w-full">
-                <Image
-                  src={`${BASE_URL}${image.url}`}
+              <ul className="md:h-full w-36 md:w-full h-56 cursor-pointer">
+                <img
+                  src={`${BASE_URL}${url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
-                  height={100}
-                  width={100}
-                  className="h-36 w-36 rounded-full"
+                  height={1000}
+                  width={1000}
+                  className="h-36 w-36 rounded-full object-cover"
+                  priority="true"
                 />
-                <li className="mt-3 w-full text-center text-base text-grey-75 md:text-lg">
+                <li className="text-grey-75 md:text-lg w-full mt-3 text-base text-center">
                   {t(category.attributes.title)}
                 </li>
               </ul>

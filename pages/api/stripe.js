@@ -6,7 +6,6 @@ export default async function handler(req, res) {
   const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
   if (req.method === "POST") {
-    console.log(req.body.url);
     try {
       const session = await stripe.checkout.sessions.create({
         submit_type: "pay",

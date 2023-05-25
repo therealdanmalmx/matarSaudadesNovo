@@ -19,7 +19,7 @@ function ProductDetails() {
   }
 
   return (
-    <div className="min-h-screen py-12 sm:pt-20">
+    <div className="min-h-fit py-12 sm:pt-20">
       <ProductPageContent product={data.produtos.data} />
     </div>
   );
