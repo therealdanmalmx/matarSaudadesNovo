@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
   const { title, slug, price, product_quantity, product_quantity_size, product_quantity_measure } = product;
   const { url } = product.image.data.attributes;
   console.log({url});
-  const { quantity, addToCart, addQuantity, removeQuantity } =
+  const { quantity, addToCart, addQuantity, addSingleQuantity, removeQuantity } =
     useStoreContext();
   const categoria = product.categoria.data.attributes.slug;
 
@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
               height={1000}
               width={1000}
               priority="true"
-              unoptimized="true"
+              unoptimized={true}
             />
           </div>
         </div>
@@ -53,7 +53,9 @@ const ProductCard = ({ product }) => {
       </Link>
       <button
         className="flex flex-col items-center mt-4 w-3/5 mx-auto bg-red p-2 md:px-2 md:py-1 rounded-full font-bold text-white"
-        onClick={() => addQuantity}
+        onClick={() => {
+          addToCart(product[0].attributes, quantity);
+        }}
       >
         Adicionar
 

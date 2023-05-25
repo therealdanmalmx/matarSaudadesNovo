@@ -16,7 +16,7 @@ import Search from "../components/Search";
 import { AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
-  const { setShowCart, showCart, quantity, cartItems, totalQuantity } =
+  const { setShowCart, showCart, quantity, addSingleQuantity, cartItems, totalQuantity } =
     useStoreContext();
   const [showSearch, setShowSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -111,6 +111,11 @@ export default function Navbar() {
           {totalQuantity > 0 && (
             <p className="relative -left-2 flex h-4 w-4 items-center justify-center rounded-full bg-red text-center text-xs font-bold text-white">
               {totalQuantity}
+            </p>
+          )}
+          {addSingleQuantity > 0 && (
+            <p className="relative -left-2 flex h-4 w-4 items-center justify-center rounded-full bg-red text-center text-xs font-bold text-white">
+              {addSingleQuantity}
             </p>
           )}
           <AnimatePresence>{showCart && <Cart />}</AnimatePresence>
