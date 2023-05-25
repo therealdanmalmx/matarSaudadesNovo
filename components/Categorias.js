@@ -36,13 +36,14 @@ const Categories = () => {
           return (
             <Link href={`/${category.attributes.slug}`} passHref key={id}>
               <ul className="md:h-full w-36 md:w-full h-56 cursor-pointer">
-                <img
+                <Image
                   src={`${BASE_URL}${url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
                   height={1000}
                   width={1000}
                   className="h-36 w-36 rounded-full object-cover"
                   priority="true"
+                  unoptimized={true}
                 />
                 <li className="text-grey-75 md:text-lg w-full mt-3 text-base text-center">
                   {t(category.attributes.title)}
