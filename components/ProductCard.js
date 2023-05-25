@@ -54,7 +54,7 @@ const ProductCard = ({ product }) => {
       <button
         className="flex flex-col items-center mt-4 w-3/5 mx-auto bg-red p-2 md:px-2 md:py-1 rounded-full font-bold text-white"
         onClick={() => {
-          addToCart(product[0].attributes, quantity);
+          addToCart(product, quantity);
         }}
       >
         Adicionar
