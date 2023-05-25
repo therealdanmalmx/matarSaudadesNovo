@@ -76,7 +76,7 @@ function Success({ order }) {
             >
               Voltar para a loja
             </button>
-            <Image src={obrigado} width={350} className="mt-12" />
+            <Image src={obrigado} alt="obrigado pela sua escolha" width={350} className="mt-12" />
           </div>
         </div>
       </div>
