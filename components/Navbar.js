@@ -69,9 +69,8 @@ export default function Navbar() {
           </div>
         </div>
         <div className="header-col flex-auto sm:text-left md:text-center">
-          <Link legacyBehavior href="/" passHref>
-            <a>
-              <span className="pt-1 text-lg font-bold">
+          <Link legacyBehavior href="/">
+              <span className="pt-1 text-lg font-bold cursor-pointer">
                 <Image
                   src={Logo}
                   alt="Matar Saudades"
@@ -79,7 +78,6 @@ export default function Navbar() {
                   height={63}
                 />
               </span>
-            </a>
           </Link>
         </div>
         <div className="header-col hidden flex-auto items-center justify-end md:flex">
@@ -111,11 +109,6 @@ export default function Navbar() {
           {totalQuantity > 0 && (
             <p className="relative -left-2 flex h-4 w-4 items-center justify-center rounded-full bg-red text-center text-xs font-bold text-white">
               {totalQuantity}
-            </p>
-          )}
-          {addSingleQuantity > 0 && (
-            <p className="relative -left-2 flex h-4 w-4 items-center justify-center rounded-full bg-red text-center text-xs font-bold text-white">
-              {addSingleQuantity}
             </p>
           )}
           <AnimatePresence>{showCart && <Cart />}</AnimatePresence>

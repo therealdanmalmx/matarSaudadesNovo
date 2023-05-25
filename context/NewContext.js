@@ -6,17 +6,13 @@ export const StateContext = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [quantity, setQuantity] = useState(1);
-  const [singleQuantity, setSingleQuantity] = useState(1);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
   const addQuantity = () => {
     setQuantity(quantity + 1 > 99 ? 1 : quantity + 1);
   };
-  const addSingleQuantity = () => {
-    setSingleQuantity(1);
 
-  }
   const removeQuantity = () => {
     setQuantity(quantity - 1 < 1 ? 1 : quantity - 1);
   };
@@ -71,7 +67,6 @@ export const StateContext = ({ children }) => {
         removeFromCart,
         totalQuantity,
         totalPrice,
-        addSingleQuantity,
       }}
     >
       {children}

@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
   const { title, slug, price, product_quantity, product_quantity_size, product_quantity_measure } = product;
   const { url } = product.image.data.attributes;
   console.log({url});
-  const { quantity, addToCart, addQuantity, addSingleQuantity, removeQuantity } =
+  const { quantity, addToCart } =
     useStoreContext();
   const categoria = product.categoria.data.attributes.slug;
 
