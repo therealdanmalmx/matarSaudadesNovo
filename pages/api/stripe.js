@@ -273,10 +273,11 @@ export default async function handler(req, res) {
               minimum: 1,
             },
             quantity: item.quantity,
+            
           };
         }),
-        success_url: `${req.headers.origin}/success`,
-        cancel_url: `${req.headers.origin}/canceled`,
+        success_url: `${req.headers.origin}/order/success?&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${req.headers.origin}/order/canceled`,
       });
       res.status(200).json(session);
     } catch (error) {

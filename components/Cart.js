@@ -119,7 +119,7 @@ function Cart() {
               </h3>
               <button
                 className="z-10 mt-5 w-full bg-black py-3 px-6 text-center text-sm text-white focus:bg-gray-800"
-                onClick={() => handleCheckout()}
+                onClick={handleCheckout}
               >
                 Comprar
               </button>

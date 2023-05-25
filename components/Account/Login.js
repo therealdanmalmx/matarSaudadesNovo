@@ -45,7 +45,7 @@ function Login() {
             placeholder="Email"
           />
           <ErrorMessage name="name" />
-          <label className="mb-3">Palavra passed *</label>
+          <label className="mb-3">Palavra de passe</label>
           <Field
             className="mr-2 mb-1 w-full bg-gray-100 px-2 py-3 shadow-inner focus:outline-none"
             type="password"
@@ -54,7 +54,7 @@ function Login() {
           />
           <ErrorMessage name="password" />
           <button type="submit" className="btn btn-red mt-4 w-full">
-            Enviar
+            Login
           </button>
         </Form>
       </Formik>
