@@ -8,7 +8,6 @@ import { getCategories } from '../lib/query';
 const findCategories = async () => {
   const res = await fetch('http://localhost:1337/api/categorias');
   const data = await res.json();
-  console.log({ data });
 };
 
 const Categories = () => {

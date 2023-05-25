@@ -13,13 +13,13 @@ export default function ProductPageContent({ product }) {
     const { url } = product.attributes.image.data.attributes;
     images.push(
       <SwiperSlide key={`slide-${i}`}>
-        <img
+        <Image
           src={`${BASE_URL}${url}`}
           alt={`Imagem de ${product.attributes.slug}`}
           height={1000}
           width={1000}
           priority="true"
-          unoptimized="true"
+          unoptimized={true}
         />
       </SwiperSlide>
     );

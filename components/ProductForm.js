@@ -3,7 +3,6 @@ import useTranslation from 'next-translate/useTranslation';
 import { useStoreContext } from '../context/NewContext';
 
 export default function ProductForm({ produto }) {
-  console.log({produto});
   const { quantity, addQuantity, removeQuantity, addToCart } =
     useStoreContext();
 

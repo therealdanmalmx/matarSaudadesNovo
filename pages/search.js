@@ -1,4 +1,6 @@
 import { useStoreContext } from '../context/NewContext';
+import { getOneProduct } from "../../lib/query";
+import { useQuery } from "urql";
 import { useRouter } from 'next/router';
 
 const PAGE_SIZE = 2;
@@ -85,6 +87,17 @@ export default Search = (props) => {
     const ratingHandler = (e) => {
         filterSearch({ rating: e.target.value });
     }
+    
+const product = router.query;
+const [results] = useQuery({
+    query: getOneProduct,
+    variables: { slug: product },
+});
+  const { data, fetching, error } = results;
+    const {addToCart} = useStoreContext();
+    const addToCartHandler = (product) => {
+        const existItem = addToCart.find((x) => x.id === product.id);
+        const quantiy = existItem ? existItem.quantity + 1 : 1;
+    }
 
-    const {state, dispatch} = useStoreContext();
 }

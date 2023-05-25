@@ -5,15 +5,11 @@ import { useStoreContext } from '../context/NewContext';
 const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 const ProductCard = ({ product }) => {
-  console.log({product});
   const { title, slug, price, product_quantity, product_quantity_size, product_quantity_measure } = product;
   const { url } = product.image.data.attributes;
-  console.log({url});
   const { quantity, addToCart } =
     useStoreContext();
   const categoria = product.categoria.data.attributes.slug;
-
-  console.log({product_quantity});
 
   return (
     <div className="h-[450px]">

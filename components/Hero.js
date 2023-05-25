@@ -37,14 +37,10 @@ export default function Hero() {
 
   const { data, fetching, error } = result;
 
-  console.log(data);
-
   if (fetching) return <p>Loading...</p>;
   if (error) return <p>Oh no... {error.message}</p>;
 
   const { homePage } = data;
-
-  console.log({homePage})
 
   // const { Slide } = homePage.data.attributes;
 
