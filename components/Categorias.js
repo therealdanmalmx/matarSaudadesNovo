@@ -38,7 +38,7 @@ const Categories = () => {
               <ul className="md:h-full w-36 md:w-full h-56 cursor-pointer">
                 <Image
                   src={`${BASE_URL}${url}`}
-                  alt={`Imagem de ${category.attributes.slug}`}
+                  alt={category.attributes.slug}
                   height={1000}
                   width={1000}
                   className="h-36 w-36 rounded-full object-cover"
