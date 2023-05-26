@@ -67,13 +67,15 @@ export default function Navbar() {
           </div>
         </div>
         <div className="header-col flex-auto sm:text-left md:text-center">
-          <Link legacyBehavior href="/">
+          <Link href="/">
               <span className="pt-1 text-lg font-bold cursor-pointer">
                 <Image
                   src={Logo}
                   alt="Matar Saudades"
                   width={187}
                   height={63}
+                  priority={true}
+                  unoptimized={true}
                 />
               </span>
           </Link>
