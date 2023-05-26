@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
   const categoria = product.categoria.data.attributes.slug;
 
   return (
-    <div className="h-[450px]">
+    <div className="h-[380px] md:h-[450px]">
       <Link
         href={`/${categoria}/${slug}`}
         passHref
