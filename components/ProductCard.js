@@ -30,16 +30,16 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
         <p className="text-xl text-center font-bold text-gray-900">{title}</p>
-        <div className="flex flex-row mx-auto text-center items-center justify-between w-1/2 mt-2">
+        <div className="flex flex-row mx-auto text-center items-center justify-between w-1/3 md:w-1/2 mt-2">
             {product_quantity && (
-              <span className="flex flex-row mx-auto items-center justify-between text-md text-center text-gray-900">{formatter.format(price)}</span>
+              <span className="text-center text-md text-gray-900">{formatter.format(price)}</span>
               )}
             {!product_quantity && (
-              <span className="flex flex-row mx-auto items-center justify-center text-md text-center text-gray-900">{formatter.format(price)}</span>
+              <span className="text-center text-md text-gray-900">{formatter.format(price)}</span>
             )}
           {product_quantity && (
             <div>
-              <span className="text-md text-center text-gray-900">
+              <span className="text-md text-center mx-auto text-gray-900">
                 ({product_quantity} x {product_quantity_size} {product_quantity_measure})
               </span>
             </div>
