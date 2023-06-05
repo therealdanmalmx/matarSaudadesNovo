@@ -35,7 +35,7 @@ const ProductCard = ({ product }) => {
               <span className="text-center text-md text-gray-900">{formatter.format(price)}</span>
               )}
             {!product_quantity && (
-              <span className="text-center text-md text-gray-900">{formatter.format(price)}</span>
+              <span className="text-center mx-auto text-md text-gray-900">{formatter.format(price)}</span>
             )}
           {product_quantity && (
             <div>
@@ -48,7 +48,7 @@ const ProductCard = ({ product }) => {
         </div>
       </Link>
       <button
-        className="flex flex-col items-center mt-4 w-3/5 mx-auto bg-red p-2 md:px-2 md:py-1 rounded-full font-bold text-white"
+        className="flex flex-col items-center mt-4 w-3/5 mx-auto bg-red p-2 md:px-4 md:py-2 font-bold text-white"
         onClick={() => {
           addToCart(product, quantity);
         }}
