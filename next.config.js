@@ -4,7 +4,8 @@ const nextTranslate = require("next-translate");
 
 module.exports = {
   images: {
-    domains: ["localhost"],
+    domains: ['localhost', 'localhost:1337', 'matarsaudades-dh80.onrender.com'],
+    loader: 'default',
   },
   ...nextTranslate(),
 };

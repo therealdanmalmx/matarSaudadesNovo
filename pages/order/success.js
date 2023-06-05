@@ -76,7 +76,15 @@ function Success({ order }) {
             >
               Voltar para a loja
             </button>
-            <Image src={obrigado} width={350} className="mt-12" />
+            <Image 
+              src={obrigado} 
+              alt="obrigado pela sua escolha" 
+              width={350} 
+              geight={350} 
+              className="mt-12" 
+              priority="true"
+              unoptimized={true}
+            />
           </div>
         </div>
       </div>

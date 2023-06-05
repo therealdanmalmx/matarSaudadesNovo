@@ -12,6 +12,7 @@ export const StateContext = ({ children }) => {
   const addQuantity = () => {
     setQuantity(quantity + 1 > 99 ? 1 : quantity + 1);
   };
+
   const removeQuantity = () => {
     setQuantity(quantity - 1 < 1 ? 1 : quantity - 1);
   };

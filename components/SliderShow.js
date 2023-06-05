@@ -53,11 +53,10 @@ const SliderShow = ({ slides }) => {
               <Image
                 src={slide.url}
                 alt={slide.title}
-                object-fit="cover"
                 width={1920}
                 height={600}
-                priority
-              />
+                priority="true"
+                />
             </div>
           );
         })}

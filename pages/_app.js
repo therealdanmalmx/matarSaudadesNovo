@@ -9,7 +9,8 @@ import { useRouter } from "next/router";
 import { Provider, createClient } from "urql";
 
 const client = createClient({
-  url: process.env.NEXT_PUBLIC_STRAPI_GRAPHQL,
+  url:
+    process.env.NEXT_PUBLIC_STRAPI_GRAPHQL,
 });
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
