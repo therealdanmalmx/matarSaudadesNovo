@@ -35,13 +35,13 @@ const Categories = () => {
           const { id } = category;
           return (
             <Link href={`/${category.attributes.slug}`} passHref key={id}>
-              <ul className="d:h-full h-56 w-36 cursor-pointer md:w-full">
+              <ul className="h-full lg:h-56 lg:w-36 cursor-pointer w-full">
                 <Image
                   src={`${BASE_URL}${image.url}`}
                   alt={`Imagem de ${category.attributes.slug}`}
                   height={100}
                   width={100}
-                  className="h-36 w-36 rounded-full"
+                  className="h-36 w-36 object-cover rounded-full"
                 />
                 <li className="mt-3 w-full text-center text-base text-grey-75 md:text-lg">
                   {t(category.attributes.title)}
